@@ -27,58 +27,98 @@
 </head>
 <body style="background-color:#cfcaca">
     @Html.Partial("_TopBar")
-
     <div class="container" style="background:#fff;">
         <div class="row">
             <div class="col-md-2" style="">
-                <div>
-                    <ul class="nav nav-pills nav-stacked" role="navigation">
-                        <li class="active"><a href="/">首页</a></li>
-                        <li><a href="/about">库</a></li>
-                        <li><a href="#">应用</a></li>
-                        <li><a href="#">资料</a></li>
-                        <li><a href="#">设置</a></li>
-                        <li><a href="#">帮助</a></li>
-                        <li class="dropdown">
-                            <div class="navbar-header dropdown">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                        data-target="#java">
-                                    <span class="sr-only">切换导航</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand navbar-toggle" data-toggle="collapse"
-                                   data-target="#java" href="#">
-                                    W3Cschool
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseOne">
+                                    第 1 部分
                                 </a>
-                            </div>
-                            <div id="java" class="navbar-collapse collapse">
-                                <ul class=" dropdown-menu">
-                                    <li><a href="#">jmeter</a></li>
-                                    <li><a href="#">EJB</a></li>
-                                    <li><a href="#">Jasper Report</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">分离的链接</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">另一个分离的链接</a></li>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked" role="navigation">
+                                    <li class="active"><a href="/">首页</a></li>
+                                    <li><a href="/about">库</a></li>
+                                    <li><a href="#">应用</a></li>
+                                    <li><a href="#">资料</a></li>
+                                    <li><a href="#">设置</a></li>
+                                    <li><a href="#">帮助</a></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Java
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">jmeter</a></li>
-                                <li><a href="#">EJB</a></li>
-                                <li><a href="#">Jasper Report</a></li>
-                                <li><a href="#">分离的链接</a></li>
-                                <li><a href="#">另一个分离的链接</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseTwo">
+                                    第 2 部分
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked" role="navigation">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/about">库</a></li>
+                                    <li><a href="#">应用</a></li>
+                                    <li><a href="#">资料</a></li>
+                                    <li><a href="#">设置</a></li>
+                                    <li><a href="#">帮助</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseThree">
+                                    第 3 部分
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked" role="navigation">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/about">库</a></li>
+                                    <li><a href="#">应用</a></li>
+                                    <li><a href="#">资料</a></li>
+                                    <li><a href="#">设置</a></li>
+                                    <li><a href="#">帮助</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseFour">
+                                    第 4 部分
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked" role="navigation">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/about">库</a></li>
+                                    <li><a href="#">应用</a></li>
+                                    <li><a href="#">资料</a></li>
+                                    <li><a href="#">设置</a></li>
+                                    <li><a href="#">帮助</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-10">
@@ -96,6 +136,7 @@
     <script src="~/api/AbpServiceProxies/GetAll"></script>
     <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
     <script src="~/Abp/Framework/scripts/libs/abp.sweet-alert.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
 </body>
