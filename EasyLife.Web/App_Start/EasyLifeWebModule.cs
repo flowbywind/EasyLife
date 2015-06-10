@@ -15,8 +15,9 @@ namespace EasyLife.Web
         public override void PreInitialize()
         {
             //Add/remove languages for your application
-            Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england", true));
-            Configuration.Localization.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flag-tr"));
+            Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england"));
+            Configuration.Localization.Languages.Add(new LanguageInfo("ch", "中文", "famfamfam-flag-cn", true));
+
 
             //Add/remove localization sources here
             Configuration.Localization.Sources.Add(
