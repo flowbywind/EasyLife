@@ -9,6 +9,7 @@ namespace EasyLife
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            Dtomappings.Map();
         }
     }
 }

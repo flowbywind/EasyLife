@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EasyLifeDbContext.cs" />
-    <Compile Include="EntityFramework\Repositories\CategoryRepository.cs" />
     <Compile Include="EntityFramework\Repositories\CityRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EasyLifeRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\MemberRepository.cs" />

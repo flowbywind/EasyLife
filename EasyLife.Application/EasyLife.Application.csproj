@@ -88,12 +88,20 @@
     <Compile Include="Category\CategoryService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Category\Dtos\CategoryDto.cs" />
     <Compile Include="Category\Dtos\CreateCategoryInput.cs" />
+    <Compile Include="Category\Dtos\GetCategorysOutput.cs" />
     <Compile Include="Category\ICategoryService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Dtomappings.cs" />
     <Compile Include="EasyLifeApplicationModule.cs" />
     <Compile Include="EasyLifeAppServiceBase.cs" />
+    <Compile Include="Merchant\Dtos\CreateMerchantInput.cs" />
+    <Compile Include="Merchant\Dtos\GetMerchantsOutput.cs" />
+    <Compile Include="Merchant\Dtos\MerchantDto.cs" />
+    <Compile Include="Merchant\IMerchantService.cs" />
+    <Compile Include="Merchant\MerchantService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,9 +115,7 @@
       <Name>EasyLife.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Merchant\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

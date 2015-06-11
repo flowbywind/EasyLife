@@ -90,7 +90,6 @@
     <Compile Include="Category\Category.cs" />
     <Compile Include="City\City.cs" />
     <Compile Include="City\ICityRepository.cs" />
-    <Compile Include="Category\ICategoryRepository.cs" />
     <Compile Include="Member\Member.cs" />
     <Compile Include="Merchant\Merchant.cs" />
     <Compile Include="Tag\Tag.cs" />
