@@ -1,0 +1,49 @@
+﻿@model EasyLife.Category
+
+@{
+    ViewBag.Title = "详情";
+}
+
+<h2>详情</h2>
+
+<div>
+    <h4>分类详情</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationTime)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("返回列表", "List")
+</p>
