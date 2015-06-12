@@ -14,6 +14,8 @@ namespace EasyLife
 
         void UpdateCategoryByID(CreateCategoryInput input, int id);
 
+        void DeleteCategory(int id);
+
 
     }
 }

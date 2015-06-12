@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
+using System.Linq;
 using AutoMapper;
 using EasyLife;
 using System;
@@ -32,6 +33,7 @@ namespace EasyLife
         {
 
             var result = _categoryRepository.GetAllList();
+            result = result.Where(a => a.IsDeleted == false).ToList();
             var list = new GetCategorysOutput
              {
                  Categorys = Mapper.Map<List<CategoryDto>>(result)
@@ -52,6 +54,14 @@ namespace EasyLife
             var model = GetCategoryByID(id);
             model.cat_name = input.cat_name;
             model.cat_code = input.cat_code;
+            _categoryRepository.Update(model);
+        }
+
+
+        public void DeleteCategory(int id)
+        {
+            var model = GetCategoryByID(id);
+            model.IsDeleted = true;
             _categoryRepository.Update(model);
         }
     }

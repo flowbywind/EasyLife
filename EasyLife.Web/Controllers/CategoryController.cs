@@ -101,7 +101,8 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            _categoryService.DeleteCategory(id);
+            return RedirectToAction("List");
         }
 
         //
