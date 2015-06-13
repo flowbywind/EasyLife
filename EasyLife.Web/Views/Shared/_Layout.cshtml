@@ -1,132 +1,69 @@
-﻿@using System.Threading
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="~/favicon.ico">
-    <title>EasyLife</title>
-    @Styles.Render("~/Bundles/vendor/css")
-    @Styles.Render("~/Bundles/css")
-    <!-- View specific styles -->
-    @RenderSection("styles", required: false)
-    <script type="text/javascript">
-        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
-        var abp = abp || {}; abp.appPath = '@ApplicationPath';
-    </script>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="@Url.Content("~/Scripts/others/html5shiv.js")"></script>
-        <script src="@Url.Content("~/Scripts/others/respond.min.js")"></script>
-    <![endif]-->
-    @Scripts.Render("~/Bundles/vendor/js/top")
-</head>
-<body style="background-color:#cfcaca">
-    @Html.Partial("_TopBar")
-    <div class="container" style="background:#fff;">
-        <div class="row">
-            <div class="col-md-2" style="">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion"
-                                   href="#collapseOne">
-                                    第 1 部分
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked" role="navigation">
-                                    <li id="home"><a href="/">首页</a></li>
-                                    <li id="category"><a href="/category/list">分类</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion"
-                                   href="#collapseTwo">
-                                    第 2 部分
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked" role="navigation">
-                                    <li id="about"><a href="/about">库</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-10">
-                @RenderBody()
-            </div>
-        </div>
-    </div>
-    @Scripts.Render("~/Bundles/vendor/js/bottom")
-    @Scripts.Render("~/Bundles/js")
-    <script>
-        //Localizing momentjs
-        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name');
-    </script>
-    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/api/AbpServiceProxies/GetAll"></script>
-    <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
-    <script src="~/Abp/Framework/scripts/libs/abp.sweet-alert.js"></script>
-    <!-- View specific scripts -->
-    @RenderSection("scripts", required: false)
-    <script>
-        $(function () {
-            var parseURL = function (url) {
-                var a = document.createElement('a');
-                a.href = url;
-                return {
-                    source: url,
-                    protocol: a.protocol.replace(':', ''),
-                    host: a.hostname,
-                    port: a.port,
-                    query: a.search,
-                    params: (function () {
-                        var ret = {},
-                            seg = a.search.replace(/^\?/, '').split('&'),
-                            len = seg.length, i = 0, s;
-                        for (; i < len; i++) {
-                            if (!seg[i]) { continue; }
-                            s = seg[i].split('=');
-                            ret[s[0]] = s[1];
-                        }
-                        return ret;
-                    })(),
-                    file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
-                    hash: a.hash.replace('#', ''),
-                    path: a.pathname.replace(/^([^\/])/, '/$1'),
-                    relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
-                    segments: a.pathname.replace(/^\//, '').split('/')
-                };
-            };
-            var currentUrl = parseURL(window.location.href);
-            var path = currentUrl.path;
-            var controller = "home";
-            var arr = path.split("/");
-            if (arr.length >= 2 && arr[1] != "") {
-                controller = arr[1];
-            }
-            $("#accordion li").removeAttr("class");
-            $("div.panel-collapse").attr("class", "panel-collapse collapse");
-            $("#" + controller).attr("class", "active");
-            $("#" + controller).parent().parent().parent().attr("class", "panel-collapse collapse in");
 
-        });
-    </script>
+    <title>INSPINIA | @ViewBag.Title</title>
+
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>*@
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+        {@RenderSection("Styles", required: false)}
+     
+    <!-- Add jQuery Style direct - used for jQGrid plugin -->
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+    
+    <!-- Primary Inspinia style -->     
+    @Styles.Render("~/font-awesome/css")                                                
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+
+    <!-- Skin configuration box -->
+    @Html.Partial("_SkinConfig")
+
+    <!-- Wrapper-->
+    <!-- PageClass give you ability to specify custom style for specific view based on action -->
+    <div id="wrapper" class="@Html.PageClass()">
+
+        <!-- Navigation -->
+        @Html.Partial("_Navigation")
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+
+            <!-- Top Navbar -->
+            @Html.Partial("_TopNavbar")
+
+            <!-- Main view  -->
+            @RenderBody()
+
+            <!-- Footer -->
+            @Html.Partial("_Footer")
+
+        </div>
+        <!-- End page wrapper-->
+
+        <!-- Right Sidebar -->
+        @Html.Partial("_RightSidebar")
+
+    </div>
+    <!-- End wrapper-->
+
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/inspinia")
+
+    <!-- Skin config script - only for demo purpose-->
+    @Scripts.Render("~/bundles/skinConfig")
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
 </body>
 </html>

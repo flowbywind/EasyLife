@@ -42,7 +42,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/Create
         public ActionResult Create()
         {
-            return RedirectToAction("Index");
+            return View("Index");
         }
 
         //
