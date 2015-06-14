@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
-using Abp.Application.Services;
-using Abp.Domain.Repositories;
 using System.Linq;
+using Abp.AutoMapper;
 using AutoMapper;
-using EasyLife;
-using System;
+using Castle.Core.Internal;
+using PagedList;
 
 namespace EasyLife
 {
     public class CategoryService : EasyLifeAppServiceBase, ICategoryService
     {
-        private readonly IRepository<Category> _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryService(IRepository<Category> categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }
@@ -27,19 +26,15 @@ namespace EasyLife
             _categoryRepository.Insert(category);
         }
 
-
-
-        public GetCategorysOutput GetCategorys()
+        public IPagedList<CategoryDto> GetCategorys(int pageNumber, int pageSize)
         {
-
-            var result = _categoryRepository.GetAllList();
-            result = result.Where(a => a.IsDeleted == false).ToList();
-            var list = new GetCategorysOutput
-             {
-                 Categorys = Mapper.Map<List<CategoryDto>>(result)
-             };
-            return list;
-
+            int totalCount = 0;
+            var list = _categoryRepository.GetCategorys(pageNumber,pageSize,out totalCount);
+            // 转换dto
+            var result =  Mapper.Map<List<CategoryDto>>(list);
+            //分页
+            var pagedlist=new StaticPagedList<CategoryDto>(result,pageNumber,pageSize,totalCount);
+            return pagedlist;
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services;
 using EasyLife;
 using System.Threading.Tasks;
+using PagedList;
 
 namespace EasyLife
 {
@@ -8,7 +9,7 @@ namespace EasyLife
     {
         void CreateCategory(CreateCategoryInput input);
 
-        GetCategorysOutput GetCategorys();
+        IPagedList<CategoryDto> GetCategorys(int pageNumber, int pageSize);
 
         Category GetCategoryByID(int id);
 

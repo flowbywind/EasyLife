@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category\ICategoryRepository.cs" />
     <Compile Include="EasyLifeConsts.cs" />
     <Compile Include="EasyLifeCoreModule.cs" />
     <Compile Include="Enum.cs" />

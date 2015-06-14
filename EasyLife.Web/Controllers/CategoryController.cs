@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
@@ -24,9 +20,11 @@ namespace EasyLife.Web.Controllers
 
         //
         // GET: /Category/List
-        public ActionResult List()
+        public ActionResult List(int? pageNumber, int? pageSize)
         {
-            var model = _categoryService.GetCategorys();
+            pageNumber = pageNumber ?? 1;
+            pageSize = pageSize ?? 2;
+            var model = _categoryService.GetCategorys(pageNumber.Value,pageSize.Value);
             return View(model);
         }
 

@@ -1,4 +1,5 @@
-﻿@model EasyLife.GetCategorysOutput
+﻿@model PagedList.IPagedList<EasyLife.CategoryDto>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "行业列表";
@@ -20,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Categorys)
+        @foreach (var item in Model)
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.cat_name)
@@ -36,3 +37,4 @@
         }
     </tbody>
 </table>
+@Html.PagedListPager(Model, pageNumber => Url.Action("List", new { pageNumber }))
