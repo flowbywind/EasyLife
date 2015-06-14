@@ -21,54 +21,6 @@
     @Styles.Render("~/font-awesome/css")                                                
     @Styles.Render("~/Content/css")
 </head>
-<body style="background-color:#cfcaca">
-    @Html.Partial("_TopBar")
-    <div class="container" style="background:#fff;">
-        <div class="row">
-            <div class="col-md-2" style="">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion"
-                                   href="#collapseOne">
-                                    数据字典管理
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked" role="navigation">
-                                    <li id="home"><a href="/">首页</a></li>
-                                    <li id="category"><a href="/category/list">行业分类</a></li>
-                                    <li id="city"><a href="/city/list">城市管理</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion"
-                                   href="#collapseTwo">
-                                    商户
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked" role="navigation">
-                                    <li id="merchant"><a href="/merchant/list">商户信息</a></li>
-                                    <li id="about"><a href="/about">关于</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-10">
-                @RenderBody()
-            </div>
 <body>
 
     <!-- Skin configuration box -->
