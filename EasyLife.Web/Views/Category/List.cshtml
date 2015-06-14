@@ -9,25 +9,23 @@
 <p>
     @Html.ActionLink("新建", "create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            行业名称
-        </th>
-        <th>
-            行业编码
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Categorys)
+<table class="table table-striped table-bordered table-hover dataTables-example dataTable ">
+    <thead>
+        <tr>
+            <th>行业名称
+            </th>
+            <th>行业编码
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Categorys)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.cat_name)
+            <td>@Html.DisplayFor(modelItem => item.cat_name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cat_code)
+            <td>@Html.DisplayFor(modelItem => item.cat_code)
             </td>
             <td>
                 @Html.ActionLink("编辑", "edit", new { id = item.id }) |
@@ -35,6 +33,6 @@
                 @Html.ActionLink("删除", "delete", new { id = item.id })
             </td>
         </tr>
-    }
-
+        }
+    </tbody>
 </table>

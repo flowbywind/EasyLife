@@ -1,0 +1,42 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="~/Images/profile_small.jpg" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">用户名</strong>
+                            </span> <span class="text-muted text-xs block">角色 <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="@Url.Action("Profile", "AppViews")">个人信息</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Login", "Pages")">注销</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+            <li class="@Html.IsSelected(controller: "Category")">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">类别管理</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "List")"><a href="@Url.Action("List", "Category")">类别管理</a></li>
+                    <li class="@Html.IsSelected(action: "Create")"><a href="@Url.Action("Create", "Category")">创建类别</a></li>
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(controller: "About")">
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">系统设置</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Test")"><a href="@Url.Action("Test", "About")">关于我们</a></li>
+                </ul>
+            </li>
+           
+        </ul>
+    </div>
+</nav>

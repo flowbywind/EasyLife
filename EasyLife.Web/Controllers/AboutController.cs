@@ -8,5 +8,10 @@ namespace EasyLife.Web.Controllers
         {
             return View();
         }
-	}
+
+        public ActionResult Test()
+        {
+            return View("Index");
+        }
+    }
 }
