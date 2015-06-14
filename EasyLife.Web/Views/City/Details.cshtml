@@ -1,0 +1,33 @@
+﻿@model EasyLife.City
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>City</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.city_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pin_yin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pin_yin)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "edit", new {  id = Model.Id }) |
+    @Html.ActionLink("Back to List", "list")
+</p>

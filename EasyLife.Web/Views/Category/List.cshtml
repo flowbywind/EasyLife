@@ -7,7 +7,7 @@
 <h2>List</h2>
 
 <p>
-    @Html.ActionLink("新建", "Create")
+    @Html.ActionLink("新建", "create")
 </p>
 <table class="table">
     <tr>
@@ -30,9 +30,9 @@
                 @Html.DisplayFor(modelItem => item.cat_code)
             </td>
             <td>
-                @Html.ActionLink("编辑", "Edit", new { id = item.id }) |
-                @Html.ActionLink("详情", "Details", new { id = item.id }) |
-                @Html.ActionLink("删除", "Delete", new { id = item.id })
+                @Html.ActionLink("编辑", "edit", new { id = item.id }) |
+                @Html.ActionLink("详情", "details", new { id = item.id }) |
+                @Html.ActionLink("删除", "delete", new { id = item.id })
             </td>
         </tr>
     }

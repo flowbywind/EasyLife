@@ -1,0 +1,40 @@
+﻿@model EasyLife.GetCitysOutput
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            city_name
+        </th>
+        <th>
+            pin_yin
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Citys)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.city_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pin_yin)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

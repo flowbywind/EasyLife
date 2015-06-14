@@ -1,0 +1,76 @@
+﻿@model EasyLife.GetMerchantsOutput
+
+    @{
+        ViewBag.Title = "List";
+    }
+
+    <h2>List</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                merchant_name
+            </th>
+            <th>
+                bank
+            </th>
+            <th>
+                account
+            </th>
+            <th>
+                city_id
+            </th>
+            <th>
+                cat_id
+            </th>
+            <th>
+                contact_name
+            </th>
+            <th>
+                phone
+            </th>
+            <th>
+                email
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.MerchantDto)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.merchant_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cat_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>

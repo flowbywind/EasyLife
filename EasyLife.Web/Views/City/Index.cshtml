@@ -1,36 +1,36 @@
-﻿@model EasyLife.CreateCategoryInput
+﻿@model EasyLife.CreateCityInput
 
 @{
-    ViewBag.Title = "行业分类";
+    ViewBag.Title = "城市";
 }
 
-<h2>行业分类</h2>
+<h2>Index</h2>
 
-@using (Html.BeginForm("create", "category"))
+
+@using (Html.BeginForm("create","city")) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>新建行业</h4>
+        <h4>新建城市</h4>
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cat_name, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.city_name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cat_name)
-                @Html.ValidationMessageFor(model => model.cat_name)
+                @Html.EditorFor(model => model.city_name)
+                @Html.ValidationMessageFor(model => model.city_name)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cat_code, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.pin_yin, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cat_code)
-                @Html.ValidationMessageFor(model => model.cat_code)
+                @Html.EditorFor(model => model.pin_yin)
+                @Html.ValidationMessageFor(model => model.pin_yin)
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

@@ -1,0 +1,138 @@
+﻿@model EasyLife.Merchant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Merchant</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.merchant_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.merchant_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModificationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModificationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModifierUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModifierUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleterUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleterUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletionTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletionTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
