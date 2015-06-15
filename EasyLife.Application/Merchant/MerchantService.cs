@@ -2,16 +2,17 @@
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using EasyLife;
+using AutoMapper;
 
 namespace EasyLife
 {
     public class MerchantService : EasyLifeAppServiceBase, IMerchantService
     {
-        private readonly IMerchantService _merchantRepository;
+        private readonly IMerchantRepository _merchantRepository;
         private readonly IRepository<City> _cityRepository;
         private readonly IRepository<Category> _categoryRepository;
 
-        public MerchantService(IMerchantService merchantRepository, IRepository<City> cityRepository, IRepository<Category> categoryRepository)
+        public MerchantService(IMerchantRepository merchantRepository, IRepository<City> cityRepository, IRepository<Category> categoryRepository)
         {
             _merchantRepository = merchantRepository;
             _cityRepository = cityRepository;
@@ -20,7 +21,12 @@ namespace EasyLife
 
         public GetMerchantsOutput GetMerchants()
         {
-            return null;
+            var model = _merchantRepository.GetAll();
+            var reuslt = new GetMerchantsOutput
+            {
+                MerchantDto=Mapper.Map<List<MerchantDto>>(model)
+            };
+            return reuslt;
         }
 
         public void CreateMerchant(CreateMerchantInput input)
@@ -28,7 +34,7 @@ namespace EasyLife
             throw new System.NotImplementedException();
         }
 
-        public void UpdateMerchant(CreateMerchantInput input,int id)
+        public void UpdateMerchant(CreateMerchantInput input, int id)
         {
             throw new System.NotImplementedException();
         }

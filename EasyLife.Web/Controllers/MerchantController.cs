@@ -6,19 +6,38 @@ using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
-    public class MerchantController : EasyLifeControllerBase
+    public class MerchantController : Controller
     {
         private readonly IMerchantService _merchantService;
+        private readonly ICategoryService _categoryService;
+        private readonly ICityService _cityService;
 
-        public MerchantController(IMerchantService merchantService)
+
+        public MerchantController(IMerchantService merchantService, ICategoryService categoryService, ICityService cityService)
         {
             _merchantService = merchantService;
+            _categoryService = categoryService;
+            _cityService = cityService;
         }
 
         //
         // GET: /Merchant/
         public ActionResult Index()
         {
+            var citys = _cityService.GetCitys().Citys;
+            ViewData["CityId"] = from a in citys
+                                 select new SelectListItem
+                                 {
+                                     Text = a.city_name,
+                                     Value = a.id.ToString()
+                                 };
+            var categorys = _categoryService.GetCategorys().Categorys;
+            ViewData["CategoryId"] = from a in categorys
+                                     select new SelectListItem
+                                     {
+                                         Text = a.cat_name,
+                                         Value = a.id.ToString()
+                                     };
             return View();
         }
 

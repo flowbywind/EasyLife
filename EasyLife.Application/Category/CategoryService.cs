@@ -26,6 +26,20 @@ namespace EasyLife
             _categoryRepository.Insert(category);
         }
 
+        public GetCategorysOutput GetCategorys()
+        {
+            var model=_categoryRepository.GetAll();
+            return new GetCategorysOutput
+            {
+                Categorys = Mapper.Map<List<CategoryDto>>(model)
+            };
+        }
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public IPagedList<CategoryDto> GetCategorys(int pageNumber, int pageSize)
         {
             int totalCount = 0;

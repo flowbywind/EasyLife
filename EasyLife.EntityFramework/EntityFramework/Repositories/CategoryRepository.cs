@@ -13,7 +13,6 @@ namespace EasyLife.EntityFramework.Repositories
         {
            
         }
-
         public IQueryable<Category> GetCategorys(int pageNumber, int pageSize,out int totalCount)
         {
             if (pageNumber < 1)

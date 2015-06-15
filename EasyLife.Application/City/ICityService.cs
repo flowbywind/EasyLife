@@ -1,6 +1,5 @@
 ﻿using Abp.Application.Services;
 using EasyLife;
-using System.Threading.Tasks;
 
 namespace EasyLife
 {

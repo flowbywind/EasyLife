@@ -14,14 +14,19 @@ namespace EasyLife.Web
             string cssClass = "active";
             string currentAction = (string)html.ViewContext.RouteData.Values["action"];
             string currentController = (string)html.ViewContext.RouteData.Values["controller"];
+            string[] arr = null;
 
             if (String.IsNullOrEmpty(controller))
                 controller = currentController;
+            else
+            {
+                arr = controller.Split('|');
+            }
 
             if (String.IsNullOrEmpty(action))
                 action = currentAction;
 
-            return controller == currentController && action == currentAction ?
+            return (controller == currentController || arr.Contains(currentController)) && action == currentAction ?
                 cssClass : String.Empty;
         }
 
@@ -31,5 +36,5 @@ namespace EasyLife.Web
             return currentAction;
         }
 
-	}
+    }
 }

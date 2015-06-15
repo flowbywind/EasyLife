@@ -9,6 +9,8 @@ namespace EasyLife
     {
         void CreateCategory(CreateCategoryInput input);
 
+        GetCategorysOutput GetCategorys();
+
         IPagedList<CategoryDto> GetCategorys(int pageNumber, int pageSize);
 
         Category GetCategoryByID(int id);
