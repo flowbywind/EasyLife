@@ -24,14 +24,25 @@ namespace EasyLife
             var model = _merchantRepository.GetAll();
             var reuslt = new GetMerchantsOutput
             {
-                MerchantDto=Mapper.Map<List<MerchantDto>>(model)
+                MerchantDto = Mapper.Map<List<MerchantDto>>(model)
             };
             return reuslt;
         }
 
         public void CreateMerchant(CreateMerchantInput input)
         {
-            throw new System.NotImplementedException();
+            var merchant = new Merchant
+            {
+                merchant_name = input.merchant_name,
+                bank = input.bank,
+                account = input.account,
+                city_id = input.city_id,
+                cat_id = input.cat_id,
+                contact_name = input.contact_name,
+                phone = input.phone,
+                email = input.email
+            };
+            _merchantRepository.Insert(merchant);
         }
 
         public void UpdateMerchant(CreateMerchantInput input, int id)

@@ -25,14 +25,14 @@ namespace EasyLife.Web.Controllers
         public ActionResult Index()
         {
             var citys = _cityService.GetCitys().Citys;
-            ViewData["CityId"] = from a in citys
+            ViewData["city_id"] = from a in citys
                                  select new SelectListItem
                                  {
                                      Text = a.city_name,
                                      Value = a.id.ToString()
                                  };
             var categorys = _categoryService.GetCategorys().Categorys;
-            ViewData["CategoryId"] = from a in categorys
+            ViewData["category_id"] = from a in categorys
                                      select new SelectListItem
                                      {
                                          Text = a.cat_name,
@@ -80,7 +80,7 @@ namespace EasyLife.Web.Controllers
                     contact_name = collection["contact_name"],
                     phone = collection["phone"],
                     email = collection["email"],
-                    status = (Status)Convert.ToInt32(collection["status"])
+                    //status = (Status)Convert.ToInt32(collection["status"])
                 };
                 _merchantService.CreateMerchant(merchant);
                 return RedirectToAction("Index");
@@ -118,7 +118,7 @@ namespace EasyLife.Web.Controllers
                     contact_name = collection["contact_name"],
                     phone = collection["phone"],
                     email = collection["email"],
-                    status = (Status)Convert.ToInt32(collection["status"])
+                    //status = (Status)Convert.ToInt32(collection["status"])
                 };
                 _merchantService.UpdateMerchant(merchant, id);
                 return RedirectToAction("list");

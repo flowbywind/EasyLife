@@ -42,15 +42,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.city_id, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("2", ViewData["CityId"] as SelectList);
+                @Html.DropDownList("city_id")
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.cat_id, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.EditorFor(model => model.cat_id)*@
-                @Html.DropDownList("CategoryId")
+                @Html.DropDownList("category_id")
                 @Html.ValidationMessageFor(model => model.cat_id)
             </div>
         </div>

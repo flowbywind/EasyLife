@@ -39,9 +39,9 @@ namespace EasyLife
         [Display(Name = "邮箱")]
         [MaxLength(50)]
         public string email { get; set; }
-        [Required]
-        [Display(Name = "状态")]
-        [MaxLength(50)]
-        public Status status { get; set; }
+        //[Required]
+        //[Display(Name = "状态")]
+        //[MaxLength(50)]
+        //public Status status { get; set; }
     }
 }
