@@ -47,7 +47,6 @@ namespace EasyLife
             var model = GetCityByID(id);
             model.city_name = input.city_name;
             model.pin_yin = input.pin_yin;
-            //model.first_char = input.first_char;
             _cityRepository.Update(model);
         }
 

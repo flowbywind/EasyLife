@@ -95,7 +95,23 @@ namespace EasyLife.Web.Controllers
         // GET: /Merchant/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _merchantService.GetMerchantID(id);
+            var model = _merchantService.GetMerchantDtoID(id);
+            var citys = _cityService.GetCitys().Citys;
+            ViewData["city_id"] = from a in citys
+                                  select new SelectListItem
+                                  {
+                                      Text = a.city_name,
+                                      Value = a.id.ToString(),
+                                      Selected=model.city_id==a.id
+                                  };
+            var categorys = _categoryService.GetCategorys().Categorys;
+            ViewData["cat_id"] = from a in categorys
+                                 select new SelectListItem
+                                 {
+                                     Text = a.cat_name,
+                                     Value = a.id.ToString(),
+                                     Selected=model.cat_id==a.id
+                                 };
             return View(model);
         }
 
@@ -107,7 +123,6 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add update logic here
-                // TODO: Add insert logic here
                 var merchant = new CreateMerchantInput
                 {
                     merchant_name = collection["merchant_name"],

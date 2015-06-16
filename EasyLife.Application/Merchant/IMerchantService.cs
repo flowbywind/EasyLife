@@ -7,6 +7,8 @@ namespace EasyLife
     {
         GetMerchantsOutput GetMerchants();
 
+        MerchantDto GetMerchantDtoID(int id);
+
         Merchant GetMerchantID(int id);
 
         void CreateMerchant(CreateMerchantInput input);
