@@ -52,7 +52,7 @@ namespace EasyLife
 
         public Merchant GetMerchantID(int id)
         {
-            throw new System.NotImplementedException();
+            return _merchantRepository.Get(id);
         }
     }
 }

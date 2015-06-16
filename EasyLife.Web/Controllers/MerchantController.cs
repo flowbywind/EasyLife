@@ -32,7 +32,7 @@ namespace EasyLife.Web.Controllers
                                      Value = a.id.ToString()
                                  };
             var categorys = _categoryService.GetCategorys().Categorys;
-            ViewData["category_id"] = from a in categorys
+            ViewData["cat_id"] = from a in categorys
                                      select new SelectListItem
                                      {
                                          Text = a.cat_name,
@@ -83,11 +83,11 @@ namespace EasyLife.Web.Controllers
                     //status = (Status)Convert.ToInt32(collection["status"])
                 };
                 _merchantService.CreateMerchant(merchant);
-                return RedirectToAction("Index");
+                return RedirectToAction("list");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

@@ -21,7 +21,7 @@ namespace EasyLife.EntityFramework.Repositories
                 throw new ArgumentOutOfRangeException("pageSize", (object)pageSize, "每页大小不得小于1.");
             var list = this.GetAll().Where(a => a.IsDeleted == false);
             totalCount=list.Count();
-            list = list.OrderByDescending(a=>a.Id).PageBy((pageNumber - 1) * pageSize, pageSize);
+            list = list.OrderBy(a=>a.Id).PageBy((pageNumber - 1) * pageSize, pageSize);
             return list;
         }
 
