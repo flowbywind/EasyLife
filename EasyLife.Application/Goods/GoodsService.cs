@@ -15,6 +15,13 @@ namespace EasyLife
             _goodsRepository = goodsRepository;
         }
 
+        /// <summary>
+        /// 获取商品列表
+        /// </summary>
+        /// <param name="merchantId">商家ID</param>
+        /// <param name="pageNumber">页码</param>
+        /// <param name="pageSize">每页大小</param>
+        /// <returns></returns>
         public IPagedList<GoodsDto> QueryGoods(int merchantId,int pageNumber,int pageSize)
         {
             int totalCount;
@@ -23,7 +30,7 @@ namespace EasyLife
             var result = Mapper.Map<List<GoodsDto>>(list);
             if (result == null || result.Any() == false)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     result.Add(new GoodsDto()
                     {
@@ -40,7 +47,8 @@ namespace EasyLife
                     });
                 }
             }
-            return new StaticPagedList<GoodsDto>(result,pageNumber,pageSize,totalCount);
+            var pageList = new StaticPagedList<GoodsDto>(result,pageNumber,pageSize,totalCount);
+            return pageList;
         }
     }
 }
