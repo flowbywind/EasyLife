@@ -861,8 +861,10 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MerchantController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -927,7 +929,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Member\" />
+    <Folder Include="Views\Tag\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyLife.Application\EasyLife.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>

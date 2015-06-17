@@ -47,12 +47,28 @@ namespace EasyLife
 
         public void UpdateMerchant(CreateMerchantInput input, int id)
         {
-            throw new System.NotImplementedException();
+            var model = _merchantRepository.Get(id);
+            model.merchant_name = input.merchant_name;
+            model.bank = input.bank;
+            model.account = input.account;
+            model.city_id = input.city_id;
+            model.cat_id = input.cat_id;
+            model.contact_name = input.contact_name;
+            model.phone = input.phone;
+            model.email = input.email;
+            _merchantRepository.Update(model);
+        }
+
+        public MerchantDto GetMerchantDtoID(int id)
+        {
+            var merchantDto = _merchantRepository.Get(id);
+            return Mapper.Map<MerchantDto>(merchantDto);
         }
 
         public Merchant GetMerchantID(int id)
         {
-            return _merchantRepository.Get(id);
+            var merchant = _merchantRepository.Get(id);
+            return merchant;
         }
     }
 }
