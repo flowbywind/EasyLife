@@ -105,6 +105,9 @@
     <Compile Include="Dtomappings.cs" />
     <Compile Include="EasyLifeApplicationModule.cs" />
     <Compile Include="EasyLifeAppServiceBase.cs" />
+    <Compile Include="Goods\Dtos\GoodsDto.cs" />
+    <Compile Include="Goods\GoodsService.cs" />
+    <Compile Include="Goods\IGoodsService.cs" />
     <Compile Include="Merchant\Dtos\CreateMerchantInput.cs" />
     <Compile Include="Merchant\Dtos\GetMerchantsOutput.cs" />
     <Compile Include="Merchant\Dtos\MerchantDto.cs" />
@@ -129,7 +132,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Goods\" />
     <Folder Include="Member\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
