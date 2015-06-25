@@ -1,0 +1,42 @@
+﻿@model PagedList.IPagedList<EasyLife.TagDto>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.MerchantID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            分类名称
+        </th>
+        <th>
+            分类编码
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tag_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tag_code)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, pageNumber => Url.Action("List", new { pageNumber }))

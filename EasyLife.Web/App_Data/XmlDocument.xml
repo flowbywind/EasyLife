@@ -494,5 +494,13 @@
             Derive all Controllers from this class.
             </summary>
         </member>
+        <member name="M:EasyLife.Web.Extends.ToInt(System.Object,System.Int32)">
+            <summary>
+            对象转化为Int
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

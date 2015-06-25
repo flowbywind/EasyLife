@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Abp.Application.Services.Dto;
-using EasyLife.Tag;
 
-namespace EasyLife.Tag
+namespace EasyLife
 {
-    public class TagList
+    public class TagList : IOutputDto
     {
+        public List<TagDto> TagDtos { get; set; }
     }
 }

@@ -435,15 +435,6 @@
     <Content Include="fonts\font-awesome\scss\_rotated-flipped.scss" />
     <Content Include="fonts\font-awesome\scss\_stacked.scss" />
     <Content Include="fonts\font-awesome\scss\_variables.scss" />
-    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Create.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Details.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Edit.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Empty.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
-    <Content Include="CodeTemplates\MvcView\List.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -916,6 +907,7 @@
     <Compile Include="Controllers\MerchantController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\TagController.cs" />
+    <Compile Include="Extends.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -973,6 +965,10 @@
     <Content Include="Views\Pages\NotFoundError.cshtml" />
     <Content Include="Views\Pages\Register.cshtml" />
     <Content Include="Views\Pages\SearchResults.cshtml" />
+    <Content Include="Views\Tag\Index.cshtml" />
+    <Content Include="Views\Tag\Details.cshtml" />
+    <Content Include="Views\Tag\Edit.cshtml" />
+    <Content Include="Views\Tag\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -982,7 +978,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Member\" />
-    <Folder Include="Views\Tag\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyLife.Application\EasyLife.Application.csproj">

@@ -1,0 +1,42 @@
+﻿@model EasyLife.TagInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TagInfo</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tag_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tag_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tag_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tag_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.merchant_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.merchant_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

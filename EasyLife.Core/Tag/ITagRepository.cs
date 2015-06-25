@@ -9,6 +9,7 @@ namespace EasyLife
 {
     public interface ITagRepository : IRepository<Tag, int>
     {
-        List<Tag> GetAllByMerchantID(int? merchantId);
+        IQueryable<Tag> GetTagsByMerchantID(int merchantid, int pageNumber, int pageSize, out int totalCount);
+
     }
 }

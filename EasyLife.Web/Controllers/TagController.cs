@@ -1,32 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
     public class TagController : Controller
     {
+        private readonly ITagService _tagService;
+
+        public TagController(ITagService tagService)
+        {
+            _tagService = tagService;
+        }
         //
         // GET: /Tag/
         public ActionResult Index()
         {
+
             return View();
+        }
+
+        //
+        // GET: /Category/List/5
+        public ActionResult List(int id, int? pageNumber, int? pageSize)
+        {
+            pageNumber = pageNumber ?? 1;
+            pageSize = pageSize ?? 2;
+            var model = _tagService.GetTagsByMerchantID(id, pageNumber.Value, pageNumber.Value);
+            ViewBag.MerchantID = id;
+            return View(model);
         }
 
         //
         // GET: /Tag/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = _tagService.GetTagByID(id);
+            return View(model);
         }
 
         //
         // GET: /Tag/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
+            ViewData["merchant_id"] = id;
+            return View("Index");
         }
 
         //
@@ -37,8 +53,14 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                var tag = new TagInfo
+                {
+                    tag_name = collection["tag_name"],
+                    tag_code = collection["tag_code"],
+                    merchant_id = collection["merchant_id"].ToInt()
+                };
+                _tagService.CreateTag(tag);
+                return RedirectToAction("List", tag.merchant_id);
             }
             catch
             {
@@ -50,7 +72,8 @@ namespace EasyLife.Web.Controllers
         // GET: /Tag/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = _tagService.GetTagByID(id);
+            return View(model);
         }
 
         //
@@ -61,8 +84,14 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var tag = new TagInfo
+                {
+                    tag_name = collection["tag_name"],
+                    tag_code = collection["tag_code"],
+                    merchant_id = collection["merchant_id"].ToInt()
+                };
+                _tagService.UpdateTagById(tag, id);
+                return RedirectToAction("List");
             }
             catch
             {

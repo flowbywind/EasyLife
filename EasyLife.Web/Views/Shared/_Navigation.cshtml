@@ -28,8 +28,8 @@
                 <ul class="nav nav-second-level">
                     <li class="@Html.IsSelected(controller: "category")"><a href="@Url.Action("list", "category")">行业分类</a></li>
                     <li class="@Html.IsSelected(controller: "city")"><a href="@Url.Action("list", "city")">城市分类</a></li>
-                    <li class="@Html.IsSelected(controller: "merchant")"><a href="@Url.Action("list", "merchant")">商户信息</a></li>
-                    <li class="@Html.IsSelected(controller: "tag")"><a href="@Url.Action("list", "tag")">商户分类</a></li>
+                    <li class="@Html.IsSelected(controller: "merchant|tag")"><a href="@Url.Action("list", "merchant")">商户信息</a></li>
+                    @*<li class="@Html.IsSelected(controller: "tag")"><a href="@Url.Action("list", "tag")">商户分类</a></li>*@
                     <li class="@Html.IsSelected(controller: "member")"><a href="@Url.Action("list", "member")">会员管理</a></li>
                 </ul>
             </li>
