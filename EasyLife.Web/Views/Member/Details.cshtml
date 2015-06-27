@@ -1,0 +1,66 @@
+﻿@model EasyLife.Member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MemberInfo</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.member_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.member_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.member_sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.member_sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.member_birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.member_birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.member_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.member_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.member_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.member_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.merchant_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.merchant_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "list", new { id = Model.merchant_id })
+</p>

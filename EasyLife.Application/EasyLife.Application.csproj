@@ -108,6 +108,11 @@
     <Compile Include="Goods\Dtos\GoodsDto.cs" />
     <Compile Include="Goods\GoodsService.cs" />
     <Compile Include="Goods\IGoodsService.cs" />
+    <Compile Include="Member\Dtos\MemberDto.cs" />
+    <Compile Include="Member\Dtos\MemberInfo.cs" />
+    <Compile Include="Member\Dtos\MemberList.cs" />
+    <Compile Include="Member\IMemberService.cs" />
+    <Compile Include="Member\MemberService.cs" />
     <Compile Include="Merchant\Dtos\CreateMerchantInput.cs" />
     <Compile Include="Merchant\Dtos\GetMerchantsOutput.cs" />
     <Compile Include="Merchant\Dtos\MerchantDto.cs" />
@@ -131,9 +136,7 @@
       <Name>EasyLife.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Member\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,6 +8,11 @@ namespace EasyLife.Web.Controllers
 {
     public class MemberController : Controller
     {
+        private readonly IMemberService _memberService;
+        public MemberController(IMemberService memberService)
+        {
+            _memberService = memberService;
+        }
         //
         // GET: /Member/
         public ActionResult Index()
@@ -16,17 +21,30 @@ namespace EasyLife.Web.Controllers
         }
 
         //
+        // GET: /Category/List/5
+        public ActionResult List(int id, int? pageNumber, int? pageSize)
+        {
+            pageNumber = pageNumber ?? 1;
+            pageSize = pageSize ?? 2;
+            var model = _memberService.GetMembersByMerchantID(id, pageNumber.Value, pageNumber.Value);
+            ViewBag.MerchantID = id;
+            return View(model);
+        }
+
+        //
         // GET: /Member/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = _memberService.GetMemberByID(id);
+            return View(model);
         }
 
         //
         // GET: /Member/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
+            ViewData["merchant_id"] = id;
+            return View("Index");
         }
 
         //
@@ -37,8 +55,17 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                var member = new MemberInfo
+                {
+                    member_name = collection["member_name"],
+                    member_sex = collection["member_sex"],
+                    member_birthday = collection["member_birthday"],
+                    member_phone = collection["member_phone"],
+                    member_address = collection["member_address"],
+                    merchant_id = collection["merchant_id"].ToInt()
+                };
+                _memberService.CreateMember(member);
+                return RedirectToAction("List",member.merchant_id);
             }
             catch
             {
@@ -50,7 +77,9 @@ namespace EasyLife.Web.Controllers
         // GET: /Member/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = _memberService.GetMemberByID (id);
+            ViewData["merchant_id"] = model.merchant_id;
+            return View(model);
         }
 
         //
@@ -61,8 +90,17 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var member = new MemberInfo
+                {
+                    member_name = collection["member_name"],
+                    member_sex = collection["member_sex"],
+                    member_birthday = collection["member_birthday"],
+                    member_phone = collection["member_phone"],
+                    member_address = collection["member_address"],
+                    merchant_id = collection["merchant_id"].ToInt()
+                };
+                _memberService.UpdateMemberById(member,id);
+                return RedirectToAction("List", member.merchant_id);
             }
             catch
             {

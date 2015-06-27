@@ -1,4 +1,4 @@
-﻿@model EasyLife.TagInfo
+﻿@model EasyLife.Tag
 
 @{
     ViewBag.Title = "Edit";
@@ -30,11 +30,9 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.merchant_id, new { @class = "control-label col-md-2" })
+        <div class="form-group hidden">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.merchant_id)
-                @Html.ValidationMessageFor(model => model.merchant_id)
+                @Html.Hidden("merchant_id")
             </div>
         </div>
 
@@ -47,5 +45,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "List", new { id = ViewData["merchant_id"] })
 </div>

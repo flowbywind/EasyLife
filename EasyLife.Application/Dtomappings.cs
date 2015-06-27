@@ -9,6 +9,7 @@ namespace EasyLife
             Mapper.CreateMap<Category, CategoryDto>();
             Mapper.CreateMap<City, CityDto>();
             Mapper.CreateMap<Tag, TagDto>();
+            Mapper.CreateMap<Member , MemberDto>();
             Mapper.CreateMap<Merchant, MerchantDto>().ForMember(t => t.city_name, opts => opts.MapFrom(d => d.City.city_name))
                 .ForMember(t => t.cat_name, opts => opts.MapFrom(d => d.Category.cat_name));
         }

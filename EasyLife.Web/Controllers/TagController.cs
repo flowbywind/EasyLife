@@ -73,6 +73,7 @@ namespace EasyLife.Web.Controllers
         public ActionResult Edit(int id)
         {
             var model = _tagService.GetTagByID(id);
+            ViewData["merchant_id"] = model.merchant_id;
             return View(model);
         }
 
@@ -91,7 +92,7 @@ namespace EasyLife.Web.Controllers
                     merchant_id = collection["merchant_id"].ToInt()
                 };
                 _tagService.UpdateTagById(tag, id);
-                return RedirectToAction("List");
+                return RedirectToAction("List", tag.merchant_id);
             }
             catch
             {
