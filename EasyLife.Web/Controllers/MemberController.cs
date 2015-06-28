@@ -21,7 +21,7 @@ namespace EasyLife.Web.Controllers
         }
 
         //
-        // GET: /Category/List/5
+        // GET: /Member/List/5
         public ActionResult List(int id, int? pageNumber, int? pageSize)
         {
             pageNumber = pageNumber ?? 1;

@@ -106,6 +106,7 @@
     <Compile Include="EasyLifeApplicationModule.cs" />
     <Compile Include="EasyLifeAppServiceBase.cs" />
     <Compile Include="Goods\Dtos\GoodsDto.cs" />
+    <Compile Include="Goods\Dtos\GoodsList.cs" />
     <Compile Include="Goods\GoodsService.cs" />
     <Compile Include="Goods\IGoodsService.cs" />
     <Compile Include="Member\Dtos\MemberDto.cs" />

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Abp.Application.Services.Dto;
 
-namespace EasyLife.Goods.Dtos
+namespace EasyLife
 {
-    public class GoodsDto
+    public class GoodsDto : IOutputDto
     {
         public new int Id
         {

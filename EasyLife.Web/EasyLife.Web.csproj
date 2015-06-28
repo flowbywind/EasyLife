@@ -203,27 +203,6 @@
     <Content Include="Abp\Framework\styles\abp.css" />
     <Content Include="Abp\Framework\styles\abp.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -871,93 +850,10 @@
     <Compile Include="App_Start\EasyLifeNavigationProvider.cs" />
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MerchantController.cs" />
@@ -1029,6 +925,10 @@
     <Content Include="Views\Member\List.cshtml" />
     <Content Include="Views\Member\Details.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Goods\Index.cshtml" />
+    <Content Include="Views\Goods\List.cshtml" />
+    <Content Include="Views\Goods\Details.cshtml" />
+    <Content Include="Views\Goods\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

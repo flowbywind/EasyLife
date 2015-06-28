@@ -25,5 +25,13 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:EasyLife.Web.Extends.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            对象转化为Decimal
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

@@ -12,19 +12,19 @@ namespace EasyLife.Web
         public static string IsSelected(this HtmlHelper html, string controller = null, string action = null)
         {
             string cssClass = "active";
-            string currentAction = (string)html.ViewContext.RouteData.Values["action"];
-            string currentController = (string)html.ViewContext.RouteData.Values["controller"];
+            string currentAction = ((string)html.ViewContext.RouteData.Values["action"]).ToLower();
+            string currentController = ((string)html.ViewContext.RouteData.Values["controller"]).ToLower();
             string[] arr = null;
 
             if (String.IsNullOrEmpty(controller))
                 controller = currentController;
             else
             {
-                arr = controller.Split('|');
+                arr = controller.ToLower().Split('|');
             }
 
             if (String.IsNullOrEmpty(action))
-                action = currentAction;
+                action = currentAction.ToLower();
 
             return (controller == currentController || arr.Contains(currentController)) && action == currentAction ?
                 cssClass : String.Empty;

@@ -23,14 +23,12 @@
                     IN+
                 </div>
             </li>
-            <li class="@Html.IsSelected(controller: "category|city|merchant|tag|member")">
+            <li class="@Html.IsSelected(controller: "category|city|merchant|tag|member|goods")">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">字管理典</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="@Html.IsSelected(controller: "category")"><a href="@Url.Action("list", "category")">行业分类</a></li>
                     <li class="@Html.IsSelected(controller: "city")"><a href="@Url.Action("list", "city")">城市分类</a></li>
-                    <li class="@Html.IsSelected(controller: "merchant|tag")"><a href="@Url.Action("list", "merchant")">商户信息</a></li>
-                    @*<li class="@Html.IsSelected(controller: "tag")"><a href="@Url.Action("list", "tag")">商户分类</a></li>*@
-                    <li class="@Html.IsSelected(controller: "member")"><a href="@Url.Action("list", "member")">会员管理</a></li>
+                    <li class="@Html.IsSelected(controller: "merchant|tag|member|goods")"><a href="@Url.Action("list", "merchant")">商户信息</a></li>
                 </ul>
             </li>
             <li class="@Html.IsSelected(controller: "about")">

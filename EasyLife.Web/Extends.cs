@@ -19,5 +19,17 @@ namespace EasyLife.Web
             var result = defaultValue;
             return int.TryParse(value.ToString(), out result) ? result : defaultValue;
         }
+        /// <summary>
+        /// 对象转化为Decimal
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static decimal ToDecimal(this object value, decimal defaultValue = 0)
+        {
+            if (value == null) return defaultValue;
+            var result = defaultValue;
+            return decimal.TryParse(value.ToString(), out result) ? result : defaultValue;
+        }
     }
 }
