@@ -12,7 +12,6 @@ namespace EasyLife
         /// <summary>
         /// 商品ID
         /// </summary>
-        [Column("goods_Id")]
         [Key]
         public new int Id
         {
@@ -25,7 +24,7 @@ namespace EasyLife
         /// </summary>
         [Column("name")]
         [MaxLength(150)]
-        public string Name
+        public string name
         {
             get;
             set;
@@ -36,7 +35,7 @@ namespace EasyLife
         /// </summary>
         [Column("goods_pic")]
         [MaxLength(150)]
-        public string GoodsPic
+        public string goods_pic
         {
             get;
             set;
@@ -46,7 +45,7 @@ namespace EasyLife
         /// 价格
         /// </summary>
         [Column("price")]
-        public decimal Price
+        public decimal price
         {
             get;
             set;
@@ -56,7 +55,7 @@ namespace EasyLife
         /// 折扣
         /// </summary>
         [Column("discount")]
-        public decimal Discount
+        public decimal discount
         {
             get;
             set;
@@ -66,7 +65,7 @@ namespace EasyLife
         /// 折扣价
         /// </summary>
         [Column("discount_price")]
-        public decimal DiscountPrice
+        public decimal discount_price
         {
             get;
             set;
@@ -76,7 +75,7 @@ namespace EasyLife
         /// 节省
         /// </summary>
         [Column("save_money")]
-        public decimal SaveMoney
+        public decimal save_money
         {
             get;
             set;
@@ -86,7 +85,7 @@ namespace EasyLife
         /// 衣物种类
         /// </summary>
         [Column("category_id")]
-        public int CategoryId
+        public int category_id
         {
             get;
             set;
@@ -96,7 +95,7 @@ namespace EasyLife
         /// 状态
         /// </summary>
         [Column("status")]
-        public int Status
+        public int status
         {
             get;
             set;
@@ -106,7 +105,7 @@ namespace EasyLife
         /// 商家ID
         /// </summary>
         [Column("merchant_id")]
-        public int MerchantId
+        public int merchant_id
         {
             get;
             set;

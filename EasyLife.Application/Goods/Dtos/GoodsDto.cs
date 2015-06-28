@@ -4,7 +4,10 @@ namespace EasyLife
 {
     public class GoodsDto : IOutputDto
     {
-        public new int Id
+        /// <summary>
+        /// 商品ID
+        /// </summary>
+        public  int id
         {
             get;
             set;
@@ -13,7 +16,7 @@ namespace EasyLife
         /// <summary>
         /// 商品名称
         /// </summary>
-        public string Name
+        public string name
         {
             get;
             set;
@@ -22,7 +25,7 @@ namespace EasyLife
         /// <summary>
         /// 商品图片
         /// </summary>
-        public string GoodsPic
+        public string goods_pic
         {
             get;
             set;
@@ -31,7 +34,7 @@ namespace EasyLife
         /// <summary>
         /// 价格
         /// </summary>
-        public decimal Price
+        public decimal price
         {
             get;
             set;
@@ -40,7 +43,7 @@ namespace EasyLife
         /// <summary>
         /// 折扣
         /// </summary>
-        public decimal Discount
+        public decimal discount
         {
             get;
             set;
@@ -49,7 +52,7 @@ namespace EasyLife
         /// <summary>
         /// 折扣价
         /// </summary>
-        public decimal DiscountPrice
+        public decimal discount_price
         {
             get;
             set;
@@ -58,7 +61,7 @@ namespace EasyLife
         /// <summary>
         /// 节省
         /// </summary>
-        public decimal SaveMoney
+        public decimal save_money
         {
             get;
             set;
@@ -67,7 +70,7 @@ namespace EasyLife
         /// <summary>
         /// 衣物种类
         /// </summary>
-        public int CategoryId
+        public int category_id
         {
             get;
             set;
@@ -76,7 +79,7 @@ namespace EasyLife
         /// <summary>
         /// 状态
         /// </summary>
-        public int Status
+        public int status
         {
             get;
             set;
@@ -85,7 +88,7 @@ namespace EasyLife
         /// <summary>
         /// 商家ID
         /// </summary>
-        public int MerchantId
+        public int merchant_id
         {
             get;
             set;

@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201506170048381_addgoods.Designer.cs">
       <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506281142111_updategoodtable.cs" />
+    <Compile Include="Migrations\201506281142111_updategoodtable.Designer.cs">
+      <DependentUpon>201506281142111_updategoodtable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EasyLifeDataModule.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506170048381_addgoods.resx">
       <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506281142111_updategoodtable.resx">
+      <DependentUpon>201506281142111_updategoodtable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

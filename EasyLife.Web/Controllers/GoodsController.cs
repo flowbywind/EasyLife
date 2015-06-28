@@ -60,18 +60,18 @@ namespace EasyLife.Web.Controllers
                 // TODO: Add insert logic here
                 var goods = new GoodsDto
                 {
-                    Name = collection["Name"],
-                    GoodsPic = collection["GoodsPic"],
-                    Price = collection["Price"].ToDecimal(),
-                    Discount = collection["Discount"].ToDecimal(),
-                    DiscountPrice = collection["DiscountPrice"].ToDecimal(),
-                    SaveMoney = collection["SaveMoney"].ToDecimal(),
-                    CategoryId = collection["CategoryId"].ToInt(),
-                    Status = collection["Status"].ToInt(),
-                    MerchantId = collection["MerchantId"].ToInt(),
+                    name = collection["Name"],
+                    goods_pic = collection["GoodsPic"],
+                    price = collection["Price"].ToDecimal(),
+                    discount = collection["Discount"].ToDecimal(),
+                    discount_price = collection["DiscountPrice"].ToDecimal(),
+                    save_money = collection["SaveMoney"].ToDecimal(),
+                    category_id = collection["CategoryId"].ToInt(),
+                    status = collection["Status"].ToInt(),
+                    merchant_id = collection["MerchantId"].ToInt(),
                 };
                 _goodsService.CreateGoods(goods);
-                 return RedirectToAction("List",goods.MerchantId);
+                 return RedirectToAction("List",goods.merchant_id);
             }
             catch
             {
@@ -84,7 +84,7 @@ namespace EasyLife.Web.Controllers
         public ActionResult Edit(int id)
         {
             var model = _goodsService.GetGoodsByID(id);
-            ViewData["merchant_id"] = model.MerchantId;
+            ViewData["merchant_id"] = model.merchant_id;
             return View(model);
         }
 
@@ -99,18 +99,18 @@ namespace EasyLife.Web.Controllers
 
                 var goods = new GoodsDto
                 {
-                     Name = collection["Name"],
-                    GoodsPic = collection["GoodsPic"],
-                    Price = collection["Price"].ToDecimal(),
-                    Discount = collection["Discount"].ToDecimal(),
-                    DiscountPrice = collection["DiscountPrice"].ToDecimal(),
-                    SaveMoney = collection["SaveMoney"].ToDecimal(),
-                    CategoryId = collection["CategoryId"].ToInt(),
-                    Status = collection["Status"].ToInt(),
-                    MerchantId = collection["MerchantId"].ToInt()
+                    name = collection["Name"],
+                    goods_pic = collection["GoodsPic"],
+                    price = collection["Price"].ToDecimal(),
+                    discount = collection["Discount"].ToDecimal(),
+                    discount_price = collection["DiscountPrice"].ToDecimal(),
+                    save_money = collection["SaveMoney"].ToDecimal(),
+                    category_id = collection["CategoryId"].ToInt(),
+                    status = collection["Status"].ToInt(),
+                    merchant_id = collection["MerchantId"].ToInt()
                 };
                 _goodsService.UpdateGoodsById(goods, id);
-                return RedirectToAction("List", goods.MerchantId);
+                return RedirectToAction("List", goods.merchant_id);
             }
             catch
             {
