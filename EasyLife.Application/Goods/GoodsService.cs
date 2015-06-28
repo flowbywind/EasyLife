@@ -20,10 +20,10 @@ namespace EasyLife
         /// <param name="pageNumber">页码</param>
         /// <param name="pageSize">每页大小</param>
         /// <returns></returns>
-        public IPagedList<GoodsDto> QueryGoods(int merchantId, int pageNumber, int pageSize)
+        public IPagedList<GoodsDto> QueryGoods(int merchantId,int? tagId, int pageNumber, int pageSize)
         {
             int totalCount;
-            var list = _goodsRepository.QueryGoods(merchantId, pageNumber, pageSize, out totalCount);
+            var list = _goodsRepository.QueryGoods(merchantId,tagId, pageNumber, pageSize, out totalCount);
 
             var result = Mapper.Map<List<GoodsDto>>(list);
             if (result == null || result.Any() == false)
@@ -78,7 +78,7 @@ namespace EasyLife
         public IPagedList<GoodsDto> GetGoodsByMerchantID(int merchantid, int pageNumber, int pageSize)
         {
             int totalCount = 0;
-            var list = _goodsRepository.QueryGoods(merchantid, pageNumber, pageSize, out totalCount);
+            var list = _goodsRepository.QueryGoods(merchantid,null, pageNumber, pageSize, out totalCount);
             var result = Mapper.Map<List<GoodsDto>>(list);
             var pagelist = new StaticPagedList<GoodsDto>(result, pageNumber, pageSize, totalCount);
             return pagelist;

@@ -23,6 +23,6 @@ namespace EasyLife
 
         void DeleteGoods(int id);
 
-        IPagedList<GoodsDto> QueryGoods(int merchantId,int pageNumber, int pageSize);
+        IPagedList<GoodsDto> QueryGoods(int merchantId,int? tagId,int pageNumber, int pageSize);
     }
 }

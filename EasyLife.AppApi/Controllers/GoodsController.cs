@@ -10,23 +10,11 @@ namespace EasyLife.AppApi.Controllers
             GoodsService = goodsService;
         }
 
-        public ActionResult QueryGoods(int merchantId,int pageSize,int pageNumber)
+        public ActionResult QueryGoods(int merchantId,int? tagId, int pageSize,int pageNumber)
         {
-           var result =   GoodsService.QueryGoods(1,1,1);
+            var result = GoodsService.QueryGoods(merchantId,tagId, pageNumber, pageSize);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Query()
-        {
-            var result = GoodsService.QueryGoods(1, 1, 1);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult QueryGoodsInput(int merchantId, int pageSize, int pageNumber)
-        {
-            var result = GoodsService.QueryGoods(1, 1, 1);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        } 
 
     }
 }
