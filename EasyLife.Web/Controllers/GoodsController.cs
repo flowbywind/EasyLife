@@ -66,7 +66,7 @@ namespace EasyLife.Web.Controllers
                     discount = collection["Discount"].ToDecimal(),
                     discount_price = collection["DiscountPrice"].ToDecimal(),
                     save_money = collection["SaveMoney"].ToDecimal(),
-                    category_id = collection["CategoryId"].ToInt(),
+                    tag_id = collection["CategoryId"].ToInt(),
                     status = collection["Status"].ToInt(),
                     merchant_id = collection["MerchantId"].ToInt(),
                 };
@@ -105,7 +105,7 @@ namespace EasyLife.Web.Controllers
                     discount = collection["Discount"].ToDecimal(),
                     discount_price = collection["DiscountPrice"].ToDecimal(),
                     save_money = collection["SaveMoney"].ToDecimal(),
-                    category_id = collection["CategoryId"].ToInt(),
+                    tag_id = collection["CategoryId"].ToInt(),
                     status = collection["Status"].ToInt(),
                     merchant_id = collection["MerchantId"].ToInt()
                 };

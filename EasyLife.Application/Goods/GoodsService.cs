@@ -33,7 +33,7 @@ namespace EasyLife
                     result.Add(new GoodsDto()
                     {
                         goods_pic = "Images/profile_small.jpg",
-                        category_id = 1,
+                        tag_id = 1,
                         discount = (decimal)0.8,
                         discount_price = (decimal)5.3,
                         id = i,
@@ -59,7 +59,7 @@ namespace EasyLife
                 discount = input.discount,
                 discount_price = input.discount,
                 save_money = input.discount_price,
-                category_id = input.category_id,
+                tag_id = input.tag_id,
                 status = input.status,
                 merchant_id = input.merchant_id
             };
@@ -100,7 +100,7 @@ namespace EasyLife
             model.discount = input.discount;
             model.discount_price = input.discount_price;
             model.save_money = input.save_money;
-            model.category_id = input.category_id;
+            model.tag_id = input.tag_id;
             model.status = input.status;
             model.merchant_id = input.merchant_id;
             _goodsRepository.Update(model);

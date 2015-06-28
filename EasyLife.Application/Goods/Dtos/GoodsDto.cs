@@ -70,7 +70,7 @@ namespace EasyLife
         /// <summary>
         /// 衣物种类
         /// </summary>
-        public int category_id
+        public int tag_id
         {
             get;
             set;

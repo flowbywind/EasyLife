@@ -84,8 +84,8 @@ namespace EasyLife
         /// <summary>
         /// 衣物种类
         /// </summary>
-        [Column("category_id")]
-        public int category_id
+        [Column("tag_id")]
+        public int tag_id
         {
             get;
             set;
