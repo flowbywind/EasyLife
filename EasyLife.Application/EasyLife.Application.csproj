@@ -92,8 +92,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Category\Dtos\CategoryDto.cs" />
-    <Compile Include="Category\Dtos\CreateCategoryInput.cs" />
-    <Compile Include="Category\Dtos\GetCategorysOutput.cs" />
+    <Compile Include="Category\Dtos\CategoryList.cs" />
     <Compile Include="Category\ICategoryService.cs">
       <SubType>Code</SubType>
     </Compile>

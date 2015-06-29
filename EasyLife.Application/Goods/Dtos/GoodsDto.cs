@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using EasyLife.Core.Enum;
 
 namespace EasyLife
 {
@@ -7,7 +8,7 @@ namespace EasyLife
         /// <summary>
         /// 商品ID
         /// </summary>
-        public  int id
+        public int id
         {
             get;
             set;
@@ -79,7 +80,7 @@ namespace EasyLife
         /// <summary>
         /// 状态
         /// </summary>
-        public int status
+        public StatusEnum status
         {
             get;
             set;

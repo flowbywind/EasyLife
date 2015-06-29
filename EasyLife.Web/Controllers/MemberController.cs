@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EasyLife.Core.Enum;
 
 namespace EasyLife.Web.Controllers
 {
@@ -58,14 +59,14 @@ namespace EasyLife.Web.Controllers
                 var member = new MemberInfo
                 {
                     member_name = collection["member_name"],
-                    member_sex = collection["member_sex"],
+                    member_sex = (SexEnum)collection["member_sex"].ToInt(),
                     member_birthday = collection["member_birthday"],
                     member_phone = collection["member_phone"],
                     member_address = collection["member_address"],
                     merchant_id = collection["merchant_id"].ToInt()
                 };
                 _memberService.CreateMember(member);
-                return RedirectToAction("List",member.merchant_id);
+                return RedirectToAction("List", member.merchant_id);
             }
             catch
             {
@@ -77,7 +78,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Member/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _memberService.GetMemberByID (id);
+            var model = _memberService.GetMemberByID(id);
             ViewData["merchant_id"] = model.merchant_id;
             return View(model);
         }
@@ -93,13 +94,13 @@ namespace EasyLife.Web.Controllers
                 var member = new MemberInfo
                 {
                     member_name = collection["member_name"],
-                    member_sex = collection["member_sex"],
+                    member_sex = (SexEnum)collection["member_sex"].ToInt(),
                     member_birthday = collection["member_birthday"],
                     member_phone = collection["member_phone"],
                     member_address = collection["member_address"],
                     merchant_id = collection["merchant_id"].ToInt()
                 };
-                _memberService.UpdateMemberById(member,id);
+                _memberService.UpdateMemberById(member, id);
                 return RedirectToAction("List", member.merchant_id);
             }
             catch

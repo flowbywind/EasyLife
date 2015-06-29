@@ -5,7 +5,7 @@ using EasyLife.Core.Enum;
 
 namespace EasyLife.Application
 {
-    public class CityDto : IInputDto, IOutputDto
+    public class CityDto : EntityDto
     {
         /// <summary>
         /// 主键
@@ -28,7 +28,7 @@ namespace EasyLife.Application
         /// 最热
         /// </summary>
         [Display(Name = "最热")]
-        public byte hot { get; set; }
+        public HotEnum hot { get; set; }
 
         /// <summary>
         /// 父城市ID

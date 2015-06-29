@@ -108,17 +108,9 @@
     <Compile Include="EntityFramework\Repositories\MerchantRepository.cs" />
     <Compile Include="EntityFramework\Repositories\TagRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GoodsRepository.cs" />
-    <Compile Include="Migrations\201506091437513_InitialCreate.cs" />
-    <Compile Include="Migrations\201506091437513_InitialCreate.Designer.cs">
-      <DependentUpon>201506091437513_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506170048381_addgoods.cs" />
-    <Compile Include="Migrations\201506170048381_addgoods.Designer.cs">
-      <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506281032395_changecity.cs" />
-    <Compile Include="Migrations\201506281032395_changecity.Designer.cs">
-      <DependentUpon>201506281032395_changecity.cs</DependentUpon>
+    <Compile Include="Migrations\201506291434081_InitialCreate.cs" />
+    <Compile Include="Migrations\201506291434081_InitialCreate.Designer.cs">
+      <DependentUpon>201506291434081_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EasyLifeDataModule.cs" />
@@ -137,14 +129,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506091437513_InitialCreate.resx">
-      <DependentUpon>201506091437513_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506170048381_addgoods.resx">
-      <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506281032395_changecity.resx">
-      <DependentUpon>201506281032395_changecity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506291434081_InitialCreate.resx">
+      <DependentUpon>201506291434081_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,12 @@ namespace EasyLife.Core.Enum
         /// <summary>
         /// 可用
         /// </summary>
+        [Display(Name = "可用")]
         Enable = 0,
         /// <summary>
         /// 不可用
         /// </summary>
+        [Display(Name = "不可用")]
         Disabled = 1
     }
 
@@ -34,5 +37,17 @@ namespace EasyLife.Core.Enum
         /// 否
         /// </summary>
         No = 1
+    }
+
+    public enum SexEnum : byte
+    {
+        /// <summary>
+        /// 是
+        /// </summary>
+        Male = 0,
+        /// <summary>
+        /// 否
+        /// </summary>
+        Female = 1
     }
 }

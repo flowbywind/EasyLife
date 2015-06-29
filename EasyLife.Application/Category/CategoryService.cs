@@ -4,6 +4,7 @@ using Abp.AutoMapper;
 using AutoMapper;
 using Castle.Core.Internal;
 using PagedList;
+using EasyLife.Core;
 
 namespace EasyLife
 {

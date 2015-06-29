@@ -2,6 +2,7 @@
 using System.Linq;
 using Abp.EntityFramework;
 using Abp.Linq.Extensions;
+using EasyLife.Core;
 
 namespace EasyLife.EntityFramework.Repositories
 {

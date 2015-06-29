@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 
-namespace EasyLife
+namespace EasyLife.Application.Category.Dtos
 {
-    public class GetCategorysOutput : IOutputDto
+    public class CategoryList : IOutputDto
     {
         public List<CategoryDto> Categorys { get; set; }
+
     }
 }

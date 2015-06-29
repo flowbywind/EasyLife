@@ -2,6 +2,7 @@
 using EasyLife;
 using System.Threading.Tasks;
 using PagedList;
+using EasyLife.Core;
 
 namespace EasyLife
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EasyLife.Core.Enum;
 
 namespace EasyLife.Web.Controllers
 {
@@ -67,7 +68,7 @@ namespace EasyLife.Web.Controllers
                     discount_price = collection["DiscountPrice"].ToDecimal(),
                     save_money = collection["SaveMoney"].ToDecimal(),
                     tag_id = collection["CategoryId"].ToInt(),
-                    status = collection["Status"].ToInt(),
+                    status =(StatusEnum) collection["Status"].ToInt(),
                     merchant_id = collection["MerchantId"].ToInt(),
                 };
                 _goodsService.CreateGoods(goods);
@@ -106,7 +107,7 @@ namespace EasyLife.Web.Controllers
                     discount_price = collection["DiscountPrice"].ToDecimal(),
                     save_money = collection["SaveMoney"].ToDecimal(),
                     tag_id = collection["CategoryId"].ToInt(),
-                    status = collection["Status"].ToInt(),
+                    status = (StatusEnum)collection["Status"].ToInt(),
                     merchant_id = collection["MerchantId"].ToInt()
                 };
                 _goodsService.UpdateGoodsById(goods, id);
