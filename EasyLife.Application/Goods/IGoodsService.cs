@@ -17,12 +17,12 @@ namespace EasyLife
 
         IPagedList<GoodsDto> GetGoodsByMerchantID(int merchantid, int pageNumber, int pageSize);
 
-       Goods  GetGoodsByID(int id);
+        Goods  GetGoodsByID(int id);
 
         void UpdateGoodsById(GoodsDto input, int id);
 
         void DeleteGoods(int id);
 
-        IPagedList<GoodsDto> QueryGoods(int merchantId,int pageNumber, int pageSize);
+        IPagedList<GoodsDto> QueryGoods(int merchantId,int? tagId,int pageNumber, int pageSize);
     }
 }

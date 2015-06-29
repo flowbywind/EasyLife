@@ -20,10 +20,10 @@ namespace EasyLife
         /// <param name="pageNumber">页码</param>
         /// <param name="pageSize">每页大小</param>
         /// <returns></returns>
-        public IPagedList<GoodsDto> QueryGoods(int merchantId, int pageNumber, int pageSize)
+        public IPagedList<GoodsDto> QueryGoods(int merchantId,int? tagId, int pageNumber, int pageSize)
         {
             int totalCount;
-            var list = _goodsRepository.QueryGoods(merchantId, pageNumber, pageSize, out totalCount);
+            var list = _goodsRepository.QueryGoods(merchantId,tagId, pageNumber, pageSize, out totalCount);
 
             var result = Mapper.Map<List<GoodsDto>>(list);
             if (result == null || result.Any() == false)
@@ -32,16 +32,16 @@ namespace EasyLife
                 {
                     result.Add(new GoodsDto()
                     {
-                        GoodsPic = "Images/profile_small.jpg",
-                        CategoryId = 1,
-                        Discount = (decimal)0.8,
-                        DiscountPrice = (decimal)5.3,
-                        Id = i,
-                        MerchantId = 1,
-                        Name = "上衣",
-                        Price = (decimal)8.8,
-                        SaveMoney = (decimal)2.3,
-                        Status = 1
+                        goods_pic = "Images/profile_small.jpg",
+                        tag_id = 1,
+                        discount = (decimal)0.8,
+                        discount_price = (decimal)5.3,
+                        id = i,
+                        merchant_id = 1,
+                        name = "上衣",
+                        price = (decimal)8.8,
+                        save_money = (decimal)2.3,
+                        status = 1
                     });
                 }
             }
@@ -53,22 +53,22 @@ namespace EasyLife
         {
             var goods = new Goods
             {
-                Name = input.Name,
-                GoodsPic = input.GoodsPic,
-                Price = input.Price,
-                Discount = input.Discount,
-                DiscountPrice = input.Discount,
-                SaveMoney = input.SaveMoney,
-                CategoryId = input.CategoryId,
-                Status = input.Status,
-                MerchantId = input.MerchantId
+                name = input.name,
+                goods_pic = input.goods_pic,
+                price = input.price,
+                discount = input.discount,
+                discount_price = input.discount,
+                save_money = input.discount_price,
+                tag_id = input.tag_id,
+                status = input.status,
+                merchant_id = input.merchant_id
             };
             _goodsRepository.Insert(goods);
         }
 
         public GoodsList GetGoodsByMerchantID(int merchantid)
         {
-            var model = _goodsRepository.GetAll().Where(a => a.MerchantId == merchantid);
+            var model = _goodsRepository.GetAll().Where(a => a.merchant_id == merchantid);
             return new GoodsList
             {
                 GoodsDtos = Mapper.Map<List<GoodsDto>>(model)
@@ -78,7 +78,7 @@ namespace EasyLife
         public IPagedList<GoodsDto> GetGoodsByMerchantID(int merchantid, int pageNumber, int pageSize)
         {
             int totalCount = 0;
-            var list = _goodsRepository.QueryGoods(merchantid, pageNumber, pageSize, out totalCount);
+            var list = _goodsRepository.QueryGoods(merchantid,null, pageNumber, pageSize, out totalCount);
             var result = Mapper.Map<List<GoodsDto>>(list);
             var pagelist = new StaticPagedList<GoodsDto>(result, pageNumber, pageSize, totalCount);
             return pagelist;
@@ -94,15 +94,15 @@ namespace EasyLife
         {
             var model = _goodsRepository.Get(id);
 
-            model.Name = input.Name;
-            model.GoodsPic = input.GoodsPic;
-            model.Price = input.Price;
-            model.Discount = input.Discount;
-            model.DiscountPrice = input.Discount;
-            model.SaveMoney = input.SaveMoney;
-            model.CategoryId = input.CategoryId;
-            model.Status = input.Status;
-            model.MerchantId = input.MerchantId;
+            model.name = input.name;
+            model.goods_pic = input.goods_pic;
+            model.price = input.price;
+            model.discount = input.discount;
+            model.discount_price = input.discount_price;
+            model.save_money = input.save_money;
+            model.tag_id = input.tag_id;
+            model.status = input.status;
+            model.merchant_id = input.merchant_id;
             _goodsRepository.Update(model);
         }
 

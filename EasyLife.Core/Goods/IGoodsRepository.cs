@@ -5,6 +5,6 @@ namespace EasyLife
 {
     public interface IGoodsRepository : IRepository<Goods, int>
     {
-        IQueryable<Goods> QueryGoods(int merchantId, int pageNumber, int pageSize, out int totalCount);
+        IQueryable<Goods> QueryGoods(int merchantId, int? tagId,int pageNumber, int pageSize, out int totalCount);
     }
 }
