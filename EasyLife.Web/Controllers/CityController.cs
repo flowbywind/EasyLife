@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyLife.Application;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,9 +7,16 @@ using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CityController : Controller
     {
         private readonly ICityService _cityService;
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="cityService"></param>
         public CityController(ICityService cityService)
         {
             _cityService = cityService;
@@ -33,7 +41,7 @@ namespace EasyLife.Web.Controllers
         // GET: /City/Details/5
         public ActionResult Details(int id)
         {
-            var model = _cityService.GetCityByID(id);
+            var model = _cityService.GetByID(id);
             return View(model);
         }
 
@@ -53,13 +61,13 @@ namespace EasyLife.Web.Controllers
             {
                 // TODO: Add insert logic here
 
-                var city = new CreateCityInput
+                var city = new CityDto
                 {
                     city_name = collection["city_name"],
                     pin_yin = collection["pin_yin"],
                     //first_char = collection["first_char"]
                 };
-                _cityService.CreateCity(city);
+                _cityService.Create(city);
                 return RedirectToAction("List");
             }
             catch
@@ -72,7 +80,7 @@ namespace EasyLife.Web.Controllers
         // GET: /City/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _cityService.GetCityByID(id);
+            var model = _cityService.GetByID(id);
             return View(model);
         }
 
@@ -84,15 +92,13 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add update logic here
-
-                // TODO: Add update logic here
-                CreateCityInput input = new CreateCityInput
+                CityDto input = new CityDto
                 {
                     city_name = collection["city_name"],
                     pin_yin = collection["pin_yin"],
                     //first_char = collection["first_char"]
                 };
-                _cityService.UpdateCityByID(input, id);
+                _cityService.UpdateByID(input, id);
                 return RedirectToAction("List");
             }
             catch
@@ -105,7 +111,7 @@ namespace EasyLife.Web.Controllers
         // GET: /City/Delete/5
         public ActionResult Delete(int id)
         {
-            _cityService.DeleteCity(id);
+            _cityService.Delete(id);
             return RedirectToAction("List");
         }
 
@@ -117,7 +123,6 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
             catch

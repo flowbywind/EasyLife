@@ -1,8 +1,10 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using EasyLife.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using EasyLife.Core.Enum;
 
 namespace EasyLife
 {
@@ -29,7 +31,7 @@ namespace EasyLife
         public virtual string contact_name { get; set; }
         public virtual string phone { get; set; }
         public virtual string email { get; set; }
-        public virtual Status status { get; set; }
+        public virtual StatusEnum status { get; set; }
         public virtual long? CreatorUserId { get; set; }
 
         public virtual DateTime CreationTime { get; set; }

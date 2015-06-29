@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using EasyLife.Core.Enum;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,7 +15,7 @@ namespace EasyLife
         public virtual string member_phone { get; set; }
         public virtual string member_address { get; set; }
 
-        public virtual Status status { get; set; }
+        public virtual StatusEnum status { get; set; }
 
         [ForeignKey("merchant_id")]
         public virtual Merchant Merchant { get; set; }

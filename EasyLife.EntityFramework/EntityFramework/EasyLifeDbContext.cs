@@ -1,4 +1,5 @@
 ﻿using Abp.EntityFramework;
+using EasyLife.Core;
 using System.Data.Common;
 using System.Data.Entity;
 

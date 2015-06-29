@@ -13,7 +13,7 @@ namespace EasyLife.Migrations
                 "dbo.goods",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        goods_Id = c.Int(nullable: false, identity: true),
                         name = c.String(maxLength: 150, storeType: "nvarchar"),
                         goods_pic = c.String(maxLength: 150, storeType: "nvarchar"),
                         price = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -35,7 +35,7 @@ namespace EasyLife.Migrations
                 {
                     { "DynamicFilter_Goods_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.goods_Id);
             
         }
         

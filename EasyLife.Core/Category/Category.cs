@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using EasyLife.Core.Enum;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,7 +13,7 @@ namespace EasyLife
 
         public virtual string cat_code { get; set; }
 
-        public virtual Status status { get; set; }
+        public virtual StatusEnum status { get; set; }
 
         public virtual long? CreatorUserId { get; set; }
 

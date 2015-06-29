@@ -7,7 +7,7 @@
     <ProjectGuid>{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EasyLife</RootNamespace>
+    <RootNamespace>EasyLife.EntityFramework</RootNamespace>
     <AssemblyName>EasyLife.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201506170048381_addgoods.Designer.cs">
       <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506281032395_changecity.cs" />
+    <Compile Include="Migrations\201506281032395_changecity.Designer.cs">
+      <DependentUpon>201506281032395_changecity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EasyLifeDataModule.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506170048381_addgoods.resx">
       <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506281032395_changecity.resx">
+      <DependentUpon>201506281032395_changecity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

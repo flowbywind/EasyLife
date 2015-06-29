@@ -29,7 +29,7 @@ namespace EasyLife.Web.Controllers
                                  select new SelectListItem
                                  {
                                      Text = a.city_name,
-                                     Value = a.id.ToString()
+                                     Value = a.Id.ToString()
                                  };
             var categorys = _categoryService.GetCategorys().Categorys;
             ViewData["cat_id"] = from a in categorys
@@ -101,8 +101,8 @@ namespace EasyLife.Web.Controllers
                                   select new SelectListItem
                                   {
                                       Text = a.city_name,
-                                      Value = a.id.ToString(),
-                                      Selected=model.city_id==a.id
+                                      Value = a.Id.ToString(),
+                                      Selected=model.city_id==a.Id
                                   };
             var categorys = _categoryService.GetCategorys().Categorys;
             ViewData["cat_id"] = from a in categorys

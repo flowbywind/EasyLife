@@ -1,5 +1,6 @@
 ﻿using System;
 using Abp.Application.Services.Dto;
+using EasyLife.Core.Enum;
 
 namespace EasyLife
 {
@@ -15,6 +16,6 @@ namespace EasyLife
         public string contact_name { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
-        public virtual Status status { get; set; }
+        public virtual StatusEnum status { get; set; }
     }
 }
