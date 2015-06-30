@@ -161,6 +161,7 @@
   <ItemGroup>
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlipayDefaultController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,10 +183,15 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\AlipayDefault\" />
     <Folder Include="Views\BaseApi\" />
     <Folder Include="Views\Goods\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Com\Com.csproj">
+      <Project>{c03894fe-faae-4370-b80c-240125366a0d}</Project>
+      <Name>Com</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EasyLife.Application\EasyLife.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>EasyLife.Application</Name>
