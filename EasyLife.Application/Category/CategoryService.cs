@@ -5,6 +5,7 @@ using AutoMapper;
 using Castle.Core.Internal;
 using PagedList;
 using EasyLife.Core;
+using EasyLife.Application.Category.Dtos;
 
 namespace EasyLife
 {
@@ -16,7 +17,7 @@ namespace EasyLife
         {
             _categoryRepository = categoryRepository;
         }
-        public void CreateCategory(CreateCategoryInput input)
+        public void CreateCategory(CategoryDto input)
         {
             Logger.Debug("Creating a category for input:" + input);
             var category = new Category
@@ -27,10 +28,10 @@ namespace EasyLife
             _categoryRepository.Insert(category);
         }
 
-        public GetCategorysOutput GetCategorys()
+        public CategoryList GetCategorys()
         {
             var model=_categoryRepository.GetAll();
-            return new GetCategorysOutput
+            return new CategoryList
             {
                 Categorys = Mapper.Map<List<CategoryDto>>(model)
             };
@@ -59,7 +60,7 @@ namespace EasyLife
         }
 
 
-        public void UpdateCategoryByID(CreateCategoryInput input, int id)
+        public void UpdateCategoryByID(CategoryDto input, int id)
         {
             var model = GetCategoryByID(id);
             model.cat_name = input.cat_name;

@@ -36,7 +36,7 @@ namespace EasyLife.Web.Controllers
                                      select new SelectListItem
                                      {
                                          Text = a.cat_name,
-                                         Value = a.id.ToString()
+                                         Value = a.Id.ToString()
                                      };
             return View();
         }
@@ -109,8 +109,8 @@ namespace EasyLife.Web.Controllers
                                  select new SelectListItem
                                  {
                                      Text = a.cat_name,
-                                     Value = a.id.ToString(),
-                                     Selected=model.cat_id==a.id
+                                     Value = a.Id.ToString(),
+                                     Selected=model.cat_id==a.Id
                                  };
             return View(model);
         }

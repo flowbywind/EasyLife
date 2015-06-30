@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EasyLife.Application;
+using EasyLife.Application.Category.Dtos;
 using EasyLife.Core;
 namespace EasyLife
 {

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using EasyLife.Application.Category.Dtos;
+using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
@@ -51,7 +52,7 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add insert logic here
-                var category = new CreateCategoryInput
+                var category = new CategoryDto
                 {
                     cat_name = collection["cat_name"],
                     cat_code = collection["cat_code"]
@@ -81,7 +82,7 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add update logic here
-                CreateCategoryInput input = new CreateCategoryInput
+                CategoryDto input = new CategoryDto
                 {
                     cat_name = collection["cat_name"],
                     cat_code = collection["cat_code"]
