@@ -168,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\ReturnCode.cs" />
     <Compile Include="Models\ReturnResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

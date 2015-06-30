@@ -50,6 +50,12 @@ namespace EasyLife.Core
         public virtual int merchant_id { get; set; }
 
         /// <summary>
+        /// 密码
+        /// </summary>
+        [MaxLength(50)]
+        public virtual string member_pwd { get; set; }
+
+        /// <summary>
         /// 创建人
         /// </summary>
         [Column("creator_user_id")]

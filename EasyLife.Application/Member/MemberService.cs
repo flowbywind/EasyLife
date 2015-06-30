@@ -17,7 +17,7 @@ namespace EasyLife
             _memberRepository = memberRepository;
         }
 
-        public void CreateMember(MemberInfo input)
+        public bool CreateMember(MemberInfo input)
         {
             var member = new Member
             {
@@ -28,7 +28,12 @@ namespace EasyLife
                 member_phone = input.member_phone,
                 merchant_id = input.merchant_id
             };
-            _memberRepository.Insert(member);
+            var model =  _memberRepository.Insert(member);
+            if (model != null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public MemberList GetMembersByMerchantID(int merchantid)
@@ -73,9 +78,54 @@ namespace EasyLife
             _memberRepository.Update(model);
         }
 
-        public Member GetMemberByPhone(string phone)
+        /// <summary>
+        /// 通过手机号查找会员信息
+        /// </summary>
+        /// <param name="phone">手机号</param>
+        /// <returns></returns>
+        public MemberDto GetMemberByPhone(string phone)
         {
-           return  _memberRepository.GetAll().FirstOrDefault(a => a.member_phone == phone);
+           Member m =  _memberRepository.GetAll().FirstOrDefault(a => a.member_phone == phone);
+           if (m != null)
+           {
+               MemberDto model = Mapper.Map<MemberDto>(m);
+               return model;
+           }
+           return null;
+        }
+
+        /// <summary>
+        /// 客户端登陆
+        /// </summary>
+        /// <param name="phone">手机号</param>
+        /// <param name="pwd">密码</param>
+        /// <returns></returns>
+        public bool AppLogin(string phone, string pwd)
+        {
+            Member m = _memberRepository.GetAll().FirstOrDefault(a => a.member_phone == phone && a.member_pwd == pwd && a.IsDeleted==false);
+            if (m != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 更新会员密码信息
+        /// </summary>
+        /// <param name="pwd">密码</param>
+        /// <param name="id">会员id</param>
+        /// <returns></returns>
+        public bool AppUpdateMemberPwd(string pwd,int id)
+        {
+            var model = _memberRepository.Get(id);
+            model.member_pwd = pwd;
+            Member m = _memberRepository.Update(model);
+            if (m != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EasyLife.AppApi.Models;
+using EasyLife.Core;
 
 namespace EasyLife.AppApi.Controllers
 {
     public class MemberController : Controller
     {
-        private MemberService MemberService;
+        private MemberService _memberService;
         public MemberController(MemberService memberService)
         {
-            MemberService = memberService;
+            _memberService = memberService;
         }
 
         /// <summary>
@@ -21,8 +22,8 @@ namespace EasyLife.AppApi.Controllers
         /// <returns></returns>
         public ActionResult Register(string phone,string pwd)
         {
-            ReturnResult<Member> returnResult=new ReturnResult<Member>();
-            Member member = MemberService.GetMemberByPhone(phone);
+            ReturnResult<bool> returnResult = new ReturnResult<bool>();
+            MemberDto member = _memberService.GetMemberByPhone(phone);
             if (member != null)
             {
                 returnResult.success = false;
@@ -34,27 +35,81 @@ namespace EasyLife.AppApi.Controllers
                 };
                 return Json(returnResult);
             }
-
-            return View();
+            MemberInfo info=new MemberInfo()
+            {
+                member_phone = phone,
+                member_password = pwd
+            };
+            bool flag = _memberService.CreateMember(info);
+            if (flag == false)
+            {
+                returnResult.success = false;
+            }
+            else
+            {
+                returnResult.result = flag;
+                returnResult.success = true;
+            }
+            return Json(returnResult);
         }
 
         /// <summary>
         /// 登陆接口
         /// </summary>
         /// <returns></returns>
-        public ActionResult Login()
+        public ActionResult Login(string phone,string pwd)
         {
-            return View();
+            ReturnResult<bool> result = new ReturnResult<bool>();
+            bool flag =  _memberService.AppLogin(phone, pwd);
+            if (flag == true)
+            {
+                result.success = true;
+                result.result = flag;
+            }
+            else
+            {
+                result.success = false;
+                result.error=new Error()
+                {
+                    code=(int)ReturnCode.Fail,
+                    message = "用户名或密码不正确"
+                };
+            }
+            return Json(result,JsonRequestBehavior.AllowGet);
         }
-
+          
         /// <summary>
-        /// 修改密码
+        /// 忘记密码
         /// </summary>
         /// <returns></returns>
-        public ActionResult ResetPwd()
+        public ActionResult ForgetPwd(string phone,string pwd)
         {
-            return View();
+            ReturnResult<bool> result = new ReturnResult<bool>();
+            MemberDto dto = _memberService.GetMemberByPhone(phone);
+            if (dto == null)
+            {
+                result.success = false;
+                result.error=new Error(ReturnCode.Fail, "该手机号未注册或已停用");
+                return Json(result);
+            }
+            bool flag = _memberService.AppUpdateMemberPwd(pwd, dto.id);
+            if (flag==true)
+            {
+                result.success = true;
+                result.result = true;
+            }
+            else
+            {
+                result.success = false;
+                result.error = new Error() {
+                    code = (int)ReturnCode.Fail,
+                    message = "用户名或密码不正确"
+                };
+            }
+            return Json(result);
         }
+
+
 
 
     }
