@@ -2,6 +2,7 @@
 using Abp.Domain.Entities;
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
+using EasyLife.Core;
 
 namespace EasyLife.EntityFramework.Repositories
 {

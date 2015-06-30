@@ -17,6 +17,6 @@ namespace EasyLife
         /// <summary>
         /// 商户ID
         /// </summary>
-        public int? merchant_id { get; set; }
+        public int merchant_id { get; set; }
     }
 }

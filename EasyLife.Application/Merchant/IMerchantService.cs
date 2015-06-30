@@ -1,5 +1,6 @@
 ﻿using EasyLife;
 using Abp.Application.Services;
+using EasyLife.Core;
 
 namespace EasyLife
 {

@@ -3,6 +3,7 @@ using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using EasyLife;
 using AutoMapper;
+using EasyLife.Core;
 
 namespace EasyLife
 {

@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Abp.Application.Services;
-using Abp.Domain.Repositories;
-using System.Linq;
+﻿using Abp.Domain.Repositories;
 using AutoMapper;
-using EasyLife;
-using System;
+using EasyLife.Application;
+using EasyLife.Core;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EasyLife
 {
@@ -17,7 +16,7 @@ namespace EasyLife
             _cityRepository = cityRepository;
         }
 
-        public void CreateCity(CreateCityInput input)
+        public void Create(CityDto input)
         {
             var city = new City
             {
@@ -27,32 +26,32 @@ namespace EasyLife
             _cityRepository.Insert(city);
         }
 
-        public GetCitysOutput GetCitys()
+        public CityList GetCitys()
         {
             var result = _cityRepository.GetAll().Where(a => a.IsDeleted == false);
-            var list = new GetCitysOutput
+            var list = new CityList
             {
                 Citys = Mapper.Map<List<CityDto>>(result)
             };
             return list;
         }
 
-        public City GetCityByID(int id)
+        public City GetByID(int id)
         {
             return _cityRepository.Get(id);
         }
 
-        public void UpdateCityByID(CreateCityInput input, int id)
+        public void UpdateByID(CityDto input, int id)
         {
-            var model = GetCityByID(id);
+            var model = _cityRepository.Get(id);
             model.city_name = input.city_name;
             model.pin_yin = input.pin_yin;
             _cityRepository.Update(model);
         }
 
-        public void DeleteCity(int id)
+        public void Delete(int id)
         {
-            var model = GetCityByID(id);
+            var model = _cityRepository.Get(id);
             model.IsDeleted = true;
             _cityRepository.Update(model);
         }

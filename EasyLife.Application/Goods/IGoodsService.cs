@@ -6,6 +6,7 @@ using Castle.Core.Internal;
 using PagedList;
 using EasyLife;
 using Abp.Application.Services;
+using EasyLife.Core;
 
 namespace EasyLife
 {
