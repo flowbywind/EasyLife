@@ -42,6 +42,7 @@ namespace EasyLife.Core
         /// </summary>
         [MaxLength(50)]
         public virtual string account { get; set; }
+
         /// <summary>
         /// 联系人
         /// </summary>

@@ -161,11 +161,16 @@
   <ItemGroup>
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlipayDefaultController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\ReturnCode.cs" />
+    <Compile Include="Models\ReturnResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,11 +186,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+
     <Folder Include="Models\" />
+    <Folder Include="Views\AlipayDefault\" />
     <Folder Include="Views\BaseApi\" />
     <Folder Include="Views\Goods\" />
+    <Folder Include="Views\Member\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Com\Com.csproj">
+      <Project>{c03894fe-faae-4370-b80c-240125366a0d}</Project>
+      <Name>Com</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EasyLife.Application\EasyLife.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>EasyLife.Application</Name>

@@ -5,7 +5,12 @@
 }
 
 <h2>Edit</h2>
-
+<script>
+    $.post({
+        url: '',
+        data: {name:'',},
+    })
+</script>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

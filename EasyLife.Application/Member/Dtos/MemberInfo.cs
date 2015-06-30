@@ -13,5 +13,9 @@ namespace EasyLife
         public string member_phone { get; set; }
         public string member_address { get; set; }
         public int merchant_id { get; set; }
+        /// <summary>
+        /// 会员密码
+        /// </summary>
+        public string member_password { get; set; }
     }
 }
