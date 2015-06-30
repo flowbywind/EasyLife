@@ -17,6 +17,17 @@
             Derive all Controllers from this class.
             </summary>
         </member>
+        <member name="T:EasyLife.Web.Controllers.CityController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyLife.Web.Controllers.CityController.#ctor(EasyLife.ICityService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cityService"></param>
+        </member>
         <member name="M:EasyLife.Web.Extends.ToInt(System.Object,System.Int32)">
             <summary>
             对象转化为Int

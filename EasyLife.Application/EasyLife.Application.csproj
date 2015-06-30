@@ -7,7 +7,7 @@
     <ProjectGuid>{EDF5D964-4C0F-4F19-B674-58A38A5E5401}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EasyLife</RootNamespace>
+    <RootNamespace>EasyLife.Application</RootNamespace>
     <AssemblyName>EasyLife.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -94,13 +94,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Category\Dtos\CategoryDto.cs" />
-    <Compile Include="Category\Dtos\CreateCategoryInput.cs" />
-    <Compile Include="Category\Dtos\GetCategorysOutput.cs" />
+    <Compile Include="Category\Dtos\CategoryList.cs" />
     <Compile Include="Category\ICategoryService.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="City\CityService.cs" />
     <Compile Include="City\Dtos\CityDto.cs" />
+    <Compile Include="City\Dtos\CityList.cs" />
     <Compile Include="City\Dtos\CreateCityInput.cs" />
     <Compile Include="City\Dtos\GetCitysOutput.cs" />
     <Compile Include="City\ICityService.cs" />

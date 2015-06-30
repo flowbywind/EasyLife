@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using EasyLife.AppApi.Models;
+using PagedList;
 
 namespace EasyLife.AppApi.Controllers
 {
@@ -10,23 +12,22 @@ namespace EasyLife.AppApi.Controllers
             GoodsService = goodsService;
         }
 
-        public ActionResult QueryGoods(int merchantId,int pageSize,int pageNumber)
+        /// <summary>
+        /// 获取商品信息
+        /// </summary>
+        /// <param name="merchantId">商机ID</param>
+        /// <param name="tagId">衣物种类</param>
+        /// <param name="pageSize">页码</param>
+        /// <param name="pageNumber">每页大小</param>
+        /// <returns></returns>
+        public ActionResult QueryGoods(int merchantId,int? tagId, int pageSize,int pageNumber)
         {
-           var result =   GoodsService.QueryGoods(1,1,1);
+            var list = GoodsService.QueryGoods(merchantId,tagId, pageNumber, pageSize);
+            ReturnResult<PagedList.IPagedList<GoodsDto>> result=new ReturnResult<IPagedList<GoodsDto>>();
+            result.result = list;
+            result.success = true;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Query()
-        {
-            var result = GoodsService.QueryGoods(1, 1, 1);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult QueryGoodsInput(int merchantId, int pageSize, int pageNumber)
-        {
-            var result = GoodsService.QueryGoods(1, 1, 1);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        } 
 
     }
 }

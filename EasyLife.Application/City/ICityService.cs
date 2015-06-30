@@ -1,18 +1,20 @@
 ﻿using Abp.Application.Services;
 using EasyLife;
+using EasyLife.Application;
+using EasyLife.Core;
 
 namespace EasyLife
 {
     public interface ICityService : IApplicationService
     {
-        void CreateCity(CreateCityInput input);
+        void Create(CityDto input);
 
-        GetCitysOutput GetCitys();
+        CityList GetCitys();
 
-        City GetCityByID(int id);
+        City GetByID(int id);
 
-        void UpdateCityByID(CreateCityInput input, int id);
+        void UpdateByID(CityDto input, int id);
 
-        void DeleteCity(int id);
+        void Delete(int id);
     }
 }

@@ -18,10 +18,10 @@ namespace EasyLife
         public string account { get; set; }
         [Required]
         [Display(Name = "城市")]
-        public int? city_id { get; set; }
+        public int city_id { get; set; }
         [Required]
         [Display(Name = "行业分类")]
-        public int? cat_id { get; set; }
+        public int cat_id { get; set; }
         [Required]
         [Display(Name = "联系人")]
         public string contact_name { get; set; }

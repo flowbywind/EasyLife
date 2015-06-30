@@ -164,9 +164,13 @@
     <Compile Include="Controllers\AlipayDefaultController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\ReturnCode.cs" />
+    <Compile Include="Models\ReturnResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,10 +186,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+
     <Folder Include="Models\" />
     <Folder Include="Views\AlipayDefault\" />
     <Folder Include="Views\BaseApi\" />
     <Folder Include="Views\Goods\" />
+    <Folder Include="Views\Member\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Com\Com.csproj">

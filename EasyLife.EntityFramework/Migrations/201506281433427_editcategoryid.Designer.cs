@@ -7,13 +7,13 @@ namespace EasyLife.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class editcategoryid : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(editcategoryid));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506091437513_InitialCreate"; }
+            get { return "201506281433427_editcategoryid"; }
         }
         
         string IMigrationMetadata.Source

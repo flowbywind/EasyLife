@@ -1,6 +1,7 @@
 ﻿using EasyLife;
 using Abp.Application.Services;
 using PagedList;
+using EasyLife.Core;
 
 
 namespace EasyLife

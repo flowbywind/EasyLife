@@ -7,7 +7,7 @@
     <ProjectGuid>{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EasyLife</RootNamespace>
+    <RootNamespace>EasyLife.EntityFramework</RootNamespace>
     <AssemblyName>EasyLife.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -108,17 +108,9 @@
     <Compile Include="EntityFramework\Repositories\MerchantRepository.cs" />
     <Compile Include="EntityFramework\Repositories\TagRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GoodsRepository.cs" />
-    <Compile Include="Migrations\201506091437513_InitialCreate.cs" />
-    <Compile Include="Migrations\201506091437513_InitialCreate.Designer.cs">
-      <DependentUpon>201506091437513_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506170048381_addgoods.cs" />
-    <Compile Include="Migrations\201506170048381_addgoods.Designer.cs">
-      <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506281142111_updategoodtable.cs" />
-    <Compile Include="Migrations\201506281142111_updategoodtable.Designer.cs">
-      <DependentUpon>201506281142111_updategoodtable.cs</DependentUpon>
+    <Compile Include="Migrations\201506291434081_InitialCreate.cs" />
+    <Compile Include="Migrations\201506291434081_InitialCreate.Designer.cs">
+      <DependentUpon>201506291434081_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EasyLifeDataModule.cs" />
@@ -137,14 +129,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506091437513_InitialCreate.resx">
-      <DependentUpon>201506091437513_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506170048381_addgoods.resx">
-      <DependentUpon>201506170048381_addgoods.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506281142111_updategoodtable.resx">
-      <DependentUpon>201506281142111_updategoodtable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506291434081_InitialCreate.resx">
+      <DependentUpon>201506291434081_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

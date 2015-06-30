@@ -2,6 +2,8 @@
 using System.Linq;
 using AutoMapper;
 using PagedList;
+using EasyLife.Core;
+using EasyLife.Core.Enum;
 
 namespace EasyLife
 {
@@ -20,10 +22,10 @@ namespace EasyLife
         /// <param name="pageNumber">页码</param>
         /// <param name="pageSize">每页大小</param>
         /// <returns></returns>
-        public IPagedList<GoodsDto> QueryGoods(int merchantId, int pageNumber, int pageSize)
+        public IPagedList<GoodsDto> QueryGoods(int merchantId, int? tagId, int pageNumber, int pageSize)
         {
             int totalCount;
-            var list = _goodsRepository.QueryGoods(merchantId, pageNumber, pageSize, out totalCount);
+            var list = _goodsRepository.QueryGoods(merchantId, tagId, pageNumber, pageSize, out totalCount);
 
             var result = Mapper.Map<List<GoodsDto>>(list);
             if (result == null || result.Any() == false)
@@ -33,7 +35,7 @@ namespace EasyLife
                     result.Add(new GoodsDto()
                     {
                         goods_pic = "Images/profile_small.jpg",
-                        category_id = 1,
+                        tag_id = 1,
                         discount = (decimal)0.8,
                         discount_price = (decimal)5.3,
                         id = i,
@@ -41,7 +43,7 @@ namespace EasyLife
                         name = "上衣",
                         price = (decimal)8.8,
                         save_money = (decimal)2.3,
-                        status = 1
+                        status = StatusEnum.Enable
                     });
                 }
             }
@@ -59,7 +61,7 @@ namespace EasyLife
                 discount = input.discount,
                 discount_price = input.discount,
                 save_money = input.discount_price,
-                category_id = input.category_id,
+                tag_id = input.tag_id,
                 status = input.status,
                 merchant_id = input.merchant_id
             };
@@ -78,7 +80,7 @@ namespace EasyLife
         public IPagedList<GoodsDto> GetGoodsByMerchantID(int merchantid, int pageNumber, int pageSize)
         {
             int totalCount = 0;
-            var list = _goodsRepository.QueryGoods(merchantid, pageNumber, pageSize, out totalCount);
+            var list = _goodsRepository.QueryGoods(merchantid, null, pageNumber, pageSize, out totalCount);
             var result = Mapper.Map<List<GoodsDto>>(list);
             var pagelist = new StaticPagedList<GoodsDto>(result, pageNumber, pageSize, totalCount);
             return pagelist;
@@ -100,7 +102,7 @@ namespace EasyLife
             model.discount = input.discount;
             model.discount_price = input.discount_price;
             model.save_money = input.save_money;
-            model.category_id = input.category_id;
+            model.tag_id = input.tag_id;
             model.status = input.status;
             model.merchant_id = input.merchant_id;
             _goodsRepository.Update(model);

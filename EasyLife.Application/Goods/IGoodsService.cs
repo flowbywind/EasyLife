@@ -6,6 +6,7 @@ using Castle.Core.Internal;
 using PagedList;
 using EasyLife;
 using Abp.Application.Services;
+using EasyLife.Core;
 
 namespace EasyLife
 {
@@ -23,6 +24,6 @@ namespace EasyLife
 
         void DeleteGoods(int id);
 
-        IPagedList<GoodsDto> QueryGoods(int merchantId,int pageNumber, int pageSize);
+        IPagedList<GoodsDto> QueryGoods(int merchantId,int? tagId,int pageNumber, int pageSize);
     }
 }
