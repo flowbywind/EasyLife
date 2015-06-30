@@ -43,14 +43,6 @@ namespace EasyLife.Core
         [MaxLength(50)]
         public virtual string account { get; set; }
         /// <summary>
-        /// 城市ID
-        /// </summary>
-        public virtual int city_id { get; set; }
-        /// <summary>
-        /// 行业ID
-        /// </summary>
-        public virtual int cat_id { get; set; }
-        /// <summary>
         /// 联系人
         /// </summary>
         [MaxLength(50)]

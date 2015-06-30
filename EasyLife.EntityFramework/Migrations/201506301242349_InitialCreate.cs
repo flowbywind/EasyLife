@@ -115,10 +115,10 @@ namespace EasyLife.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         merchant_name = c.String(maxLength: 50, storeType: "nvarchar"),
+                        city_id = c.Int(),
+                        cat_id = c.Int(),
                         bank = c.String(maxLength: 50, storeType: "nvarchar"),
                         account = c.String(maxLength: 50, storeType: "nvarchar"),
-                        city_id = c.Int(nullable: false),
-                        cat_id = c.Int(nullable: false),
                         contact_name = c.String(maxLength: 50, storeType: "nvarchar"),
                         phone = c.String(maxLength: 50, storeType: "nvarchar"),
                         email = c.String(maxLength: 50, storeType: "nvarchar"),
@@ -135,7 +135,11 @@ namespace EasyLife.Migrations
                 {
                     { "DynamicFilter_Merchant_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.category", t => t.cat_id)
+                .ForeignKey("dbo.city", t => t.city_id)
+                .Index(t => t.city_id)
+                .Index(t => t.cat_id);
             
             CreateTable(
                 "dbo.tag",
@@ -164,6 +168,10 @@ namespace EasyLife.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.merchant", "city_id", "dbo.city");
+            DropForeignKey("dbo.merchant", "cat_id", "dbo.category");
+            DropIndex("dbo.merchant", new[] { "cat_id" });
+            DropIndex("dbo.merchant", new[] { "city_id" });
             DropTable("dbo.tag",
                 removedAnnotations: new Dictionary<string, object>
                 {

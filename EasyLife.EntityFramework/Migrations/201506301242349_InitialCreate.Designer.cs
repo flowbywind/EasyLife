@@ -13,7 +13,7 @@ namespace EasyLife.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201506291434081_InitialCreate"; }
+            get { return "201506301242349_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
