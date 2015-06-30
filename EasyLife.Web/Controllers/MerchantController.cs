@@ -65,10 +65,15 @@ namespace EasyLife.Web.Controllers
         //
         // POST: /Merchant/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
+                if (ModelState.IsValid==false)
+                {
+                    return View(collection);
+                }
                 // TODO: Add insert logic here
                 var merchant = new CreateMerchantInput
                 {

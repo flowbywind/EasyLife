@@ -71,5 +71,10 @@ namespace EasyLife
             model.IsDeleted = true;
             _memberRepository.Update(model);
         }
+
+        public Member GetMemberByPhone(string phone)
+        {
+           return  _memberRepository.GetAll().FirstOrDefault(a => a.member_phone == phone);
+        }
     }
 }
