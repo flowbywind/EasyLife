@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AliPay\AliPayService.cs" />
+    <Compile Include="AliPay\Dtos\OrderInfoApp.cs" />
     <Compile Include="AliPay\IAliPayService.cs" />
     <Compile Include="Category\CategoryService.cs">
       <SubType>Code</SubType>
@@ -101,8 +102,6 @@
     <Compile Include="City\CityService.cs" />
     <Compile Include="City\Dtos\CityDto.cs" />
     <Compile Include="City\Dtos\CityList.cs" />
-    <Compile Include="City\Dtos\CreateCityInput.cs" />
-    <Compile Include="City\Dtos\GetCitysOutput.cs" />
     <Compile Include="City\ICityService.cs" />
     <Compile Include="Dtomappings.cs" />
     <Compile Include="EasyLifeApplicationModule.cs" />

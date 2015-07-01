@@ -10,7 +10,7 @@ namespace EasyLife.Application
         /// <summary>
         /// 主键
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// 城市名称

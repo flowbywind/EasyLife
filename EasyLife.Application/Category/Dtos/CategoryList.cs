@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 
-namespace EasyLife.Application.Category.Dtos
+namespace EasyLife.Application
 {
     public class CategoryList : IOutputDto
     {

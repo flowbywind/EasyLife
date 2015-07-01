@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EasyLife.Application;
-using EasyLife.Application.Category.Dtos;
 using EasyLife.Core;
 namespace EasyLife
 {
@@ -9,8 +8,9 @@ namespace EasyLife
         public static void Map()
         {
             Mapper.CreateMap<City, CityDto>();
-            Mapper.CreateMap<CreateCityInput, City>();
+            Mapper.CreateMap<CityDto, City>();
             Mapper.CreateMap<Category, CategoryDto>();
+            Mapper.CreateMap<CategoryDto, Category>();
             Mapper.CreateMap<Tag, TagDto>();
             Mapper.CreateMap<Member, MemberDto>();
             Mapper.CreateMap<Goods, GoodsDto>();

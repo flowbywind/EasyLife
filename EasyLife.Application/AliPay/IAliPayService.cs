@@ -9,6 +9,6 @@ namespace EasyLife.AliPay
 {
   public  interface IAliPayService : IApplicationService
     {
-      string name();
+
     }
 }

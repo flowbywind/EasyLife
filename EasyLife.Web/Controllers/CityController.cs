@@ -37,7 +37,7 @@ namespace EasyLife.Web.Controllers
         {
             pageNumber = pageNumber ?? 1;
             pageSize = pageSize ?? ConfigHelper.PageSize;
-            var model = _cityService.GetCitys(pageNumber.Value, pageSize.Value);
+            var model = _cityService.GetList(pageNumber.Value, pageSize.Value);
             return View(model);
         }
 
@@ -59,7 +59,7 @@ namespace EasyLife.Web.Controllers
         //
         // POST: /City/Create
         [HttpPost]
-        public ActionResult Create(CreateCityInput input)
+        public ActionResult Create(CityDto input)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace EasyLife.Web.Controllers
         //
         // POST: /City/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, CreateCityInput input)
+        public ActionResult Edit(int id, CityDto input)
         {
             try
             {

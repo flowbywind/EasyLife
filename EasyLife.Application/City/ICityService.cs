@@ -4,19 +4,19 @@ using EasyLife.Application;
 using EasyLife.Core;
 using PagedList;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public interface ICityService : IApplicationService
     {
-        void Create(CreateCityInput input);
+        void Create(CityDto input);
 
-        CityList GetCitys();
+        CityList GetList();
 
-        IPagedList<CityDto> GetCitys(int pageNumber, int pageSize);
+        IPagedList<CityDto> GetList(int pageNumber, int pageSize);
 
         CityDto GetByID(int id);
 
-        void UpdateByID(CreateCityInput input, int id);
+        void UpdateByID(CityDto input, int id);
 
         void Delete(int id);
     }

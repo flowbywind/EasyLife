@@ -1,4 +1,5 @@
-﻿using EasyLife.Application.Category.Dtos;
+﻿using EasyLife.Application;
+using EasyLife.Core.Enum;
 using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
@@ -16,6 +17,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/
         public ActionResult Index()
         {
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             return View();
         }
 
@@ -24,8 +26,8 @@ namespace EasyLife.Web.Controllers
         public ActionResult List(int? pageNumber, int? pageSize)
         {
             pageNumber = pageNumber ?? 1;
-            pageSize = pageSize ?? 2;
-            var model = _categoryService.GetCategorys(pageNumber.Value,pageSize.Value);
+            pageSize = pageSize ?? ConfigHelper.PageSize;
+            var model = _categoryService.GetList(pageNumber.Value, pageSize.Value);
             return View(model);
         }
 
@@ -33,7 +35,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/Details/5
         public ActionResult Details(int id)
         {
-            var model = _categoryService.GetCategoryByID(id);
+            var model = _categoryService.GetByID(id);
             return View(model);
         }
 
@@ -41,24 +43,24 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/Create
         public ActionResult Create()
         {
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         //
         // POST: /Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CategoryDto input)
         {
             try
             {
                 // TODO: Add insert logic here
-                var category = new CategoryDto
+                if (ModelState.IsValid)
                 {
-                    cat_name = collection["cat_name"],
-                    cat_code = collection["cat_code"]
-                };
-                _categoryService.CreateCategory(category);
-                return RedirectToAction("Index");
+                    _categoryService.Create(input);
+                    return RedirectToAction("List");
+                }
+                ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
+                return RedirectToAction("Index", input);
             }
             catch
             {
@@ -70,24 +72,20 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _categoryService.GetCategoryByID(id);
+            var model = _categoryService.GetByID(id);
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             return View(model);
         }
 
         //
         // POST: /Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CategoryDto input)
         {
             try
             {
                 // TODO: Add update logic here
-                CategoryDto input = new CategoryDto
-                {
-                    cat_name = collection["cat_name"],
-                    cat_code = collection["cat_code"]
-                };
-                _categoryService.UpdateCategoryByID(input, id);
+                _categoryService.UpdateByID(input, id);
                 return RedirectToAction("List");
             }
             catch
@@ -100,7 +98,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Category/Delete/5
         public ActionResult Delete(int id)
         {
-            _categoryService.DeleteCategory(id);
+            _categoryService.Delete(id);
             return RedirectToAction("List");
         }
 
