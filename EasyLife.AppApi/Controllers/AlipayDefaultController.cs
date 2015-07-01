@@ -12,7 +12,7 @@ namespace EasyLife.AppApi.Controllers
         // GET: /AlipayDefault/
         public ActionResult Default(string trade_no, string total_fee)
         {
-            return json();
+            return View();
         }
 	}
 }
