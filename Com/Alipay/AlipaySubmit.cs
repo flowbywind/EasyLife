@@ -33,9 +33,9 @@ namespace Com.Alipay
 
         static Submit()
         {
-            _key = ConfigMobile.Key.Trim();
-            _input_charset = ConfigMobile.Input_charset.Trim().ToLower();
-            _sign_type = ConfigMobile.Sign_type.Trim().ToUpper();
+            _key = ConfigWeb.Key.Trim();
+            _input_charset = ConfigWeb.Input_charset.Trim().ToLower();
+            _sign_type = ConfigWeb.Sign_type.Trim().ToUpper();
         }
 
         /// <summary>
