@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EasyLife.Core.Enum;
 
 namespace EasyLife.Web.Controllers
 {
@@ -26,14 +27,17 @@ namespace EasyLife.Web.Controllers
         // GET: /City/
         public ActionResult Index()
         {
+            ViewData["hot"] = EnumExt.GetSelectList(typeof(HotEnum));
             return View();
         }
 
         //
         // GET: /City/List
-        public ActionResult List()
+        public ActionResult List(int? pageNumber, int? pageSize)
         {
-            var model = _cityService.GetCitys();
+            pageNumber = pageNumber ?? 1;
+            pageSize = pageSize ?? ConfigHelper.PageSize;
+            var model = _cityService.GetCitys(pageNumber.Value, pageSize.Value);
             return View(model);
         }
 
@@ -55,20 +59,18 @@ namespace EasyLife.Web.Controllers
         //
         // POST: /City/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateCityInput input)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                var city = new CityDto
+                if (ModelState.IsValid)
                 {
-                    city_name = collection["city_name"],
-                    pin_yin = collection["pin_yin"],
-                    //first_char = collection["first_char"]
-                };
-                _cityService.Create(city);
-                return RedirectToAction("List");
+                    _cityService.Create(input);
+                    return RedirectToAction("List");
+                }
+                ViewData["hot"] = EnumExt.GetSelectList(typeof(StatusEnum));
+                return View("index", input);
             }
             catch
             {
@@ -81,23 +83,18 @@ namespace EasyLife.Web.Controllers
         public ActionResult Edit(int id)
         {
             var model = _cityService.GetByID(id);
+            ViewData["hot"] = EnumExt.GetSelectList(typeof(HotEnum));
             return View(model);
         }
 
         //
         // POST: /City/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CreateCityInput input)
         {
             try
             {
                 // TODO: Add update logic here
-                CityDto input = new CityDto
-                {
-                    city_name = collection["city_name"],
-                    pin_yin = collection["pin_yin"],
-                    //first_char = collection["first_char"]
-                };
                 _cityService.UpdateByID(input, id);
                 return RedirectToAction("List");
             }

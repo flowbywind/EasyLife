@@ -13,15 +13,16 @@ namespace EasyLife.Core.Enum
     public enum StatusEnum : byte
     {
         /// <summary>
-        /// 可用
+        /// 启用
         /// </summary>
-        [Display(Name = "可用")]
+        [EnumDisplayName("启用")]
         Enable = 0,
+
         /// <summary>
-        /// 不可用
+        /// 禁用
         /// </summary>
-        [Display(Name = "不可用")]
-        Disabled = 1
+        [EnumDisplayName("禁用")]
+        Disable = 1
     }
 
     /// <summary>
@@ -32,10 +33,12 @@ namespace EasyLife.Core.Enum
         /// <summary>
         /// 是
         /// </summary>
+        [EnumDisplayName("是")]
         Yes = 0,
         /// <summary>
         /// 否
         /// </summary>
+        [EnumDisplayName("否")]
         No = 1
     }
 

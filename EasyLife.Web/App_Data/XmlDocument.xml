@@ -12,6 +12,11 @@
             See Views/Layout/_TopMenu.cshtml file to know how to render menu.
             </summary>
         </member>
+        <member name="F:EasyLife.Web.ConfigHelper.PageSize">
+            <summary>
+            分页配置
+            </summary>
+        </member>
         <member name="T:EasyLife.Web.Controllers.EasyLifeControllerBase">
             <summary>
             Derive all Controllers from this class.
@@ -27,6 +32,18 @@
             构造函数
             </summary>
             <param name="cityService"></param>
+        </member>
+        <member name="T:EasyLife.Web.EnumExt">
+            <summary>
+            把枚举转换成SelectListItem
+            </summary>
+        </member>
+        <member name="M:EasyLife.Web.EnumExt.GetEnumDescription(System.Object)">
+            <summary>
+            获取枚举成员的自定义Attribute的一个属性值
+            </summary>
+            <param name="e">枚举成员</param>
+            <returns></returns>
         </member>
         <member name="M:EasyLife.Web.Extends.ToInt(System.Object,System.Int32)">
             <summary>

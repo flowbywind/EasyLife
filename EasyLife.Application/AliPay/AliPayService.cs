@@ -8,5 +8,9 @@ namespace EasyLife.AliPay
 {
     public class AliPayService : EasyLifeAppServiceBase, IAliPayService
     {
+        public string name()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace EasyLife.Application
         /// <summary>
         /// 主键
         /// </summary>
-        public int Id { get; set; }
+        public int id { get; set; }
 
         /// <summary>
         /// 城市名称
@@ -25,10 +25,10 @@ namespace EasyLife.Application
         public string pin_yin { get; set; }
 
         /// <summary>
-        /// 最热
+        /// 首字母
         /// </summary>
-        [Display(Name = "最热")]
-        public HotEnum hot { get; set; }
+        [Display(Name = "首字母")]
+        public string first_char { get; set; }
 
         /// <summary>
         /// 父城市ID
@@ -37,9 +37,9 @@ namespace EasyLife.Application
         public int parent_id { get; set; }
 
         /// <summary>
-        /// 首字母
+        /// 最热
         /// </summary>
-        [Display(Name = "首字母")]
-        public int first_char { get; set; }
+        [Display(Name = "最热")]
+        public HotEnum hot { get; set; }
     }
 }

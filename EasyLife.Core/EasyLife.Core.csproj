@@ -80,8 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category\ICategoryRepository.cs" />
+    <Compile Include="City\ICityRepository.cs" />
     <Compile Include="EasyLifeConsts.cs" />
     <Compile Include="EasyLifeCoreModule.cs" />
+    <Compile Include="EnumDisplayNameAttribute.cs" />
     <Compile Include="Enum\Enum.cs" />
     <Compile Include="Goods\Goods.cs" />
     <Compile Include="Goods\IGoodsRepository.cs" />

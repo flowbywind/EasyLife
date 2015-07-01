@@ -850,6 +850,7 @@
     <Compile Include="App_Start\EasyLifeNavigationProvider.cs" />
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ConfigHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CityController.cs" />
@@ -859,6 +860,7 @@
     <Compile Include="Controllers\MerchantController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\TagController.cs" />
+    <Compile Include="EnumExt.cs" />
     <Compile Include="Extends.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
@@ -884,9 +886,6 @@
     <Content Include="Views\Category\List.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
-    <Content Include="Views\City\List.cshtml" />
-    <Content Include="Views\City\Edit.cshtml" />
-    <Content Include="Views\City\Details.cshtml" />
     <Content Include="Views\Merchant\Index.cshtml" />
     <Content Include="Views\Merchant\Details.cshtml" />
     <Content Include="Views\Merchant\Edit.cshtml" />
@@ -929,6 +928,9 @@
     <Content Include="Views\Goods\Details.cshtml" />
     <Content Include="Views\Goods\Edit.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\List.cshtml" />
+    <Content Include="Views\City\Details.cshtml" />
+    <Content Include="Views\City\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

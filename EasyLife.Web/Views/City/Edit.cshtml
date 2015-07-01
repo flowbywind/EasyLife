@@ -1,19 +1,21 @@
-﻿@model EasyLife.City
+﻿@model EasyLife.Application.CityDto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "编辑城市";
 }
 
-<h2>Edit</h2>
+<h2>编辑城市</h2>
 
-@using (Html.BeginForm("edit","City"))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>CreateCityInput</h4>
+        <h4>编辑城市</h4>
         <hr />
         @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
         <div class="form-group">
             @Html.LabelFor(model => model.city_name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -31,6 +33,20 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.first_char, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.first_char)
+                @Html.ValidationMessageFor(model => model.first_char)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.hot, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.hot, (IEnumerable<SelectListItem>)ViewData["hot"])
+                @Html.ValidationMessageFor(model => model.hot)
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -39,5 +55,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "list")
+    @Html.ActionLink("返回列表", "list")
 </div>

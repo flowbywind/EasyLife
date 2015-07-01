@@ -7,7 +7,7 @@
     <ProjectGuid>{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EasyLife.EntityFramework</RootNamespace>
+    <RootNamespace>EasyLife</RootNamespace>
     <AssemblyName>EasyLife.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -103,14 +103,19 @@
   <ItemGroup>
     <Compile Include="EntityFramework\EasyLifeDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CategoryRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\CityRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EasyLifeRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\MemberRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MerchantRepository.cs" />
     <Compile Include="EntityFramework\Repositories\TagRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GoodsRepository.cs" />
-    <Compile Include="Migrations\201506291434081_InitialCreate.cs" />
-    <Compile Include="Migrations\201506291434081_InitialCreate.Designer.cs">
-      <DependentUpon>201506291434081_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201506301242349_InitialCreate.cs" />
+    <Compile Include="Migrations\201506301242349_InitialCreate.Designer.cs">
+      <DependentUpon>201506301242349_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507011335465_change.cs" />
+    <Compile Include="Migrations\201507011335465_change.Designer.cs">
+      <DependentUpon>201507011335465_change.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EasyLifeDataModule.cs" />
@@ -129,8 +134,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506291434081_InitialCreate.resx">
-      <DependentUpon>201506291434081_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506301242349_InitialCreate.resx">
+      <DependentUpon>201506301242349_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507011335465_change.resx">
+      <DependentUpon>201507011335465_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

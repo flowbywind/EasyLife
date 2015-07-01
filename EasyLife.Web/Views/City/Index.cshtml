@@ -1,17 +1,17 @@
-﻿@model EasyLife.Application.CityDto
+﻿@model EasyLife.Application.CreateCityInput
 
 @{
-    ViewBag.Title = "城市管理";
+    ViewBag.Title = "创建城市";
 }
 
-<h2>新建城市</h2>
+<h2>创建城市</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("create", "city"))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>新建城市</h4>
+        <h4>创建城市</h4>
         <hr />
         @Html.ValidationSummary(true)
 
@@ -30,15 +30,6 @@
                 @Html.ValidationMessageFor(model => model.pin_yin)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.parent_id, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.parent_id)
-                @Html.ValidationMessageFor(model => model.parent_id)
-            </div>
-        </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.first_char, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -46,10 +37,17 @@
                 @Html.ValidationMessageFor(model => model.first_char)
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.hot, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.hot, (IEnumerable<SelectListItem>)ViewData["hot"])
+                @Html.ValidationMessageFor(model => model.hot)
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="创建" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </div>
     </div>

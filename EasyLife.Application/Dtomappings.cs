@@ -9,6 +9,7 @@ namespace EasyLife
         public static void Map()
         {
             Mapper.CreateMap<City, CityDto>();
+            Mapper.CreateMap<CreateCityInput, City>();
             Mapper.CreateMap<Category, CategoryDto>();
             Mapper.CreateMap<Tag, TagDto>();
             Mapper.CreateMap<Member, MemberDto>();
