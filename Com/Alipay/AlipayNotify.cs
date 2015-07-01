@@ -74,7 +74,7 @@ namespace Com.Alipay
             {
                 return true;
             }
-            else//验证失败
+            else //验证失败
             {
                 return false;
             }
