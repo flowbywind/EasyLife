@@ -19,6 +19,8 @@ namespace EasyLife.AppApi.Controllers
         /// <summary>
         /// 注册接口
         /// </summary>
+        /// <param name="phone">手机号</param>
+        /// <param name="pwd">密码</param>
         /// <returns></returns>
         public ActionResult Register(string phone,string pwd)
         {
@@ -29,7 +31,7 @@ namespace EasyLife.AppApi.Controllers
                 returnResult.success = false;
                 returnResult.error=new Error()
                 {
-                    code=(int)ReturnCode.Fail,
+                    code=(int)ReturnCode.Failure,
                     details = "",
                     message = "当前手机号已经注册"
                 };
@@ -44,6 +46,7 @@ namespace EasyLife.AppApi.Controllers
             if (flag == false)
             {
                 returnResult.success = false;
+                returnResult.error=new Error(ReturnCode.Failure, "注册失败");
             }
             else
             {
@@ -71,7 +74,7 @@ namespace EasyLife.AppApi.Controllers
                 result.success = false;
                 result.error=new Error()
                 {
-                    code=(int)ReturnCode.Fail,
+                    code=(int)ReturnCode.Failure,
                     message = "用户名或密码不正确"
                 };
             }
@@ -89,7 +92,7 @@ namespace EasyLife.AppApi.Controllers
             if (dto == null)
             {
                 result.success = false;
-                result.error=new Error(ReturnCode.Fail, "该手机号未注册或已停用");
+                result.error=new Error(ReturnCode.Failure, "该手机号未注册或已停用");
                 return Json(result);
             }
             bool flag = _memberService.AppUpdateMemberPwd(pwd, dto.id);
@@ -102,14 +105,32 @@ namespace EasyLife.AppApi.Controllers
             {
                 result.success = false;
                 result.error = new Error() {
-                    code = (int)ReturnCode.Fail,
+                    code = (int)ReturnCode.Failure,
                     message = "用户名或密码不正确"
                 };
             }
             return Json(result);
         }
 
-
+        /// <summary>
+        /// 获取会员信息
+        /// </summary>
+        /// <param name="phone">手机号</param>
+        /// <returns></returns>
+        public ActionResult GetMemberInfo(string phone)
+        {
+            ReturnResult<MemberDto> result = new ReturnResult<MemberDto>();
+            MemberDto dto = _memberService.GetMemberByPhone(phone);
+            if (dto == null)
+            {
+                result.success = false;
+                result.error = new Error(ReturnCode.Failure, "该手机号未注册或已停用");
+                return Json(result);
+            }
+            result.success = true;
+            result.result = dto;
+            return Json(result,JsonRequestBehavior.AllowGet);
+        }
 
 
     }

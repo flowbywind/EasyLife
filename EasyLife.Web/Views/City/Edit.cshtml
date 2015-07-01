@@ -4,7 +4,7 @@
     ViewBag.Title = "编辑城市";
 }
 
-<h2>编辑城市</h2>
+<h2>城市管理</h2>
 
 @using (Html.BeginForm())
 {
@@ -14,7 +14,7 @@
         <h4>编辑城市</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.city_name, new { @class = "control-label col-md-2" })
@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>

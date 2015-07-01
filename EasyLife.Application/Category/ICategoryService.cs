@@ -3,23 +3,22 @@ using EasyLife;
 using System.Threading.Tasks;
 using PagedList;
 using EasyLife.Core;
-using EasyLife.Application.Category.Dtos;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public interface ICategoryService : IApplicationService
     {
-        void CreateCategory(CategoryDto input);
+        void Create(CategoryDto input);
 
-        CategoryList GetCategorys();
+        CategoryList GetList();
 
-        IPagedList<CategoryDto> GetCategorys(int pageNumber, int pageSize);
+        IPagedList<CategoryDto> GetList(int pageNumber, int pageSize);
 
-        Category GetCategoryByID(int id);
+        Category GetByID(int id);
 
-        void UpdateCategoryByID(CategoryDto input, int id);
+        void UpdateByID(CategoryDto input, int id);
 
-        void DeleteCategory(int id);
+        void Delete(int id);
 
 
     }

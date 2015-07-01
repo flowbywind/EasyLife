@@ -1,13 +1,13 @@
-﻿@model EasyLife.Category
+﻿@model EasyLife.Application.CategoryDto
 
 @{
-    ViewBag.Title = "详情";
+    ViewBag.Title = "行业详情";
 }
 
 <h2>详情</h2>
 
 <div>
-    <h4>分类详情</h4>
+    <h4>行业详情</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -25,25 +25,16 @@
         <dd>
             @Html.DisplayFor(model => model.cat_code)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.CreatorUserId)
+            @Html.DisplayNameFor(model => model.status)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatorUserId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreationTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationTime)
+            @Html.DisplayFor(model => model.status)
         </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("编辑", "Edit", new { id = Model.Id  }) |
-    @Html.ActionLink("返回列表", "List")
+    @Html.ActionLink("编辑", "edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回列表", "list")
 </p>

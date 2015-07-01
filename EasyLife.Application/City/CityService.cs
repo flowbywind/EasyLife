@@ -6,7 +6,7 @@ using PagedList;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public class CityService : EasyLifeAppServiceBase, ICityService
     {
@@ -17,13 +17,13 @@ namespace EasyLife
             _cityRepository = cityRepository;
         }
 
-        public void Create(CreateCityInput input)
+        public void Create(CityDto input)
         {
-            var city = Mapper.Map<City>(input);
+            var city = Mapper.Map<CityDto, City>(input);
             _cityRepository.Insert(city);
         }
 
-        public CityList GetCitys()
+        public CityList GetList()
         {
             var result = _cityRepository.GetAll().Where(a => a.IsDeleted == false);
             var list = new CityList
@@ -33,7 +33,7 @@ namespace EasyLife
             return list;
         }
 
-        public IPagedList<CityDto> GetCitys(int pageNumber, int pageSize)
+        public IPagedList<CityDto> GetList(int pageNumber, int pageSize)
         {
             int totalCount = 0;
             var list = _cityRepository.GetCitys(pageNumber, pageSize, out totalCount);
@@ -48,12 +48,8 @@ namespace EasyLife
             return Mapper.Map<CityDto>(city);
         }
 
-        public void UpdateByID(CreateCityInput input, int id)
+        public void UpdateByID(CityDto input, int id)
         {
-            //var model = _cityRepository.Get(id);
-            //model.city_name = input.city_name;
-            //model.pin_yin = input.pin_yin;
-            //model.hot=input.
             var model = Mapper.Map<City>(input);
             model.Id = id;
             _cityRepository.Update(model);
