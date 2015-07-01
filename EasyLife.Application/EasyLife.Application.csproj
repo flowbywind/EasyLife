@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AliPay\AliPayService.cs" />
+    <Compile Include="AliPay\Dtos\OrderInfoApp.cs" />
     <Compile Include="AliPay\IAliPayService.cs" />
     <Compile Include="Category\CategoryService.cs">
       <SubType>Code</SubType>
