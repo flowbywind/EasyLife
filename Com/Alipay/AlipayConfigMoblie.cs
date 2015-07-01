@@ -26,10 +26,18 @@ namespace Com.Alipay
     {
         #region 字段
         private static string partner = "";
+        private static string seller_id = "";
         private static string private_key = "";
         private static string public_key = "";
         private static string input_charset = "";
         private static string sign_type = "";
+        private static string notify_url = "";
+        private static string service = "";
+        private static string payment_type = "";
+        private static string it_b_pay = "";
+        private static string return_url = "";
+
+
         #endregion
 
         static ConfigMobile()
@@ -38,6 +46,9 @@ namespace Com.Alipay
 
             //合作身份者ID，以2088开头由16位纯数字组成的字符串
             partner = "";
+
+            // 签约卖家支付宝账号
+            seller_id = "";
 
             //商户的私钥
             private_key = @"";
@@ -54,6 +65,25 @@ namespace Com.Alipay
 
             //签名方式，选择项：RSA、DSA、MD5
             sign_type = "RSA";
+
+            // 服务器异步通知页面路径
+            notify_url = "";
+
+            // 服务接口名称， 固定值
+            service = "mobile.securitypay.pay";
+
+            // 支付类型， 固定值
+            payment_type = "1";
+
+            // 设置未付款交易的超时时间
+            // 默认30分钟，一旦超时，该笔交易就会自动被关闭。
+            // 取值范围：1m～15d。
+            // m-分钟，h-小时，d-天，1c-当天（无论交易何时创建，都在0点关闭）。
+            // 该参数数值不接受小数点，如1.5h，可转换为90m。
+            it_b_pay = "30m";
+
+            // 支付宝处理完请求后，当前页面跳转到商户指定页面的路径，可空
+            return_url = "m.alipay.com";
         }
 
         #region 属性
@@ -64,6 +94,15 @@ namespace Com.Alipay
         {
             get { return partner; }
             set { partner = value; }
+        }
+
+        /// <summary>
+        /// 签约卖家支付宝账号
+        /// </summary>
+        public static string Seller_id
+        {
+            get { return ConfigMobile.seller_id; }
+            set { ConfigMobile.seller_id = value; }
         }
 
         /// <summary>
@@ -99,6 +138,56 @@ namespace Com.Alipay
         {
             get { return sign_type; }
         }
+
+        /// <summary>
+        /// 服务器异步通知页面路径
+        /// </summary>
+        public static string Notify_url
+        {
+            get { return ConfigMobile.notify_url; }
+            set { ConfigMobile.notify_url = value; }
+        }
+
+        /// <summary>
+        /// 服务接口名称， 固定值
+        /// </summary>
+        public static string Service
+        {
+            get { return ConfigMobile.service; }
+            set { ConfigMobile.service = value; }
+        }
+
+        /// <summary>
+        /// 支付类型， 固定值
+        /// </summary>
+        public static string Payment_type
+        {
+            get { return ConfigMobile.payment_type; }
+            set { ConfigMobile.payment_type = value; }
+        }
+
+        /// <summary>
+        ///设置未付款交易的超时时间
+        ///默认30分钟，一旦超时，该笔交易就会自动被关闭。
+        /// 取值范围：1m～15d。
+        /// m-分钟，h-小时，d-天，1c-当天（无论交易何时创建，都在0点关闭）。
+        /// 该参数数值不接受小数点，如1.5h，可转换为90m。
+        /// </summary>
+        public static string It_b_pay
+        {
+            get { return ConfigMobile.it_b_pay; }
+            set { ConfigMobile.it_b_pay = value; }
+        }
+
+        /// <summary>
+        /// 支付宝处理完请求后，当前页面跳转到商户指定页面的路径，可空
+        /// </summary>
+        public static string Return_url
+        {
+            get { return ConfigMobile.return_url; }
+            set { ConfigMobile.return_url = value; }
+        }
+
         #endregion
     }
 }
