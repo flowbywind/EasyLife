@@ -1,6 +1,4 @@
-﻿@*@model IEnumerable<EasyLife.Application.CityDto>*@
-@*@model EasyLife.Application.CityList*@
-@using PagedList.Mvc;
+﻿@using PagedList.Mvc;
 @model PagedList.IPagedList<EasyLife.Application.CityDto>
 @{
     ViewBag.Title = "城市列表";
@@ -38,9 +36,9 @@
                 @Html.DisplayFor(modelItem => item.first_char)
             </td>
             <td>
-                @Html.ActionLink("编辑", "edit", new { id = item.id }) |
-                @Html.ActionLink("详情", "details", new { id = item.id }) |
-                @Html.ActionLink("删除", "delete", new { id = item.id })
+                @Html.ActionLink("编辑", "edit", new { id = item.Id }) |
+                @Html.ActionLink("详情", "details", new { id = item.Id }) |
+                @Html.ActionLink("删除", "delete", new { id = item.Id })
             </td>
         </tr>
     }

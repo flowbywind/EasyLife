@@ -27,7 +27,7 @@
             
             </summary>
         </member>
-        <member name="M:EasyLife.Web.Controllers.CityController.#ctor(EasyLife.ICityService)">
+        <member name="M:EasyLife.Web.Controllers.CityController.#ctor(EasyLife.Application.ICityService)">
             <summary>
             构造函数
             </summary>

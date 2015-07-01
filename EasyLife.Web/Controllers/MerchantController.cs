@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyLife.Application;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,20 +25,20 @@ namespace EasyLife.Web.Controllers
         // GET: /Merchant/
         public ActionResult Index()
         {
-            var citys = _cityService.GetCitys().Citys;
+            var citys = _cityService.GetList().Citys;
             ViewData["city_id"] = from a in citys
+                                  select new SelectListItem
+                                  {
+                                      Text = a.city_name,
+                                      Value = a.Id.ToString()
+                                  };
+            var categorys = _categoryService.GetList().Categorys;
+            ViewData["cat_id"] = from a in categorys
                                  select new SelectListItem
                                  {
-                                     Text = a.city_name,
-                                     Value = a.Id.ToString()
+                                     Text = a.cat_name,
+                                     Value = a.id.ToString()
                                  };
-            var categorys = _categoryService.GetCategorys().Categorys;
-            ViewData["cat_id"] = from a in categorys
-                                     select new SelectListItem
-                                     {
-                                         Text = a.cat_name,
-                                         Value = a.Id.ToString()
-                                     };
             return View();
         }
 
@@ -70,7 +71,7 @@ namespace EasyLife.Web.Controllers
         {
             try
             {
-                if (ModelState.IsValid==false)
+                if (ModelState.IsValid == false)
                 {
                     return View(collection);
                 }
@@ -101,21 +102,21 @@ namespace EasyLife.Web.Controllers
         public ActionResult Edit(int id)
         {
             var model = _merchantService.GetMerchantDtoID(id);
-            var citys = _cityService.GetCitys().Citys;
+            var citys = _cityService.GetList().Citys;
             ViewData["city_id"] = from a in citys
                                   select new SelectListItem
                                   {
                                       Text = a.city_name,
                                       Value = a.Id.ToString(),
-                                      Selected=model.city_id==a.Id
+                                      Selected = model.city_id == a.Id
                                   };
-            var categorys = _categoryService.GetCategorys().Categorys;
+            var categorys = _categoryService.GetList().Categorys;
             ViewData["cat_id"] = from a in categorys
                                  select new SelectListItem
                                  {
                                      Text = a.cat_name,
-                                     Value = a.Id.ToString(),
-                                     Selected=model.cat_id==a.Id
+                                     Value = a.id.ToString(),
+                                     Selected = model.cat_id == a.id
                                  };
             return View(model);
         }
