@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyLife.Application.AliPay.Dtos
+namespace EasyLife.Application
 {
-    public class OrderInfo : IOutputDto
+    public class OrderInfoDto : IOutputDto
     {
 
         /// <summary>

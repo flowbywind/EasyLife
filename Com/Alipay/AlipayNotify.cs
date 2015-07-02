@@ -42,10 +42,10 @@ namespace Com.Alipay
         public Notify()
         {
             //初始化基础配置信息
-            _partner = ConfigMobile.Partner.Trim();
-            _public_key = ConfigMobile.Public_key.Trim();
-            _input_charset = ConfigMobile.Input_charset.Trim().ToLower();
-            _sign_type = ConfigMobile.Sign_type.Trim().ToUpper();
+            _partner = Config.Partner.Trim();
+            _public_key = Config.Public_key.Trim();
+            _input_charset = Config.Input_charset.Trim().ToLower();
+            _sign_type = Config.Sign_type.Trim().ToUpper();
         }
 
         /// <summary>

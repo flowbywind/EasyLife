@@ -40,8 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alipay\AlipayConfigMoblie.cs" />
-    <Compile Include="Alipay\AlipayConfigWeb.cs" />
+    <Compile Include="Alipay\AlipayConfig.cs" />
     <Compile Include="Alipay\AlipayCore.cs" />
     <Compile Include="Alipay\AlipayNotify.cs" />
     <Compile Include="Alipay\AlipaySubmit.cs" />

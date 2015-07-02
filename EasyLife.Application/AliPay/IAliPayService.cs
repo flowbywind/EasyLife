@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyLife.AliPay
+namespace EasyLife.Application
 {
   public  interface IAliPayService : IApplicationService
     {
-
+      string AppTradeData(OrderInfoDto input);
     }
 }

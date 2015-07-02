@@ -22,11 +22,13 @@ namespace Com.Alipay
     /// 2.点击“商家服务”(https://b.alipay.com/order/myOrder.htm)
     /// 3.点击“查询合作者身份(PID)”、“查询安全校验码(Key)”
     /// </summary>
-    public class ConfigMobile
+    public class Config
     {
         #region 字段
         private static string partner = "";
         private static string seller_id = "";
+        private static string seller_email = "";
+        private static string key = "";
         private static string private_key = "";
         private static string public_key = "";
         private static string input_charset = "";
@@ -40,7 +42,7 @@ namespace Com.Alipay
 
         #endregion
 
-        static ConfigMobile()
+        static Config()
         {
             //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -49,6 +51,12 @@ namespace Com.Alipay
 
             // 签约卖家支付宝账号
             seller_id = "";
+
+            //收款支付宝账号
+            seller_email = "";
+
+            //交易安全检验码，由数字和字母组成的32位字符串
+            key = "asdfghjkl1234qwertyuiop87MHGF90O";
 
             //商户的私钥
             private_key = @"";
@@ -64,7 +72,7 @@ namespace Com.Alipay
             input_charset = "utf-8";
 
             //签名方式，选择项：RSA、DSA、MD5
-            sign_type = "RSA";
+            sign_type = "MD5";
 
             // 服务器异步通知页面路径
             notify_url = "";
@@ -101,8 +109,26 @@ namespace Com.Alipay
         /// </summary>
         public static string Seller_id
         {
-            get { return ConfigMobile.seller_id; }
-            set { ConfigMobile.seller_id = value; }
+            get { return Config.seller_id; }
+            set { Config.seller_id = value; }
+        }
+
+        /// <summary>
+        /// 获取或设置合作者身份ID
+        /// </summary>
+        public static string Seller_email
+        {
+            get { return seller_email; }
+            set { seller_email = value; }
+        }
+
+       /// <summary>
+        /// 交易安全检验码，由数字和字母组成的32位字符串
+       /// </summary>
+        public static string Key
+        {
+            get { return Config.key; }
+            set { Config.key = value; }
         }
 
         /// <summary>
@@ -144,8 +170,8 @@ namespace Com.Alipay
         /// </summary>
         public static string Notify_url
         {
-            get { return ConfigMobile.notify_url; }
-            set { ConfigMobile.notify_url = value; }
+            get { return Config.notify_url; }
+            set { Config.notify_url = value; }
         }
 
         /// <summary>
@@ -153,8 +179,8 @@ namespace Com.Alipay
         /// </summary>
         public static string Service
         {
-            get { return ConfigMobile.service; }
-            set { ConfigMobile.service = value; }
+            get { return Config.service; }
+            set { Config.service = value; }
         }
 
         /// <summary>
@@ -162,8 +188,8 @@ namespace Com.Alipay
         /// </summary>
         public static string Payment_type
         {
-            get { return ConfigMobile.payment_type; }
-            set { ConfigMobile.payment_type = value; }
+            get { return Config.payment_type; }
+            set { Config.payment_type = value; }
         }
 
         /// <summary>
@@ -175,8 +201,8 @@ namespace Com.Alipay
         /// </summary>
         public static string It_b_pay
         {
-            get { return ConfigMobile.it_b_pay; }
-            set { ConfigMobile.it_b_pay = value; }
+            get { return Config.it_b_pay; }
+            set { Config.it_b_pay = value; }
         }
 
         /// <summary>
@@ -184,8 +210,8 @@ namespace Com.Alipay
         /// </summary>
         public static string Return_url
         {
-            get { return ConfigMobile.return_url; }
-            set { ConfigMobile.return_url = value; }
+            get { return Config.return_url; }
+            set { Config.return_url = value; }
         }
 
         #endregion
