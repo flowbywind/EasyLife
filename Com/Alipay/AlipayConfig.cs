@@ -59,10 +59,10 @@ namespace Com.Alipay
             key = "asdfghjkl1234qwertyuiop87MHGF90O";
 
             //商户的私钥
-            private_key = @"";
+            private_key = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKSZSSEdPhv77O5ocnLNGXeQ21qJDArC1+yId+9/pY5bXkZk5vCB49EpfMwNukLv6AJqofThZPNOs1t015fdEYIUnkIc2QVxRwa0xTeFP6N8D4WQXRWs4fNG27JK5kP45s+9KlJtx5hs7G97aMczehIWpHaO6j9inOmjlU8l62KZAgMBAAECgYEAmK3TRtMwRJb33OGnn9OeFumYfy92qxi3X6Hq1o6qDBW2qkd4bImfv+ni6AinyOVuaadt2Y+lq4dKGcCVJzoZvPm1VKxD2y7xKa8/vEbPRiRTt0qnPq9T7UJkpDsiXf/zOMfWdjc3uA1bPnQ65RWHSJ7zAE+Gd7xnyCE5MEyijLECQQDVYqQWDqOVLZ5lJUuIfUIrhv26GvuoTX8v60+opCz4/Mdfh6JlefICVD6SAaYvufXBHVFY26JicNlR62ZOiBoNAkEAxXhsuEnNJNQcQHEVTPZoulbMbTV1VZIDQ1zjG8fvu8sv6IBYcR5+EsC8n3/6RkW8/iCJDzxE++VHzhoSQSoDvQJBAM6/63J/rpndAIrJ7vyJOPLJsc9/U3SH2gMJAT7KC9UXvuldlsixtf3xuEpplKbLjEUXbfklnZm586a+6XqPvoUCQDFotltOLARBBmihYuEE7qNhQHk63QbyJ9rdDP5Qgo2Mg4o7QuXa6VSr4QZPsUGQBX/YiDLFs8ULU3IgV9zyNEkCQADAYR8DctYzg0eBGdcOrDA5Szc62pYrS2wk89wUxyL4FyDL3omkVMKvtu5tccy7Xht2ikJZRqefZ3dS7ASm8/4=";
 
             //支付宝的公钥，无需修改该值
-            public_key = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+            public_key = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCkmUkhHT4b++zuaHJyzRl3kNtaiQwKwtfsiHfvf6WOW15GZObwgePRKXzMDbpC7+gCaqH04WTzTrNbdNeX3RGCFJ5CHNkFcUcGtMU3hT+jfA+FkF0VrOHzRtuySuZD+ObPvSpSbceYbOxve2jHM3oSFqR2juo/Ypzpo5VPJetimQIDAQAB";
 
             //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
