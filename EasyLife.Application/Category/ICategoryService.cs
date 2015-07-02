@@ -14,7 +14,7 @@ namespace EasyLife.Application
 
         IPagedList<CategoryDto> GetList(int pageNumber, int pageSize);
 
-        Category GetByID(int id);
+        CategoryDto GetByID(int id);
 
         void UpdateByID(CategoryDto input, int id);
 
