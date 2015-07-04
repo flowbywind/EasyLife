@@ -115,8 +115,7 @@
     <Compile Include="Member\Dtos\MemberList.cs" />
     <Compile Include="Member\IMemberService.cs" />
     <Compile Include="Member\MemberService.cs" />
-    <Compile Include="Merchant\Dtos\CreateMerchantInput.cs" />
-    <Compile Include="Merchant\Dtos\GetMerchantsOutput.cs" />
+    <Compile Include="Merchant\Dtos\MerchantList.cs" />
     <Compile Include="Merchant\Dtos\MerchantDto.cs" />
     <Compile Include="Merchant\IMerchantService.cs" />
     <Compile Include="Merchant\MerchantService.cs" />

@@ -17,11 +17,6 @@ namespace EasyLife.Application
             _cityRepository = cityRepository;
         }
 
-        public void Create(CityDto input)
-        {
-            var city = Mapper.Map<CityDto, City>(input);
-            _cityRepository.Insert(city);
-        }
 
         public CityList GetList()
         {
@@ -40,6 +35,12 @@ namespace EasyLife.Application
             var result = Mapper.Map<List<CityDto>>(list);
             var pagelist = new StaticPagedList<CityDto>(result, pageNumber, pageSize, totalCount);
             return pagelist;
+        }
+
+        public void Create(CityDto input)
+        {
+            var city = Mapper.Map<CityDto, City>(input);
+            _cityRepository.Insert(city);
         }
 
         public CityDto GetByID(int id)

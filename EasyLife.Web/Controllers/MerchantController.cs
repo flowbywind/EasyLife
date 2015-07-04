@@ -1,4 +1,5 @@
 ﻿using EasyLife.Application;
+using EasyLife.Core.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace EasyLife.Web.Controllers
         // GET: /Merchant/
         public ActionResult Index()
         {
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
+
             var citys = _cityService.GetList().Citys;
             ViewData["city_id"] = from a in citys
                                   select new SelectListItem
@@ -42,9 +45,11 @@ namespace EasyLife.Web.Controllers
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult List(int? pageNumber, int? pageSize)
         {
-            var model = _merchantService.GetMerchants();
+            pageNumber = pageNumber ?? 1;
+            pageSize = pageSize ?? ConfigHelper.PageSize;
+            var model = _merchantService.GetList(pageNumber.Value, pageSize.Value);
             return View(model);
         }
 
@@ -52,7 +57,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Merchant/Details/5
         public ActionResult Details(int id)
         {
-            var model = _merchantService.GetMerchantID(id);
+            var model = _merchantService.GetByID(id);
             return View(model);
         }
 
@@ -67,41 +72,23 @@ namespace EasyLife.Web.Controllers
         // POST: /Merchant/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MerchantDto input)
         {
-            try
+            // TODO: Add insert logic here
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid == false)
-                {
-                    return View(collection);
-                }
-                // TODO: Add insert logic here
-                var merchant = new CreateMerchantInput
-                {
-                    merchant_name = collection["merchant_name"],
-                    bank = collection["bank"],
-                    account = collection["account"],
-                    city_id = Convert.ToInt32(collection["city_id"]),
-                    cat_id = Convert.ToInt32(collection["cat_id"]),
-                    contact_name = collection["contact_name"],
-                    phone = collection["phone"],
-                    email = collection["email"],
-                    //status = (Status)Convert.ToInt32(collection["status"])
-                };
-                _merchantService.CreateMerchant(merchant);
-                return RedirectToAction("list");
+                _merchantService.Create(input);
+                return RedirectToAction("List");
             }
-            catch
-            {
-                return RedirectToAction("Index");
-            }
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
+            return RedirectToAction("Index", input);
         }
 
         //
         // GET: /Merchant/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _merchantService.GetMerchantDtoID(id);
+            var model = _merchantService.GetByID(id);
             var citys = _cityService.GetList().Citys;
             ViewData["city_id"] = from a in citys
                                   select new SelectListItem
@@ -118,36 +105,22 @@ namespace EasyLife.Web.Controllers
                                      Value = a.Id.ToString(),
                                      Selected = model.cat_id == a.Id
                                  };
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             return View(model);
         }
 
         //
         // POST: /Merchant/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MerchantDto input)
         {
-            try
+            // TODO: Add update logic here
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-                var merchant = new CreateMerchantInput
-                {
-                    merchant_name = collection["merchant_name"],
-                    bank = collection["bank"],
-                    account = collection["account"],
-                    city_id = Convert.ToInt32(collection["city_id"]),
-                    cat_id = Convert.ToInt32(collection["cat_id"]),
-                    contact_name = collection["contact_name"],
-                    phone = collection["phone"],
-                    email = collection["email"],
-                    //status = (Status)Convert.ToInt32(collection["status"])
-                };
-                _merchantService.UpdateMerchant(merchant, id);
-                return RedirectToAction("list");
+                _merchantService.Create(input);
+                return RedirectToAction("List");
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("list");
         }
 
         //

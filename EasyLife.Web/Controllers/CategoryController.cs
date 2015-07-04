@@ -51,21 +51,16 @@ namespace EasyLife.Web.Controllers
         [HttpPost]
         public ActionResult Create(CategoryDto input)
         {
-            try
+
+            // TODO: Add insert logic here
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-                if (ModelState.IsValid)
-                {
-                    _categoryService.Create(input);
-                    return RedirectToAction("List");
-                }
-                ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
-                return RedirectToAction("Index", input);
+                _categoryService.Create(input);
+                return RedirectToAction("List");
             }
-            catch
-            {
-                return View();
-            }
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
+            return RedirectToAction("Index", input);
+
         }
 
         //
@@ -82,16 +77,10 @@ namespace EasyLife.Web.Controllers
         [HttpPost]
         public ActionResult Edit(int id, CategoryDto input)
         {
-            try
-            {
-                // TODO: Add update logic here
-                _categoryService.UpdateByID(input, id);
-                return RedirectToAction("List");
-            }
-            catch
-            {
-                return View();
-            }
+
+            // TODO: Add update logic here
+            _categoryService.UpdateByID(input, id);
+            return RedirectToAction("List");
         }
 
         //

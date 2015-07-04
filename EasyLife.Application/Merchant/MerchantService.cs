@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using Abp.Application.Services;
-using Abp.Domain.Repositories;
-using EasyLife;
+﻿using Abp.Domain.Repositories;
 using AutoMapper;
+using EasyLife.Application;
 using EasyLife.Core;
+using PagedList;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public class MerchantService : EasyLifeAppServiceBase, IMerchantService
     {
@@ -20,56 +21,49 @@ namespace EasyLife
             _categoryRepository = categoryRepository;
         }
 
-        public GetMerchantsOutput GetMerchants()
+        public MerchantList GetList()
         {
-            var model = _merchantRepository.GetAll();
-            var reuslt = new GetMerchantsOutput
+            var model = _merchantRepository.GetAll().Where(a => a.IsDeleted == false);
+            var reuslt = new MerchantList
             {
                 MerchantDto = Mapper.Map<List<MerchantDto>>(model)
             };
             return reuslt;
         }
 
-        public void CreateMerchant(CreateMerchantInput input)
+        public IPagedList<MerchantDto> GetList(int pageNumber, int pageSize)
         {
-            var merchant = new Merchant
-            {
-                merchant_name = input.merchant_name,
-                bank = input.bank,
-                account = input.account,
-                city_id = input.city_id,
-                cat_id = input.cat_id,
-                contact_name = input.contact_name,
-                phone = input.phone,
-                email = input.email
-            };
+            int totalCount = 0;
+            var list = _merchantRepository.GetMerchants(pageNumber, pageSize, out totalCount);
+            var result = Mapper.Map<List<MerchantDto>>(list);
+            var pagelist = new StaticPagedList<MerchantDto>(result, pageNumber, pageSize, totalCount);
+            return pagelist;
+        }
+
+        public void Create(MerchantDto input)
+        {
+            var merchant = Mapper.Map<MerchantDto, Merchant>(input);
             _merchantRepository.Insert(merchant);
         }
 
-        public void UpdateMerchant(CreateMerchantInput input, int id)
+        public void Update(MerchantDto input, int id)
         {
-            var model = _merchantRepository.Get(id);
-            model.merchant_name = input.merchant_name;
-            model.bank = input.bank;
-            model.account = input.account;
-            model.city_id = input.city_id;
-            model.cat_id = input.cat_id;
-            model.contact_name = input.contact_name;
-            model.phone = input.phone;
-            model.email = input.email;
+            var model = Mapper.Map<Merchant>(input);
+            model.Id = id;
             _merchantRepository.Update(model);
         }
 
-        public MerchantDto GetMerchantDtoID(int id)
+        public MerchantDto GetByID(int id)
         {
             var merchantDto = _merchantRepository.Get(id);
             return Mapper.Map<MerchantDto>(merchantDto);
         }
 
-        public Merchant GetMerchantID(int id)
+        public void Delete(int id)
         {
-            var merchant = _merchantRepository.Get(id);
-            return merchant;
+            var model = _merchantRepository.Get(id);
+            model.IsDeleted = true;
+            _merchantRepository.Update(model);
         }
     }
 }

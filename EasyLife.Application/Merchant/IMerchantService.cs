@@ -1,20 +1,21 @@
-﻿using EasyLife;
-using Abp.Application.Services;
+﻿using Abp.Application.Services;
 using EasyLife.Core;
+using PagedList;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public interface IMerchantService : IApplicationService
     {
-        GetMerchantsOutput GetMerchants();
+        MerchantList GetList();
+        IPagedList<MerchantDto> GetList(int pageNumber, int pageSize);
 
-        MerchantDto GetMerchantDtoID(int id);
+        MerchantDto GetByID(int id);
 
-        Merchant GetMerchantID(int id);
+        void Create(MerchantDto input);
 
-        void CreateMerchant(CreateMerchantInput input);
+        void Update(MerchantDto input, int id);
 
-        void UpdateMerchant(CreateMerchantInput input,int id);
+        void Delete(int id);
 
     }
 }

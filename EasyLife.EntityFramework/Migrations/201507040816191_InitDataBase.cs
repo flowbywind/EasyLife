@@ -5,7 +5,7 @@ namespace EasyLife.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitDataBase : DbMigration
     {
         public override void Up()
         {
@@ -95,6 +95,7 @@ namespace EasyLife.Migrations
                         member_address = c.String(maxLength: 50, storeType: "nvarchar"),
                         status = c.Byte(nullable: false),
                         merchant_id = c.Int(nullable: false),
+                        member_pwd = c.String(maxLength: 50, storeType: "nvarchar"),
                         creator_user_id = c.Long(),
                         creation_time = c.DateTime(nullable: false, precision: 0),
                         last_modification_time = c.DateTime(precision: 0),
@@ -115,10 +116,10 @@ namespace EasyLife.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         merchant_name = c.String(maxLength: 50, storeType: "nvarchar"),
-                        city_id = c.Int(),
-                        cat_id = c.Int(),
                         bank = c.String(maxLength: 50, storeType: "nvarchar"),
                         account = c.String(maxLength: 50, storeType: "nvarchar"),
+                        city_id = c.Int(nullable: false),
+                        cat_id = c.Int(nullable: false),
                         contact_name = c.String(maxLength: 50, storeType: "nvarchar"),
                         phone = c.String(maxLength: 50, storeType: "nvarchar"),
                         email = c.String(maxLength: 50, storeType: "nvarchar"),
@@ -136,8 +137,8 @@ namespace EasyLife.Migrations
                     { "DynamicFilter_Merchant_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.category", t => t.cat_id)
-                .ForeignKey("dbo.city", t => t.city_id)
+                .ForeignKey("dbo.category", t => t.cat_id, cascadeDelete: true)
+                .ForeignKey("dbo.city", t => t.city_id, cascadeDelete: true)
                 .Index(t => t.city_id)
                 .Index(t => t.cat_id);
             
