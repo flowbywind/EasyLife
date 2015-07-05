@@ -8,7 +8,7 @@ using EasyLife.Core;
 
 namespace EasyLife.AppApi.Controllers
 {
-    public class MemberController : Controller
+    public class MemberController : BaseApiController
     {
         private MemberService _memberService;
         public MemberController(MemberService memberService)
@@ -21,10 +21,11 @@ namespace EasyLife.AppApi.Controllers
         /// </summary>
         /// <param name="phone">手机号</param>
         /// <param name="pwd">密码</param>
+        /// <param name="merchantId">商家ID</param>
         /// <returns></returns>
-        public ActionResult Register(string phone,string pwd)
+        public ActionResult Register(string phone,string pwd,int merchantId)
         {
-            ReturnResult<bool> returnResult = new ReturnResult<bool>();
+            ReturnResult<MemberDto> returnResult = new ReturnResult<MemberDto>();
             MemberDto member = _memberService.GetMemberByPhone(phone);
             if (member != null)
             {
@@ -35,25 +36,26 @@ namespace EasyLife.AppApi.Controllers
                     details = "",
                     message = "当前手机号已经注册"
                 };
-                return Json(returnResult);
+                return Json(returnResult,JsonRequestBehavior.AllowGet);
             }
             MemberInfo info=new MemberInfo()
             {
                 member_phone = phone,
-                member_password = pwd
+                member_password = pwd,
+                merchant_id = merchantId
             };
-            bool flag = _memberService.CreateMember(info);
-            if (flag == false)
+            var model = _memberService.CreateMember(info);
+            if (model == null)
             {
                 returnResult.success = false;
                 returnResult.error=new Error(ReturnCode.Failure, "注册失败");
             }
             else
             {
-                returnResult.result = flag;
+                returnResult.result = model;
                 returnResult.success = true;
             }
-            return Json(returnResult);
+            return Json(returnResult,JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -62,12 +64,12 @@ namespace EasyLife.AppApi.Controllers
         /// <returns></returns>
         public ActionResult Login(string phone,string pwd)
         {
-            ReturnResult<bool> result = new ReturnResult<bool>();
-            bool flag =  _memberService.AppLogin(phone, pwd);
-            if (flag == true)
+            ReturnResult<MemberDto> result = new ReturnResult<MemberDto>();
+            var memberInfo =  _memberService.AppLogin(phone, pwd);
+            if (memberInfo != null)
             {
                 result.success = true;
-                result.result = flag;
+                result.result = memberInfo;
             }
             else
             {
@@ -82,10 +84,10 @@ namespace EasyLife.AppApi.Controllers
         }
           
         /// <summary>
-        /// 忘记密码
+        /// 重置密码
         /// </summary>
         /// <returns></returns>
-        public ActionResult ForgetPwd(string phone,string pwd)
+        public ActionResult ResertPwd(string phone,string pwd)
         {
             ReturnResult<bool> result = new ReturnResult<bool>();
             MemberDto dto = _memberService.GetMemberByPhone(phone);
@@ -93,7 +95,7 @@ namespace EasyLife.AppApi.Controllers
             {
                 result.success = false;
                 result.error=new Error(ReturnCode.Failure, "该手机号未注册或已停用");
-                return Json(result);
+                return Json(result,JsonRequestBehavior.AllowGet);
             }
             bool flag = _memberService.AppUpdateMemberPwd(pwd, dto.id);
             if (flag==true)
@@ -109,7 +111,7 @@ namespace EasyLife.AppApi.Controllers
                     message = "用户名或密码不正确"
                 };
             }
-            return Json(result);
+            return Json(result,JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -117,19 +119,24 @@ namespace EasyLife.AppApi.Controllers
         /// </summary>
         /// <param name="phone">手机号</param>
         /// <returns></returns>
-        public ActionResult GetMemberInfo(string phone)
+        [HttpGet]
+        [HttpPost]
+        public string GetMemberInfo(string phone)
         {
+            string json;
             ReturnResult<MemberDto> result = new ReturnResult<MemberDto>();
             MemberDto dto = _memberService.GetMemberByPhone(phone);
             if (dto == null)
             {
                 result.success = false;
                 result.error = new Error(ReturnCode.Failure, "该手机号未注册或已停用");
-                return Json(result);
+                json = Newtonsoft.Json.JsonConvert.SerializeObject(result);
+                return json;
             }
             result.success = true;
             result.result = dto;
-            return Json(result,JsonRequestBehavior.AllowGet);
+            json = Newtonsoft.Json.JsonConvert.SerializeObject(result);
+            return json;
         }
 
 

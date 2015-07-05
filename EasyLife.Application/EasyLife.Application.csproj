@@ -103,6 +103,7 @@
     <Compile Include="City\Dtos\CityDto.cs" />
     <Compile Include="City\Dtos\CityList.cs" />
     <Compile Include="City\ICityService.cs" />
+    <Compile Include="Common\StaticExtend.cs" />
     <Compile Include="Dtomappings.cs" />
     <Compile Include="EasyLifeApplicationModule.cs" />
     <Compile Include="EasyLifeAppServiceBase.cs" />

@@ -3,6 +3,7 @@ using System.Linq;
 using Abp.AutoMapper;
 using AutoMapper;
 using Castle.Core.Internal;
+using EasyLife.Application.Common;
 using PagedList;
 using EasyLife.Core;
 
@@ -17,8 +18,9 @@ namespace EasyLife
             _memberRepository = memberRepository;
         }
 
-        public bool CreateMember(MemberInfo input)
+        public MemberDto CreateMember(MemberInfo input)
         {
+            MemberDto memberInfo=null;
             var member = new Member
             {
                 member_name = input.member_name,
@@ -26,19 +28,19 @@ namespace EasyLife
                 member_address = input.member_address,
                 member_birthday = input.member_birthday,
                 member_phone = input.member_phone,
-                merchant_id = input.merchant_id
+                merchant_id = input.merchant_id,
+                member_pwd = input.member_password.GetMd5()
             };
             var model =  _memberRepository.Insert(member);
-            if (model != null)
             {
-                return true;
+                memberInfo = Mapper.Map<MemberDto>(model);
             }
-            return false;
+             return memberInfo;
         }
 
         public MemberList GetMembersByMerchantID(int merchantid)
         {
-            var model = _memberRepository.GetAll().Where(a => a.merchant_id == merchantid);
+            var model = _memberRepository.GetAllList(a => a.merchant_id == merchantid);
             return new MemberList
             {
                 MemberDtos = Mapper.Map<List<MemberDto>>(model)
@@ -85,7 +87,7 @@ namespace EasyLife
         /// <returns></returns>
         public MemberDto GetMemberByPhone(string phone)
         {
-           Member m =  _memberRepository.GetAll().FirstOrDefault(a => a.member_phone == phone);
+           Member m =  _memberRepository.GetMemberByPhone(phone);
            if (m != null)
            {
                MemberDto model = Mapper.Map<MemberDto>(m);
@@ -100,14 +102,16 @@ namespace EasyLife
         /// <param name="phone">手机号</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        public bool AppLogin(string phone, string pwd)
+        public MemberDto AppLogin(string phone, string pwd)
         {
-            Member m = _memberRepository.GetAll().FirstOrDefault(a => a.member_phone == phone && a.member_pwd == pwd && a.IsDeleted==false);
+            MemberDto memberInfo = null;
+            pwd = pwd.GetMd5();
+            Member m = _memberRepository.FirstOrDefault(a => a.member_phone == phone && a.member_pwd == pwd && a.IsDeleted==false);
             if (m != null)
             {
-                return true;
+                memberInfo = Mapper.Map<MemberDto>(m);
             }
-            return false;
+            return memberInfo;
         }
 
         /// <summary>
@@ -119,6 +123,7 @@ namespace EasyLife
         public bool AppUpdateMemberPwd(string pwd,int id)
         {
             var model = _memberRepository.Get(id);
+            pwd = pwd.GetMd5();
             model.member_pwd = pwd;
             Member m = _memberRepository.Update(model);
             if (m != null)

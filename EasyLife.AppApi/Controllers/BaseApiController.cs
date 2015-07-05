@@ -7,7 +7,7 @@ using Abp.Web.Mvc.Controllers;
 
 namespace EasyLife.AppApi.Controllers
 {
-    public class BaseApiController : AbpController
+    public class BaseApiController : Controller
     {
      
 	}

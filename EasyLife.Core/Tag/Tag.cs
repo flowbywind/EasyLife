@@ -34,6 +34,11 @@ namespace EasyLife.Core
         public virtual StatusEnum status { get; set; }
 
         /// <summary>
+        /// 图标
+        /// </summary>
+        public virtual string icon { get; set; }
+
+        /// <summary>
         /// 创建人
         /// </summary>
         [Column("creator_user_id")]

@@ -4,7 +4,7 @@ using PagedList;
 
 namespace EasyLife.AppApi.Controllers
 {
-    public class GoodsController : Controller
+    public class GoodsController : BaseApiController
     {
         private readonly IGoodsService GoodsService;
         public GoodsController(IGoodsService goodsService)

@@ -46,5 +46,16 @@ namespace EasyLife.EntityFramework.Repositories
             list = list.OrderBy(a => a.Id).PageBy((pageNumber - 1) * pageSize, pageSize);
             return list;
         }
+
+        /// <summary>
+        /// 通过手机号查找会员信息
+        /// </summary>
+        /// <param name="phone">手机号</param>
+        /// <returns>会员信息</returns>
+        public Member GetMemberByPhone(string phone)
+        {
+            var member = this.GetAll().FirstOrDefault(a => a.member_phone == phone);
+            return member;
+        }
     }
 }
