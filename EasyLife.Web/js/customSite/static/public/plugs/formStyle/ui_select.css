@@ -1,0 +1,11 @@
+@charset "utf-8";
+.diy_select{height:28px;width: 70px;position: relative;font-size: 14px;background: #fff;color: #000;float: right; margin-right:15px;}
+.diy_select_btn,.diy_select_txt{float: left;height: 100%;line-height: 30px}
+.diy_select,.diy_select_list{border: 1px solid #e0e0e0;}
+.diy_select_txt{width: 52px;}
+.diy_select_txt,.diy_select_list li{text-indent: 10px;overflow: hidden}
+.diy_select_btn{width: 18px;background: url(http://r0.55.com/wdtres/wdtF2E/customSite/static/public/images/bg_arrow1.png) no-repeat center}
+.diy_select_list{position: absolute;top: 28px;left: -1px;z-index: 99999; background:#fff;border-top: none;width: 100%;display: none;_top:29px}
+.diy_select_list li{list-style: none; text-align:left;height: 28px;line-height: 28px;cursor:default;_background:#fff}
+.diy_select_list li.focus{background: #f6f6f6;color: #000;}
+

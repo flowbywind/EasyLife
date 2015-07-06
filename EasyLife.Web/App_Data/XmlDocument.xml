@@ -33,6 +33,13 @@
             </summary>
             <param name="cityService"></param>
         </member>
+        <member name="M:EasyLife.Web.Controllers.UploadController.UploadImg(System.Web.Mvc.FormCollection)">
+            <summary>
+            上传图片
+            </summary>
+            <param name="collection">上传图片表单参数</param>
+            <returns></returns>
+        </member>
         <member name="T:EasyLife.Web.EnumExt">
             <summary>
             把枚举转换成SelectListItem
@@ -60,6 +67,64 @@
             <param name="value"></param>
             <param name="defaultValue"></param>
             <returns></returns>
+        </member>
+        <member name="M:EasyLife.Web.Extends.RequestToString(System.Object,System.String)">
+            <summary>
+            返回Request的字符串
+            </summary>
+            <param name="obj"></param>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyLife.Web.Extends.RequestToInt(System.Object,System.Int32)">
+            <summary>
+            返回Request的字符串
+            </summary>
+            <param name="obj"></param>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyLife.Web.ImgUploadResponse.success">
+            <summary>
+            上传是否成功：1-成功;0-不成功
+            </summary>
+        </member>
+        <member name="P:EasyLife.Web.ImgUploadResponse.src">
+            <summary>
+            上传图片路径
+            </summary>
+        </member>
+        <member name="P:EasyLife.Web.ImgUploadResponse.cutType">
+            <summary>
+            裁剪类型--bg,guide
+            </summary>
+        </member>
+        <member name="P:EasyLife.Web.ImgUploadResponse.cutPosition">
+            <summary>
+            裁剪位置
+            </summary>
+        </member>
+        <member name="P:EasyLife.Web.ImgUploadResponse.info">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:EasyLife.Web.UploadFileHandler.UploadFile">
+            <summary>
+            将位图上传图片服务器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyLife.Web.UploadFileHandler.UploadFileErrorHandle(System.String)">
+            <summary>
+            上传图片提示问题。
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:EasyLife.Web.UploadFileHandler.resultInfo">
+            <summary>
+            返回信息实体
+            </summary>
         </member>
     </members>
 </doc>

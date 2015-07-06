@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*菜单编辑结束*/
+.app-main ul {margin-bottom: -1px;overflow: hidden;position: relative;z-index: 2;}
+.app-main li {float: left; margin-top: 7px;}
+.app-main li a {background-color: #f7f7f7;border: 1px solid #d9d9d9;color: #666;display: block;font-weight: bold;height: 40px;line-height: 40px;padding: 0 15px;}
+.app-main .menu li.on {margin-top: 2px;}
+.app-main.shop-main .menu li.on a {background-color: #fff;border-bottom: 1px solid #fff;padding-top: 5px;}
+.app-main .main { overflow: hidden; padding: 15px 0;position: relative;z-index: 1;width:750px}
+.app-main .main .list{display:none}
+.app-main .main .tex {border-bottom: 1px solid #d9d9d9;overflow: hidden;}
+.app-main.shop-main .menu li a{padding:0 25px}
+.app-main.shop-main .menu li a:hover{ text-decoration:none}
+.shop-main table tr td{font-size:14px}
+.shop-main .link-btn{width:280px}
+.shop-main .btnpub,.shop-main .tex2{float:left;font-size:12px;}
+.shop-main .tex2{ line-height:22px; margin-left:20px; margin-top:-5px}
+.shop-textmain .firs{border-top:1px dashed #ebebeb}
+.shop-textmain .firs .menu{ position:relative; margin-left:30px}
+.shop-textmain .firs .menu .line{ position:absolute;width:2px;height:400px;border-left:2px solid #D9D9D9;left:0;top:0}
+.shop-textmain .firs .menu .num{width:20px; position:absolute;left:-10px;top:30px}
+.shop-textmain .firs .menu .num li a{ display:block; background-color:#D9D9D9; border-radius:50%; text-align:center; color:#fff; margin-bottom:30px}
+.shop-textmain .firs .menu .num li.on a,.shop-textmain .firs .menu .num li a:hover{ background-color:#F77F2F; text-decoration:none}
+.shop-textmain .txt{float:left;margin-left:100px; margin-top:30px}
+.shop-textmain .txt span{font-size:26px;color:#D9D9D9; font-family:Arial, Helvetica, sans-serif; display:inline-block; margin-right:5px}
+.shop-textmain .txt h2{ margin-bottom:20px;width:630px; font-weight:bold; position:relative;padding-left:50px; line-height:30px}
+.shop-textmain .txt  h2 .name{ position:absolute;left:-10px;top:-10px}
+.shop-textmain .txt span .big{font-size:46px;color:#F87F30; font-weight:normal}
+.shop-textmain .txt span .xh{color:#F87F30}
+.shop-textmain .txt .imgall{ margin-left:50px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

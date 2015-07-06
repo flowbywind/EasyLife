@@ -1,0 +1,53 @@
+#outer-goods-list .mutipul-img-container
+        {
+            width: 140px;
+            height: 140px;
+        }
+		#outer-goods-detail{position:static;}
+		
+        #outer-goods-detail .mutipul-img-container
+        {
+            width: 160px;
+            height: 103px;
+        }
+        
+		
+		
+        .mutipul-img-list
+        {
+            float: left;
+            margin-right: 5px;
+        }
+        .mutipul-img-container
+        {
+            position: relative;
+            float: left;
+            z-index: 1;
+            margin: 2px;
+			cursor:pointer;
+        }
+        .mutipul-img-container img
+        {
+            width: 100%;
+            height: 100%;
+			cursor:pointer;
+        }
+        .mutipul-img-container:hover b
+        {
+            display: none;
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: url(http://r1.55.com/wdtres/wdtF2E/customSite/static/public/images/btn_close_11_12.png);
+            top: 0;
+            right: 0;
+            text-align: center;
+            line-height: 13px;
+        }
+		.mutipul-img-container:hover b
+        {
+			display:block;
+		}
+	.upload-area{float:left;cursor:pointer;}
+	#cutgoodsdetail,#cutgoodslist{cursor:pointer;}
+	.set-min-img{position:absolute;left:30px;top:40px;text-decoration:underline;color:#fff;display:none;cursor:pointer;}
