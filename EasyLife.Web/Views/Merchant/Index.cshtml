@@ -1,15 +1,15 @@
-﻿@model EasyLife.CreateMerchantInput
+﻿@model EasyLife.Application.MerchantDto
 
 @{
-    ViewBag.Title = "商户";
+    ViewBag.Title = "新建商户";
 }
 
-<h2>Index</h2>
+<h2>新建商户</h2>
 
-@using (Html.BeginForm("create","merchant")) 
+@using (Html.BeginForm("create", "merchant"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>新建商户</h4>
         <hr />
@@ -76,15 +76,22 @@
                 @Html.ValidationMessageFor(model => model.email)
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.status, (IEnumerable<SelectListItem>)ViewData["status"])
+                @Html.ValidationMessageFor(model => model.status)
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn  btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "list")
+    @Html.ActionLink("返回列表", "list")
 </div>

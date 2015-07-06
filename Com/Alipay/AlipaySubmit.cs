@@ -33,12 +33,10 @@ namespace Com.Alipay
 
         static Submit()
         {
-            //_key = ConfigMobile.Key.Trim();
-            _input_charset = ConfigMobile.Input_charset.Trim().ToLower();
-            _sign_type = ConfigMobile.Sign_type.Trim().ToUpper();
-            _key = ConfigWeb.Key.Trim();
-            _input_charset = ConfigWeb.Input_charset.Trim().ToLower();
-            _sign_type = ConfigWeb.Sign_type.Trim().ToUpper();
+
+            _key = Config.Key.Trim();
+            _input_charset = Config.Input_charset.Trim().ToLower();
+            _sign_type = Config.Sign_type.Trim().ToUpper();
         }
 
         /// <summary>
@@ -291,7 +289,7 @@ namespace Com.Alipay
         /// <returns>时间戳字符串</returns>
         public static string Query_timestamp()
         {
-            string url = GATEWAY_NEW + "service=query_timestamp&partner=" + ConfigMobile.Partner + "&_input_charset=" + ConfigMobile.Input_charset;
+            string url = GATEWAY_NEW + "service=query_timestamp&partner=" + Config.Partner + "&_input_charset=" + Config.Input_charset;
             string encrypt_key = "";
 
             XmlTextReader Reader = new XmlTextReader(url);

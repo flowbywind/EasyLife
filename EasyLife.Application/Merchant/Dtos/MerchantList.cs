@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
-    public class GetMerchantsOutput
+    public class MerchantList
     {
         public List<MerchantDto> MerchantDto { get; set; }
     }

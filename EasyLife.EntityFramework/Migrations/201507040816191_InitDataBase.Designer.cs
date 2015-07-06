@@ -7,13 +7,13 @@ namespace EasyLife.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class change : IMigrationMetadata
+    public sealed partial class InitDataBase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(change));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDataBase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201507011335465_change"; }
+            get { return "201507040816191_InitDataBase"; }
         }
         
         string IMigrationMetadata.Source

@@ -18,6 +18,8 @@ namespace EasyLife
             Mapper.CreateMap<Merchant, MerchantDto>();
             //Mapper.CreateMap<Merchant, MerchantDto>().ForMember(t => t.city_name, opts => opts.MapFrom(d => d.City.city_name))
             //    .ForMember(t => t.cat_name, opts => opts.MapFrom(d => d.Category.cat_name));
+            Mapper.CreateMap<Merchant, MerchantDto>().ForMember(t => t.city_name, opts => opts.MapFrom(d => d.City.city_name))
+                .ForMember(t => t.cat_name, opts => opts.MapFrom(d => d.Category.cat_name));
         }
     }
 }

@@ -1,44 +1,45 @@
-﻿@model EasyLife.GetMerchantsOutput
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<EasyLife.Application.MerchantDto>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "商户列表";
 }
 
-<h2>List</h2>
+<h2>商户列表</h2>
 
 <p>
-    @Html.ActionLink("Create New", "create")
+    @Html.ActionLink("新建", "create")
 </p>
 <table class="table">
     <tr>
         <th>
-            merchant_name
+            @Html.DisplayNameFor(model => model[0].merchant_name)
         </th>
         <th>
-            bank
+            @Html.DisplayNameFor(model => model[0].bank)
         </th>
         <th>
-            account
+            @Html.DisplayNameFor(model => model[0].account)
         </th>
         <th>
-            city_id
+            @Html.DisplayNameFor(model => model[0].city_name)
         </th>
         <th>
-            cat_id
+            @Html.DisplayNameFor(model => model[0].cat_name)
         </th>
         <th>
-            contact_name
+            @Html.DisplayNameFor(model => model[0].contact_name)
         </th>
         <th>
-            phone
+            @Html.DisplayNameFor(model => model[0].phone)
         </th>
         <th>
-            email
+            @Html.DisplayNameFor(model => model[0].email)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model.MerchantDto)
+    @foreach (var item in Model)
     {
         <tr>
             <td>

@@ -10,7 +10,7 @@ namespace EasyLife.Application
         /// <summary>
         /// 主键
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -25,9 +25,5 @@ namespace EasyLife.Application
         [Display(Name = "状态")]
         public StatusEnum status { get; set; }
 
-        //public override string ToString()
-        //{
-        //    return string.Format("[CategoryDto > cat_name = {0}, cat_code = {1}, status = {2}]", cat_name, cat_code, status);
-        //}
     }
 }

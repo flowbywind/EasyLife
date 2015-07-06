@@ -195,10 +195,6 @@
     <Folder Include="Views\Tag\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Com\Com.csproj">
-      <Project>{c03894fe-faae-4370-b80c-240125366a0d}</Project>
-      <Name>Com</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EasyLife.Application\EasyLife.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>EasyLife.Application</Name>
