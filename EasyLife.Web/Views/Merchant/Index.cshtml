@@ -4,6 +4,8 @@
     ViewBag.Title = "新建商户";
 }
 
+<link type="text/css" rel="stylesheet" href="~/js/customSite/static/public/css/jquery.multipul.css" />
+<link type="text/css" rel="stylesheet" href="~/js/customSite/static/public/plugs/fileCut/css/jquery.fileCut.css" />
 <h2>新建商户</h2>
 
 @using (Html.BeginForm("create", "merchant"))
@@ -14,6 +16,19 @@
         <h4>新建商户</h4>
         <hr />
         @Html.ValidationSummary(true)
+
+
+        <div class="form-group">
+            <div id="outer-goods-detail" class="clearfix">
+                <div class="mutipul-img-list clearfix" multipul="10">
+                    <img id="cutgoodsdetail" src="~/add.png" style="width: 160px; height: 103px;
+                    padding: 2px;" class="cut-goodsdetail upload-area" cuttype="cut-goodsdetail"
+                         cutposition="1" cutmaxsize="2048" cutrange="64|412" sendurl="/merchant/upload"
+                         cuttitle="添加图片" alertflag="1" imgtype="jpg|jpeg">
+                </div>
+            </div>
+        </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.merchant_name, new { @class = "control-label col-md-2" })
@@ -95,3 +110,33 @@
 <div>
     @Html.ActionLink("返回列表", "list")
 </div>
+
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery-ui-sortable.min.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.form.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.strTemplet.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.multiupload.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.imgareaselect.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/plugs/fileCut/js/md5.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/plugs/fileCut/js/jquery.fileCut.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/jscss/public/js/general.js"></script>
+<script>
+    $(function () {
+        //裁剪图片
+        $(window).useStrTemplet({ "str": "cut-textarea" });
+        $(window).imgLisenEvent({
+            url: "../../UploadHandler.aspx",
+            operate: "uploadthum"
+        });
+        $(".mutipul-img-list").each(function () {
+            $(this).imgListenInit();
+        })
+        $(".upload-area").each(function () {
+            var $this = $(this);
+            $this.cutEvent({
+                callBack: function (s) {
+                    $this.mutipulUpload({ "s": s })
+                }
+            })
+        })
+    });
+</script>

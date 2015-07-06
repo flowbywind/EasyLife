@@ -1,0 +1,12 @@
+#container{ overflow-x:hidden;}
+.phone-panel{ position:relative;}
+.upper, .lower {
+	background: none repeat scroll 0 0 rgba(50, 50, 50, 0);
+	margin:0 auto;
+	height: 50px;
+	width: 291px;
+	z-index: 1000;
+	position:absolute;
+}
+.upper{ top: 0px; left: 50%; margin-left: -147px;}
+.lower{ bottom:56px; left:50%; margin-left:-147px;}

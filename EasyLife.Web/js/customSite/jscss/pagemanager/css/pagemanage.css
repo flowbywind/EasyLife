@@ -1,0 +1,42 @@
+.page-manage-con {clear: both; padding:; overflow: hidden; min-height: 231px; height: auto !!important; _height: 231px;}
+.page-manage-con .page-manage-list {margin:10px 0px; width:270px;}
+.page-manage-list ul li {float: left; margin-left:10px; margin-bottom:10px;}
+.page-manage-icon {width: 68px; height: 64px; background: #fff; border: 1px solid #d1d5d8;}
+.page-manage-icon img {display: block;margin: 7px auto 0;}
+.page-manage .active {border: 1px solid #f98235;}
+
+.gray-title {background: #eee; border-top: 1px solid #e7eaed;border-bottom: 1px solid #e7eaed; margin-right: 2px;}
+.control-list h1.page-manage-title {font-size: 14px; color: #333;}
+.page-manage-set {padding-left: 16px;}
+.page-manage-set li {margin:10px 0;}
+.page-manage-set li dl {clear: both; font-size: 12px; color: #666; height: 30px; line-height: 30px;}
+.page-manage-set li dd,.page-manage-set li dt {float: left;}
+.page-manage-set li dd {margin-right: 25px;}
+.page-manage-set li dd a.jqTransformRadio {margin-top:5px;}
+.page-manage-set li dd label {float: left; margin: 0 3px;}
+.page-manage-set .jqTransformSelectWrapper ul {border: 1px solid #f98235;}
+.page-manage-set .jqTransformSelectWrapper ul li{margin: 0;}
+.page-manage-set .jqTransformSelectWrapper ul a{color: #666; line-height: 16px;}
+.page-manage-set .jqTransformSelectWrapper ul a.selected,
+.page-manage-set .jqTransformSelectWrapper ul a:hover,
+.page-manage-set .jqTransformSelectWrapper ul a.selected:hover{background: #fff5ef; color: #f98235;}
+
+.list-manage {height: 38px; line-height: 38px; font-weight: bold; color: #666; text-align: center; background: #f7f7f7; border-bottom: 1px solid #e7eaed;}
+
+.title a.city i.jt,.title a.search-icon,.num-icon li {background: url(http://r1.55.com/wdtres/wdtF2E/customSite/static/pagemanager/page-manage/icon.png) no-repeat;}
+.style2 .wap .title {position: relative; font-family: "黑体";}
+.title a.city {position: absolute; left: 10px; font-size: 14px; color: #fff; text-decoration: none;}
+.title a.city i.jt { display: inline-block; _zoom:1; margin-left:5px; width: 13px; height: 7px;}
+.title a.search-icon {position:absolute; width: 20px; height: 20px; background-position: 0 -8px; top: 50%; margin-top: -10px; right: 9px; }
+.title a.on {display: block;}
+.title a.off {display: none;}
+
+.wap .ad-list {position: relative;}
+.ad-bottom {background: url(http://r1.55.com/wdtres/wdtF2E/customSite/static/pagemanager/page-manage/opacity_black.png) no-repeat left bottom; width: 100%; height: 36px; position: absolute; bottom: 0;}
+.ad-bottom .ad-tit {position: absolute; bottom: 0; height: 28px; line-height: 28px; color: #fff; font-family: "黑体"; padding-left: 8px; font-size: 14px;}
+.ad-bottom .num-icon {position: absolute; bottom: 8px; right: 10px;}
+.ad-bottom .num-icon li {float: left; cursor: pointer; background-position: -12px -31px; margin-right: 9px; width: 10px; height: 10px;}
+.ad-bottom .num-icon li.cur {background-position: 0 -31px;}
+
+
+

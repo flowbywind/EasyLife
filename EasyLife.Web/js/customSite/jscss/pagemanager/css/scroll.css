@@ -1,0 +1,46 @@
+.jspScrollable:focus {
+	outline: 0px;
+}
+/*system-style*/
+.theme-scroll
+{
+	width: 100%; height: 418px;	overflow:auto;
+}
+.theme-scroll .jspContainer{
+	width:473px;
+}
+.theme-scroll .jspDrag,.basic-scroll .jspDrag{
+	background:#c2c2c2;
+}
+.theme-scroll .jspTrack,.basic-scroll .jspTrack{
+	background:#e2e2e2;
+}
+.theme-scroll .jspVerticalBar,.basic-scroll .jspVerticalBar{
+	width:12px;
+}
+.jspVerticalBar .jspArrow{
+	height:9px;
+}
+.jspArrow.jspDisabled{
+	background:none;
+}
+.theme-scroll .jspArrow.jspArrowUp{
+	width:100%; height:9px; background:#fff url(http://r1.55.com/wdtres/wdtF2E/customSite/static/pagemanager/arrowup.png) no-repeat;
+}
+.theme-scroll .jspArrow.jspArrowDown{
+	width:100%; height:9px; background:#fff url(http://r1.55.com/wdtres/wdtF2E/customSite/static/pagemanager/arrowdown.png) no-repeat;
+}
+/**/
+.basic-scroll
+{
+	width:271px; overflow:auto;
+}
+.basic-scroll .jspContainer{
+	width:271px;
+}
+.basic-scroll .jspArrow.jspArrowUp{
+	width:100%; height:9px; background:#f6f6f6 url(http://r1.55.com/wdtres/wdtF2E/customSite/static/pagemanager/arrowup.png) no-repeat;
+}
+.basic-scroll .jspArrow.jspArrowDown{
+	width:100%; height:9px; background:#f6f6f6 url(http://r1.55.com/wdtres/wdtF2E/customSite/static/pagemanager/arrowdown.png) no-repeat;
+}

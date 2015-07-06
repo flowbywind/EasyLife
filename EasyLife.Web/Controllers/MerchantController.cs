@@ -84,6 +84,14 @@ namespace EasyLife.Web.Controllers
             return RedirectToAction("Index", input);
         }
 
+        [HttpPost]
+        public ActionResult upload(FormCollection input)
+        {
+            var bb = Request["cut-base64"].ToString();
+            return null;
+        }
+
+
         //
         // GET: /Merchant/Edit/5
         public ActionResult Edit(int id)

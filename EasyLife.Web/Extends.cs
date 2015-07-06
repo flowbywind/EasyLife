@@ -31,5 +31,33 @@ namespace EasyLife.Web
             var result = defaultValue;
             return decimal.TryParse(value.ToString(), out result) ? result : defaultValue;
         }
+
+        /// <summary>
+        /// 返回Request的字符串
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="strValue"></param>
+        /// <returns></returns>
+        public static string RequestToString(this object obj, string strValue = "")
+        {
+            if (obj == null || string.IsNullOrEmpty(obj.ToString()))
+                return strValue;
+            return obj.ToString();
+        }
+
+        /// <summary>
+        /// 返回Request的字符串
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="strValue"></param>
+        /// <returns></returns>
+        public static int RequestToInt(this object obj, int strValue = 0)
+        {
+            if (obj == null || string.IsNullOrEmpty(obj.ToString()))
+                return strValue;
+            int.TryParse(obj.ToString(), out strValue);
+            return strValue;
+        }
+
     }
 }
