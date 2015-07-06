@@ -1,6 +1,5 @@
 namespace EasyLife.Migrations
 {
-    using EasyLife.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -11,14 +10,12 @@ namespace EasyLife.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
-            SetHistoryContextFactory("MySql.Data.MySqlClient", (conn,schema) => new MySqlHistoryContext(conn,schema)); //here s the thing.
-
+            SetHistoryContextFactory("MySql.Data.MySqlClient", (conn, schema) => new MySqlHistoryContext(conn, schema)); //here s the thing
         }
-        
-        protected override void Seed(EasyLife.EntityFramework.EasyLifeDbContext context){
-       
+
+        protected override void Seed(EasyLife.EntityFramework.EasyLifeDbContext context)
+        {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

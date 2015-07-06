@@ -109,12 +109,12 @@
     <Compile Include="EntityFramework\Repositories\MerchantRepository.cs" />
     <Compile Include="EntityFramework\Repositories\TagRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GoodsRepository.cs" />
-    <Compile Include="Migrations\201507061221512_adddatabase.cs" />
-    <Compile Include="Migrations\201507061221512_adddatabase.Designer.cs">
-      <DependentUpon>201507061221512_adddatabase.cs</DependentUpon>
+    <Compile Include="EasyLifeDataModule.cs" />
+    <Compile Include="Migrations\201507061309224_adddatabase.cs" />
+    <Compile Include="Migrations\201507061309224_adddatabase.Designer.cs">
+      <DependentUpon>201507061309224_adddatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="EasyLifeDataModule.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,8 +130,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507061221512_adddatabase.resx">
-      <DependentUpon>201507061221512_adddatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507061309224_adddatabase.resx">
+      <DependentUpon>201507061309224_adddatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
