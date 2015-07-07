@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EasyLife.Application
 {
-    public class UploadService : IUploadService
+    public class UploadService : EasyLifeAppServiceBase, IUploadService
     {
 
         public string UploadImg(UploadImg input)

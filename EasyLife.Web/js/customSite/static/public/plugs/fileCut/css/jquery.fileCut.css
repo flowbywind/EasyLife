@@ -10,7 +10,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 .clearfix { display:block;}
 /*新版弹出开始==========================新*/
 .tcnewbox{ width:642px; z-index:999;background:#fff;box-shadow:0 0 4px #666;}
-.tcnewtop{ height:40px;background:#f7f7f7;border-bottom:solid 1px #dadcdf;font:14px/40px '宋体';padding:0px 0px 0px 10px}
+.tcnewtop{ height:36px;background:#f7f7f7;border-bottom:solid 1px #dadcdf;font:14px/40px '宋体';padding:0px 0px 0px 10px}
 .tcnewtit{color:#666;}
 .tcnewcle{width:39px;height:33px;background:url(http://r0.55.com/wdtres/wdtF2E/customSite/static/public/images/pop-title-colse.png) no-repeat;float:right;overflow:hidden;line-height:0px;font-size:0px;}
 .tcnewbd{overflow:hidden;}
@@ -43,7 +43,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 .btnpopbox .r_ico{background-position:-149px 0px;width:11px;height:36px;display:inline-block;}
 .btnpopbox .alink{float:left;color:#eb6625;font:bold 14px/36px '宋体'}
 .pop-footer{display:block;padding:7px 0;width:100%;height:26px;text-align:center;background:#f7f7f7;}
-.pop-footer a{display:inline-block;width:90px;height:26px;line-height:26px;text-decoration:none;border-radius:3px;font-size:14px;}
+.pop-footer a{display:inline-block;width:90px;height:30px;line-height:30px;text-decoration:none;border-radius:3px;font-size:14px;}
 .pop-footer .pop-ok{background:#f98235;color:#fff;border:1px solid #f98235;}
 .pop-footer .pop-cancel{background:#fff;color:#000;border:1px solid #dadcdf;}
 /*弹出结束----------------*/
@@ -60,7 +60,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 #preview-img{display:block;width:100%;height:100%;}
 
 .mr-20{margin-right:6px;}
-.pop-footer{display:block;padding:7px 0;width:100%;height:26px;text-align:center;background:#f7f7f7;}
+.pop-footer{display:block;padding:7px 0;width:100%;height:46px;text-align:center;background:#f7f7f7;}
 .pop-footer a{display:inline-block;width:90px;height:26px;line-height:26px;text-decoration:none;border-radius:3px;font-size:14px;}
 .pop-footer .pop-ok{background:#f98235;color:#fff;border:1px solid #f98235;}
 .pop-footer .pop-cancel{background:#fff;color:#000;border:1px solid #dadcdf;}

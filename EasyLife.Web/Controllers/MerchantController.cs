@@ -26,22 +26,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Merchant/
         public ActionResult Index()
         {
-            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
-
-            var citys = _cityService.GetList().Citys;
-            ViewData["city_id"] = from a in citys
-                                  select new SelectListItem
-                                  {
-                                      Text = a.city_name,
-                                      Value = a.Id.ToString()
-                                  };
-            var categorys = _categoryService.GetList().Categorys;
-            ViewData["cat_id"] = from a in categorys
-                                 select new SelectListItem
-                                 {
-                                     Text = a.cat_name,
-                                     Value = a.Id.ToString()
-                                 };
+            initViewData();
             return View();
         }
 
@@ -84,26 +69,28 @@ namespace EasyLife.Web.Controllers
             return RedirectToAction("Index", input);
         }
 
-        [HttpPost]
-        public ActionResult upload(FormCollection input)
-        {
-            var bb = Request["cut-base64"].ToString();
-            return null;
-        }
-
-
         //
         // GET: /Merchant/Edit/5
         public ActionResult Edit(int id)
         {
             var model = _merchantService.GetByID(id);
+            initViewData(model.city_id, model.cat_id);
+            return View(model);
+        }
+
+        /// <summary>
+        /// 初始化参数
+        /// </summary>
+        private void initViewData(int city_id = 0, int cat_id = 0)
+        {
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             var citys = _cityService.GetList().Citys;
             ViewData["city_id"] = from a in citys
                                   select new SelectListItem
                                   {
                                       Text = a.city_name,
                                       Value = a.Id.ToString(),
-                                      Selected = model.city_id == a.Id
+                                      Selected = city_id == a.Id
                                   };
             var categorys = _categoryService.GetList().Categorys;
             ViewData["cat_id"] = from a in categorys
@@ -111,24 +98,24 @@ namespace EasyLife.Web.Controllers
                                  {
                                      Text = a.cat_name,
                                      Value = a.Id.ToString(),
-                                     Selected = model.cat_id == a.Id
+                                     Selected = cat_id == a.Id
                                  };
-            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
-            return View(model);
         }
 
         //
         // POST: /Merchant/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, MerchantDto input)
         {
             // TODO: Add update logic here
             if (ModelState.IsValid)
             {
-                _merchantService.Create(input);
+                _merchantService.Update(input, id);
                 return RedirectToAction("List");
             }
-            return RedirectToAction("list");
+            initViewData(input.city_id, input.cat_id);
+            return View("edit", input);
         }
 
         //

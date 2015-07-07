@@ -785,6 +785,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\plugins\bootstrap-rtl\bootstrap-rtl.css.map" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\app\inspinia.js" />
     <Content Include="Scripts\app\inspinia.min.js" />
     <Content Include="Scripts\app\skin.config.min.js" />
@@ -1259,6 +1260,7 @@
     <Compile Include="Extends.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="ImgUploadResponse.cs" />
+    <Compile Include="JsonHelper.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\EasyLifeControllerBase.cs" />

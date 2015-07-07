@@ -675,8 +675,9 @@
                                     }
 
                                 },
-                                success: function (data) {
+                                success: function (result) {
                                     $okBtn.attr("continue", "1");
+                                    var data = eval('(' + result + ')');
                                     if (data.success == "1") {
                                         comfirmCallback(data);
                                     } else {

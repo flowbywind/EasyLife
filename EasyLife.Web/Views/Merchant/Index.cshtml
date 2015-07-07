@@ -18,13 +18,13 @@
         @Html.ValidationSummary(true)
 
 
-        <div class="form-group">
+        <div class="form-group hidden">
             @Html.Label("详情图片", new { @class = "control-label col-md-2" })
-            <div id="outer-goods-detail" class="clearfix">
+            <div id="outer-merchant-detail" class="clearfix">
                 <div class="mutipul-img-list clearfix" multipul="10">
                     <img id="cutgoodsdetail" src="~/add.png" style="width: 160px; height: 103px;
                     padding: 2px;" class="cut-goodsdetail upload-area" cuttype="cut-goodsdetail"
-                         cutposition="1" cutmaxsize="2048" cutrange="642|412" sendurl="/merchant/upload"
+                         cutposition="1" cutmaxsize="2048" cutrange="640|412" sendurl="/upload/uploadimg"
                          cuttitle="添加图片" alertflag="1" imgtype="jpg|jpeg">
                 </div>
             </div>
@@ -130,7 +130,7 @@
         });
         $(".mutipul-img-list").each(function () {
             $(this).imgListenInit();
-        })
+        });
         $(".upload-area").each(function () {
             var $this = $(this);
             $this.cutEvent({
@@ -138,6 +138,15 @@
                     $this.mutipulUpload({ "s": s })
                 }
             })
-        })
+        });
+        $("input:submit").click(function () {
+            //if ($(".mutipul-img-container img").length > 0) {
+            //    $(".mutipul-img-container img").each(function () {
+            //        var $this = $(this);
+            //        logo = $this.attr("src");
+            //        logo_ori = $this.attr("orisrc");
+            //    });
+            //}
+        });
     });
 </script>

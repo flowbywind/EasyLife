@@ -22,8 +22,6 @@ namespace EasyLife
             Mapper.CreateMap<MerchantDto, Merchant>();
             Mapper.CreateMap<ShoppingCartDto, ShoppingCart>();
             Mapper.CreateMap<ShoppingCart, ShoppingCartDto>();
-            //Mapper.CreateMap<Merchant, MerchantDto>().ForMember(t => t.city_name, opts => opts.MapFrom(d => d.City.city_name))
-            //    .ForMember(t => t.cat_name, opts => opts.MapFrom(d => d.Category.cat_name));
             Mapper.CreateMap<Merchant, MerchantDto>().ForMember(t => t.city_name, opts => opts.MapFrom(d => d.City.city_name))
                 .ForMember(t => t.cat_name, opts => opts.MapFrom(d => d.Category.cat_name));
         }

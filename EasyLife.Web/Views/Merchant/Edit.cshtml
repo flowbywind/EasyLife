@@ -1,22 +1,16 @@
-﻿@model EasyLife.MerchantDto
+﻿@model EasyLife.Application.MerchantDto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "编辑商户";
 }
 
-<h2>Edit</h2>
-<script>
-    $.post({
-        url: '',
-        data: {name:'',},
-    })
-</script>
+<h2>商户管理</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>MerchantDto</h4>
+        <h4>编辑商户</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
@@ -83,12 +77,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("返回列表", "list")
 </div>

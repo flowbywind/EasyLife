@@ -28,16 +28,14 @@ namespace EasyLife.Application
         public string account { get; set; }
 
         [Display(Name = "所在城市")]
-        [Required]
-        public int city_name { get; set; }
+        public string city_name { get; set; }
 
         [Display(Name = "所在城市")]
         [Required]
         public int city_id { get; set; }
 
         [Display(Name = "所属行业")]
-        [Required]
-        public int cat_name { get; set; }
+        public string cat_name { get; set; }
 
         [Display(Name = "所属行业")]
         [Required]
