@@ -121,6 +121,9 @@
     <Compile Include="Merchant\IMerchantService.cs" />
     <Compile Include="Merchant\MerchantService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart\Dtos\ShoppingCartDto.cs" />
+    <Compile Include="ShoppingCart\IShoppingCartService.cs" />
+    <Compile Include="ShoppingCart\ShoppingCartService.cs" />
     <Compile Include="Tag\Dtos\TagDto.cs" />
     <Compile Include="Tag\Dtos\TagInfo.cs" />
     <Compile Include="Tag\Dtos\TagList.cs" />

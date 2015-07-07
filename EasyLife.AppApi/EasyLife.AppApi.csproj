@@ -166,6 +166,7 @@
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,6 +193,7 @@
     <Folder Include="Views\BaseApi\" />
     <Folder Include="Views\Goods\" />
     <Folder Include="Views\Member\" />
+    <Folder Include="Views\ShoppingCart\" />
     <Folder Include="Views\Tag\" />
   </ItemGroup>
   <ItemGroup>

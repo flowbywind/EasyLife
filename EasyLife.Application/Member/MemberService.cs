@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Abp.AutoMapper;
+using Abp.Domain.Uow;
 using AutoMapper;
 using Castle.Core.Internal;
 using EasyLife.Application.Common;

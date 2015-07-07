@@ -107,12 +107,21 @@
     <Compile Include="EntityFramework\Repositories\EasyLifeRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\MemberRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MerchantRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\ShoppingCartRepository.cs" />
     <Compile Include="EntityFramework\Repositories\TagRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GoodsRepository.cs" />
     <Compile Include="EasyLifeDataModule.cs" />
     <Compile Include="Migrations\201507061309224_adddatabase.cs" />
     <Compile Include="Migrations\201507061309224_adddatabase.Designer.cs">
       <DependentUpon>201507061309224_adddatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507061421088_addcart.cs" />
+    <Compile Include="Migrations\201507061421088_addcart.Designer.cs">
+      <DependentUpon>201507061421088_addcart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507070104435_removegoodsname.cs" />
+    <Compile Include="Migrations\201507070104435_removegoodsname.Designer.cs">
+      <DependentUpon>201507070104435_removegoodsname.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
@@ -132,6 +141,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507061309224_adddatabase.resx">
       <DependentUpon>201507061309224_adddatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507061421088_addcart.resx">
+      <DependentUpon>201507061421088_addcart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507070104435_removegoodsname.resx">
+      <DependentUpon>201507070104435_removegoodsname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
