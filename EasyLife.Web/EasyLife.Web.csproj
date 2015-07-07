@@ -1229,6 +1229,8 @@
     <Content Include="Scripts\plugins\velocity\velocity.ui.min.js" />
     <Content Include="Scripts\plugins\video\responsible-video.js" />
     <Content Include="UploadFileHandler.aspx" />
+    <Content Include="Upload\Chrysanthemum.jpg" />
+    <Content Include="Upload\Desert.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1348,7 +1350,6 @@
     <Folder Include="js\customSite\static\directcode\" />
     <Folder Include="js\customSite\static\public\plugs\fileCut\img\" />
     <Folder Include="js\customSite\static\service\" />
-    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyLife.Application\EasyLife.Application.csproj">

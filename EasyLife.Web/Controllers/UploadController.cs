@@ -32,10 +32,12 @@ namespace EasyLife.Web.Controllers
             imagedata = memorystream.GetBuffer();
             UploadImg UploadImg = new UploadImg
             {
-                base64 = collection["cut-base64"],
+                base64 = Request["cut-base64"],
                 data = imagedata
             };
-            var a=22;
+            string cutposition = Request["cut-position"];
+            string cutType = Request["cut-cutType"];
+            var result = new ImgUploadResponse(true, "http://easylife.com/Upload/Desert.jpg", cutType, cutposition, "111");
             return null;
         }
     }
