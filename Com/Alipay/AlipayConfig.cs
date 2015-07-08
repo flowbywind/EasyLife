@@ -75,7 +75,7 @@ namespace Com.Alipay
             sign_type = "MD5";
 
             // 服务器异步通知页面路径
-            notify_url = "";
+            notify_url = "AliPay/Notify";
 
             // 服务接口名称， 固定值
             service = "mobile.securitypay.pay";

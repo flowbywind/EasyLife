@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyLife.Application
+namespace EasyLife
 {
     public class OrderInfoDto : IOutputDto
     {
