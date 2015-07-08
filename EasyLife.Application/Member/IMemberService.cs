@@ -7,7 +7,7 @@ namespace EasyLife
 {
     public interface IMemberService : IApplicationService
     {
-        bool CreateMember(MemberInfo input);
+        MemberDto CreateMember(MemberInfo input);
 
         MemberList GetMembersByMerchantID(int merchantid);
 
@@ -32,7 +32,7 @@ namespace EasyLife
         /// <param name="phone">手机号</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        bool AppLogin(string phone, string pwd);
+        MemberDto AppLogin(string phone, string pwd);
 
         /// <summary>
         /// 更新会员密码

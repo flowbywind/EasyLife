@@ -16,18 +16,24 @@ namespace EasyLife.Application
         /// 城市名称
         /// </summary>
         [Display(Name = "城市名称")]
+        [MaxLength(50)]
+        [Required]
         public string city_name { get; set; }
 
         /// <summary>
         /// 城市名称拼音
         /// </summary>
         [Display(Name = "拼音")]
+        [MaxLength(20)]
+        [Required]
         public string pin_yin { get; set; }
 
         /// <summary>
         /// 首字母
         /// </summary>
         [Display(Name = "首字母")]
+        [MaxLength(10)]
+        [Required]
         public string first_char { get; set; }
 
         /// <summary>

@@ -1,19 +1,35 @@
-﻿@model EasyLife.CreateMerchantInput
+﻿@model EasyLife.Application.MerchantDto
 
 @{
-    ViewBag.Title = "商户";
+    ViewBag.Title = "新建商户";
 }
 
-<h2>Index</h2>
+<link type="text/css" rel="stylesheet" href="~/js/customSite/static/public/css/jquery.multipul.css" />
+<link type="text/css" rel="stylesheet" href="~/js/customSite/static/public/plugs/fileCut/css/jquery.fileCut.css" />
+<h2>新建商户</h2>
 
-@using (Html.BeginForm("create","merchant")) 
+@using (Html.BeginForm("create", "merchant"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>新建商户</h4>
         <hr />
         @Html.ValidationSummary(true)
+
+
+        <div class="form-group hidden">
+            @Html.Label("详情图片", new { @class = "control-label col-md-2" })
+            <div id="outer-merchant-detail" class="clearfix">
+                <div class="mutipul-img-list clearfix" multipul="10">
+                    <img id="cutgoodsdetail" src="~/add.png" style="width: 160px; height: 103px;
+                    padding: 2px;" class="cut-goodsdetail upload-area" cuttype="cut-goodsdetail"
+                         cutposition="1" cutmaxsize="2048" cutrange="640|412" sendurl="/upload/uploadimg"
+                         cuttitle="添加图片" alertflag="1" imgtype="jpg|jpeg">
+                </div>
+            </div>
+        </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.merchant_name, new { @class = "control-label col-md-2" })
@@ -76,15 +92,61 @@
                 @Html.ValidationMessageFor(model => model.email)
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.status, (IEnumerable<SelectListItem>)ViewData["status"])
+                @Html.ValidationMessageFor(model => model.status)
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn  btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "list")
+    @Html.ActionLink("返回列表", "list")
 </div>
+
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery-ui-sortable.min.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.form.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.strTemplet.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.multiupload.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/js/jquery.imgareaselect.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/plugs/fileCut/js/md5.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/static/public/plugs/fileCut/js/jquery.fileCut.js"></script>
+<script type="text/javascript" language="javascript" src="~/js/customSite/jscss/public/js/general.js"></script>
+<script>
+    $(function () {
+        //裁剪图片
+        $(window).useStrTemplet({ "str": "cut-textarea" });
+        $(window).imgLisenEvent({
+            url: "../../UploadHandler.aspx",
+            operate: "uploadthum"
+        });
+        $(".mutipul-img-list").each(function () {
+            $(this).imgListenInit();
+        });
+        $(".upload-area").each(function () {
+            var $this = $(this);
+            $this.cutEvent({
+                callBack: function (s) {
+                    $this.mutipulUpload({ "s": s })
+                }
+            })
+        });
+        $("input:submit").click(function () {
+            //if ($(".mutipul-img-container img").length > 0) {
+            //    $(".mutipul-img-container img").each(function () {
+            //        var $this = $(this);
+            //        logo = $this.attr("src");
+            //        logo_ori = $this.attr("orisrc");
+            //    });
+            //}
+        });
+    });
+</script>

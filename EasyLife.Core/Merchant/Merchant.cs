@@ -16,22 +16,6 @@ namespace EasyLife.Core
         [MaxLength(50)]
         public virtual string merchant_name { get; set; }
 
-        [ForeignKey("city_id")]
-        public virtual City City { get; set; }
-
-        /// <summary>
-        /// 所属城市信息
-        /// </summary>
-        public virtual int? city_id { get; set; }
-
-        [ForeignKey("cat_id")]
-        public virtual Category Category { get; set; }
-
-        /// <summary>
-        /// 所属行业ID
-        /// </summary>
-        public virtual int? cat_id { get; set; }
-
         /// <summary>
         /// 银行名称
         /// </summary>
@@ -42,6 +26,26 @@ namespace EasyLife.Core
         /// </summary>
         [MaxLength(50)]
         public virtual string account { get; set; }
+
+        /// <summary>
+        /// 城市导航
+        /// </summary>
+        [ForeignKey("city_id")]
+        public virtual City City { get; set; }
+        /// <summary>
+        /// 所属城市信息
+        /// </summary>
+        public virtual int city_id { get; set; }
+
+        /// <summary>
+        /// 行业导航
+        /// </summary>
+        [ForeignKey("cat_id")]
+        public virtual Category Category { get; set; }
+        /// <summary>
+        /// 所属行业ID
+        /// </summary>
+        public virtual int cat_id { get; set; }
 
         /// <summary>
         /// 联系人

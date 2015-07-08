@@ -48,15 +48,16 @@ namespace EasyLife.Application
         }
 
 
-        public Category GetByID(int id)
+        public CategoryDto GetByID(int id)
         {
-            return _categoryRepository.Get(id);
+            var category = _categoryRepository.Get(id);
+            return Mapper.Map<CategoryDto>(category);
         }
 
 
         public void UpdateByID(CategoryDto input, int id)
         {
-            var model = GetByID(id);
+            var model = Mapper.Map<Category>(input);
             model.cat_name = input.cat_name;
             model.cat_code = input.cat_code;
             _categoryRepository.Update(model);
@@ -65,7 +66,7 @@ namespace EasyLife.Application
 
         public void Delete(int id)
         {
-            var model = GetByID(id);
+            var model = _categoryRepository.Get(id);
             model.IsDeleted = true;
             _categoryRepository.Update(model);
         }

@@ -10,5 +10,9 @@ namespace EasyLife
         public string tag_name { get; set; }
         public string tag_code { get; set; }
         public int? merchant_id { get; set; }
+        /// <summary>
+        /// 图标
+        /// </summary>
+        public string icon { get; set; }
     }
 }

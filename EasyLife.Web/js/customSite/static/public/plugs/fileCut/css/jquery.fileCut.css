@@ -1,0 +1,76 @@
+﻿/*公用样式==========================*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, b,span,em { margin:0; padding:0 }
+.yahei { font-family:'微软雅黑', 'YaHei', '黑体', 'Hei', Tahoma, Helvetica, arial, sans-serif }
+.bh { display:block; overflow:hidden; margin:0; padding:0; text-indent:-999px;line-height:0;font-size:0; }
+.fl { float:left}
+.fr { float:right}
+.clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden }
+.clearfix { display:inline-block }
+* html .clearfix { height:1% }
+.clearfix { display:block;}
+/*新版弹出开始==========================新*/
+.tcnewbox{ width:642px; z-index:999;background:#fff;box-shadow:0 0 4px #666;}
+.tcnewtop{ height:36px;background:#f7f7f7;border-bottom:solid 1px #dadcdf;font:14px/40px '宋体';padding:0px 0px 0px 10px}
+.tcnewtit{color:#666;}
+.tcnewcle{width:39px;height:33px;background:url(http://r0.55.com/wdtres/wdtF2E/customSite/static/public/images/pop-title-colse.png) no-repeat;float:right;overflow:hidden;line-height:0px;font-size:0px;}
+.tcnewbd{overflow:hidden;}
+.tcmsgok .suce_ico,.tcmsgok .btn{background:url(http://s1.55tuanimg.com/55F2E/static/public/img/sa_periodico.png) no-repeat;}
+.tcmsgok .error_ico{background:url(http://s1.55tuanimg.com/55F2E/static/public/img/refund130117.png) no-repeat;}
+.tcmsgok{padding:50px 0px 0px 120px;overflow:hidden}
+.tcmsgok .suce_ico,.tcmsgok .error_ico{float:left;display:inline;margin:0 20px 0 0;width:40px;height:32px;text-indent:-999px;overflow:hidden}
+.tcmsgok .suce_ico{background-position:-244px -29px;}
+.tcmsgok .error_ico{background-position:-44px -62px;}
+.tcmsgok .infor{display:inline-block;*display:inline;*zoom:1;}
+.tcmsgok .infor p{color:#6DA401;font:bold 22px/24px '微软雅黑';margin:0 0 30px 0}
+.tcmsgok .btn{background-position:-115px -144px;display:block;height:36px;width:86px;text-indent:-999px;overflow:hidden}
+#wdtDivLayer{ z-index:2147;filter:alpha(opacity=40);}
+#wdtDivLayer iframe{filter:alpha(opacity=0);}
+
+/*新版弹窗内容*/
+.tctextarea{ display:none}
+.tcbtnbox .btn{background:url(http://s1.55tuanimg.com/55F2E/static/public/img/pop_btn.png) no-repeat}
+.tcinfor{padding:40px 0 40px 0;text-align:center;color:#666;}
+.tcbtnbox{text-align:center;}
+.tcbtnbox .btn{display:inline-block;*display:inline;*zoom:1;height:36px; font-size:14px; width:90px; line-height:36px; text-align:center; text-decoration:none;color:#FFFFFF;font-weight:bold}
+.tcbtnbox .btn-grey{display:inline-block;*display:inline;*zoom:1;height:36px; font-size:14px; width:90px; line-height:36px; text-align:center; text-decoration:none;background-position:0px -82px;}
+.tcnewtop_no{border:none;background:#fff;height:30px;font:0px/0px '宋体';}
+.tcnewtop_no .tcnewcle,.tcnewcleno{background:url(http://s1.55tuanimg.com/55F2E/static/public/img/pop-close-no.png) no-repeat}
+.btnpopbox .r_ico,.btnpopbox .abtn{background:url(http://s1.55tuanimg.com/55F2E/static/public/img/hotcitybg140504.png) no-repeat}
+.ctitle{color:#6ba600;font:18px/30px '微软雅黑';margin:0 0 20px 80px;}
+.btnpopbox{margin:0 0 0px 80px;}
+.btnpopbox .abtn{float:left;color:#fff;font:14px/36px '宋体';background-position:0px -40px;height:36px;display:inline-block;margin:0 10px 0 0}
+.btnpopbox .abtn b{float:left;padding:0px 20px;}
+.btnpopbox .r_ico{background-position:-149px 0px;width:11px;height:36px;display:inline-block;}
+.btnpopbox .alink{float:left;color:#eb6625;font:bold 14px/36px '宋体'}
+.pop-footer{display:block;padding:7px 0;width:100%;height:26px;text-align:center;background:#f7f7f7;}
+.pop-footer a{display:inline-block;width:90px;height:30px;line-height:30px;text-decoration:none;border-radius:3px;font-size:14px;}
+.pop-footer .pop-ok{background:#f98235;color:#fff;border:1px solid #f98235;}
+.pop-footer .pop-cancel{background:#fff;color:#000;border:1px solid #dadcdf;}
+/*弹出结束----------------*/
+
+/*裁剪*/
+.cut-box{padding:8px 20px;}
+.cut-box .cut-top{position:relative;margin-bottom:10px;height:30px;}
+.cut-box .upload-btn{position:absolute;top:0;left:0;width:84px;height:30px;background:url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/cut-box-upbtn.jpg);cursor:pointer;}
+.cut-box .upload-input{position:absolute;top:0;left:-100px;width:184px;height:30px;opacity:0;background:url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/cut-box-upbtn.jpg);cursor:pointer;}
+.cut-box .cut-message-bar{position:absolute;top:0;left:100px;line-height:30px;color:#f00;font-size:12px;text-decoration:none;}
+.cut-box .hide-upload-btn{width:80px;height:30px;}
+.preview-box{position:relative;height:345px;width:600px;border:1px solid #e1e1e1;background:url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/cut-box-bg.jpg);}
+.preview-area{width:200px;height:300px;margin:auto;position:absolute;top:0;left:0;right:0;bottom:0;}
+#preview-img{display:block;width:100%;height:100%;}
+
+.mr-20{margin-right:6px;}
+.pop-footer{display:block;padding:7px 0;width:100%;height:46px;text-align:center;background:#f7f7f7;}
+.pop-footer a{display:inline-block;width:90px;height:26px;line-height:26px;text-decoration:none;border-radius:3px;font-size:14px;}
+.pop-footer .pop-ok{background:#f98235;color:#fff;border:1px solid #f98235;}
+.pop-footer .pop-cancel{background:#fff;color:#000;border:1px solid #dadcdf;}
+.cut-process-bar{margin-left:10px;padding-top:10px;color:#666;font-size:12px;}
+.imgareaselect-border1 {background: url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/border-v.gif) repeat-y left top;}
+.imgareaselect-border2 {background: url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/border-h.gif) repeat-x left top;}
+.imgareaselect-border3 {background: url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/border-v.gif) repeat-y right top;}
+.imgareaselect-border4 {background: url(http://r0.55.com/wdtres/wdtF2E/customSite/static/pagemanager/border-h.gif) repeat-x left bottom;}
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {filter: alpha(opacity=50);opacity: 0.5;}
+.imgareaselect-handle {background-color: #fff;border: solid 1px #000;filter: alpha(opacity=50);opacity: 0.5;}
+.imgareaselect-outer {background-color: #000;filter: alpha(opacity=50);opacity: 0.5;}
+/*裁剪结束*/
