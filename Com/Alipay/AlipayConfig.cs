@@ -47,22 +47,22 @@ namespace Com.Alipay
             //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
             //合作身份者ID，以2088开头由16位纯数字组成的字符串
-            partner = "";
+            partner = "2088511117151861";
 
-            // 签约卖家支付宝账号
-            seller_id = "";
+            // 签约卖家支付宝账号App
+            seller_id = "tiantianchihuo@126.com";
 
-            //收款支付宝账号
-            seller_email = "";
+            //收款支付宝账号Web
+            seller_email = "tiantianchihuo@126.com";
 
             //交易安全检验码，由数字和字母组成的32位字符串
-            key = "asdfghjkl1234qwertyuiop87MHGF90O";
+            key = "f6w088m82zqnal1bc7suuiq8gpcg2gcw";
 
             //商户的私钥
-            private_key = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKSZSSEdPhv77O5ocnLNGXeQ21qJDArC1+yId+9/pY5bXkZk5vCB49EpfMwNukLv6AJqofThZPNOs1t015fdEYIUnkIc2QVxRwa0xTeFP6N8D4WQXRWs4fNG27JK5kP45s+9KlJtx5hs7G97aMczehIWpHaO6j9inOmjlU8l62KZAgMBAAECgYEAmK3TRtMwRJb33OGnn9OeFumYfy92qxi3X6Hq1o6qDBW2qkd4bImfv+ni6AinyOVuaadt2Y+lq4dKGcCVJzoZvPm1VKxD2y7xKa8/vEbPRiRTt0qnPq9T7UJkpDsiXf/zOMfWdjc3uA1bPnQ65RWHSJ7zAE+Gd7xnyCE5MEyijLECQQDVYqQWDqOVLZ5lJUuIfUIrhv26GvuoTX8v60+opCz4/Mdfh6JlefICVD6SAaYvufXBHVFY26JicNlR62ZOiBoNAkEAxXhsuEnNJNQcQHEVTPZoulbMbTV1VZIDQ1zjG8fvu8sv6IBYcR5+EsC8n3/6RkW8/iCJDzxE++VHzhoSQSoDvQJBAM6/63J/rpndAIrJ7vyJOPLJsc9/U3SH2gMJAT7KC9UXvuldlsixtf3xuEpplKbLjEUXbfklnZm586a+6XqPvoUCQDFotltOLARBBmihYuEE7qNhQHk63QbyJ9rdDP5Qgo2Mg4o7QuXa6VSr4QZPsUGQBX/YiDLFs8ULU3IgV9zyNEkCQADAYR8DctYzg0eBGdcOrDA5Szc62pYrS2wk89wUxyL4FyDL3omkVMKvtu5tccy7Xht2ikJZRqefZ3dS7ASm8/4=";
+            private_key = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMwiJgEzV9dNpDDV77KndIL2lXXgtuQkDrrXv77tw4gcZgtXoanTPbthFFd7qeJap1T+RQxjYRXDBPkoZpp+8UCRXUV8w7HeJ2dPISYi36X0/j9AeZDq++qOLkhyYo1ktwoBaYKbNj93CE2uHnCUDQVhTSukBKjJwIdnIOykA/wDAgMBAAECgYAtkCGzeuZMZEQVsmrCEaZr5OYPXYz09ydihO2DjEZshwov1et7oG7S+CQ2MqAEqf9XdTmsPjJZTSI7Cs18BoGKZXTZUh66GsQJq9grOLulTNe+pCuANnWHAIupPLmuyttjLhYCOVFGxIOjxHrB9zpfi0bBdlpPdpocqtZsQktaIQJBAPm8ybgErXS9OuetcuSVEW+cJWdgg2QWCY9gUKpgyQH13cp9xJaxOWVybLoaINSyVjrcVwzFHbQ8zFZlTZoBnx8CQQDRQJnjRDp/bZiPdhi7RBq1LUIH9lMlNrTbegDf93w0GDhwcTtngyHUFLf/34Rsvr1U88rpObOHl2oOOo1Q29qdAkEA1FzeJ5YKrddv7KxIo+nC7uaXw+WFNSmsLXiYf5lXtEwPsu3pqr6/cO2xWTt4qYWQ3/KYL2q7DJYaqGjyaUBxvwJASKDuiNZWo4ILsMehv+Xci0QBJjhWFZWOYptPEG2a+43okQaMQtpd9HmYf8Q593Cg0IqpxBeV+5sPYY7rG8SjdQJBAKWmajCDA/iS+MlnZLVoBiMN8HmQLBCk2w0AJNDdEkIXNL2j26sUoyYb4zhkrXIXMKzn+mGA/LFUgBvQC9/caTo=";
 
             //支付宝的公钥，无需修改该值
-            public_key = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCkmUkhHT4b++zuaHJyzRl3kNtaiQwKwtfsiHfvf6WOW15GZObwgePRKXzMDbpC7+gCaqH04WTzTrNbdNeX3RGCFJ5CHNkFcUcGtMU3hT+jfA+FkF0VrOHzRtuySuZD+ObPvSpSbceYbOxve2jHM3oSFqR2juo/Ypzpo5VPJetimQIDAQAB";
+            public_key = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
 
             //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 

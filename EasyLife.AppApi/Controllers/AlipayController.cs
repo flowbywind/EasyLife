@@ -22,8 +22,12 @@ namespace EasyLife.AppApi.Controllers
         /// </summary>
         /// <param name="input">订单实体</param>
         /// <returns></returns>
-        public ActionResult AppTradeData(OrderInfoDto input)
+        public string  AppTradeData(OrderInfoDto input)
         {
+            input.body="neiyi";
+            input.out_trade_no = "s1213";
+            input.subject = "neiyi";
+            input.total_fee = "1";
             string tradeData = AliPayService.AppTradeData(input);
 
             ReturnResult<string> result = new ReturnResult<string>();
@@ -32,7 +36,7 @@ namespace EasyLife.AppApi.Controllers
 
             result.success = true;
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return tradeData;
         }
 
         /// <summary>
