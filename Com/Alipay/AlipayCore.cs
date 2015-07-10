@@ -76,7 +76,16 @@ namespace Com.Alipay
             StringBuilder prestr = new StringBuilder();
             foreach (KeyValuePair<string, string> temp in dicArray)
             {
-                prestr.Append(temp.Key + "=" + HttpUtility.UrlEncode(temp.Value, code) + "&");
+                if (temp.Key.ToLower()=="sign")
+                {
+                    prestr.Append(temp.Key + "=" + HttpUtility.UrlEncode(temp.Value, code) + "&");
+
+                }
+                else
+                {
+                    prestr.Append(temp.Key + "=" + temp.Value + "&");
+
+                }
             }
 
             //去掉最後一個&字符

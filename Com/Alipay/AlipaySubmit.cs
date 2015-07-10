@@ -23,8 +23,12 @@ namespace Com.Alipay
         #region 字段
         //支付宝网关地址（新）
         private static string GATEWAY_NEW = "https://mapi.alipay.com/gateway.do?";
-        //商户的私钥
+        //商户的MD5私钥
         private static string _key = "";
+        //私钥
+        private static string _private_key = "";
+        //公钥
+        private static string _public_key = "";
         //编码格式
         private static string _input_charset = "";
         //签名方式
@@ -37,6 +41,8 @@ namespace Com.Alipay
             _key = Config.Key.Trim();
             _input_charset = Config.Input_charset.Trim().ToLower();
             _sign_type = Config.Sign_type.Trim().ToUpper();
+            _private_key = Config.Private_key;
+            _public_key = Config.Public_key;
         }
 
         /// <summary>
@@ -55,6 +61,9 @@ namespace Com.Alipay
             {
                 case "MD5":
                     mysign = AlipayMD5.Sign(prestr, _key, _input_charset);
+                    break;
+                case "RSA":
+                    mysign = RSAFromPkcs8.sign(prestr, _private_key, _input_charset);
                     break;
                 default:
                     mysign = "";
@@ -148,7 +157,7 @@ namespace Com.Alipay
             Encoding code = Encoding.GetEncoding(_input_charset);
 
             //待请求参数数组字符串
-            string strRequestData = BuildRequestParaToString(sParaTemp,code);
+            string strRequestData = BuildRequestParaToString(sParaTemp, code);
 
             //把数组转换成流中所需字节数组类型
             byte[] bytesRequestData = code.GetBytes(strRequestData);
@@ -191,7 +200,7 @@ namespace Com.Alipay
             }
             catch (Exception exp)
             {
-                strResult = "报错："+exp.Message;
+                strResult = "报错：" + exp.Message;
             }
 
             return strResult;
