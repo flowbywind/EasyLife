@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLife.Core", "EasyLife.Core\EasyLife.Core.csproj", "{17298EA0-AF73-4F30-B6F1-2066100D7D74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLife.Application", "EasyLife.Application\EasyLife.Application.csproj", "{EDF5D964-4C0F-4F19-B674-58A38A5E5401}"
@@ -31,6 +33,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLife.AppApi", "EasyLife.AppApi\EasyLife.AppApi.csproj", "{ADFD7111-6984-4ED9-A6D1-386CC01AE837}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com", "Com\Com.csproj", "{C03894FE-FAAE-4370-B80C-240125366A0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1BBB8E20-4E01-4AA3-A542-6E1E268C8A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRTest", "SignalRTest\SignalRTest.csproj", "{4BD4E6B4-E2B4-4DED-951D-91213F230C54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,8 +80,15 @@ Global
 		{C03894FE-FAAE-4370-B80C-240125366A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C03894FE-FAAE-4370-B80C-240125366A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C03894FE-FAAE-4370-B80C-240125366A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD4E6B4-E2B4-4DED-951D-91213F230C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD4E6B4-E2B4-4DED-951D-91213F230C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD4E6B4-E2B4-4DED-951D-91213F230C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD4E6B4-E2B4-4DED-951D-91213F230C54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4BD4E6B4-E2B4-4DED-951D-91213F230C54} = {1BBB8E20-4E01-4AA3-A542-6E1E268C8A5E}
 	EndGlobalSection
 EndGlobal

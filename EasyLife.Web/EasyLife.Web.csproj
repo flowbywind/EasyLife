@@ -1245,6 +1245,7 @@
     <Compile Include="App_Start\EasyLifeNavigationProvider.cs" />
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BaseController.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
