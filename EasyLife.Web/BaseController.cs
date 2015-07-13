@@ -12,7 +12,7 @@ namespace EasyLife.Web
     public class UserState
     {
         public string PassCode { set; get; }
-        public string UserId { set; get; }
+        public int UserId { set; get; }
         public string UserName { set; get; }
 
         //public List<Role> RoleCollection { set; get; }   //角色集
@@ -24,7 +24,7 @@ namespace EasyLife.Web
         /// <summary>
         /// 用户信息
         /// </summary>
-        public UserState UserState { set; get; }
+        public UserState CurrentSession { set; get; }
 
         /// <summary>
         /// 微软设计这个无参的构造的Controller 有利于使用IOC容器提高对象的创建效率
@@ -57,7 +57,7 @@ namespace EasyLife.Web
             if (requestContext.HttpContext.Session["UserState"] != null)
             {
                 UserState userState = requestContext.HttpContext.Session["UserState"] as UserState;
-                string passCode = requestContext.HttpContext.Request.Cookies["UserState"].Value.Trim();
+                //string passCode = requestContext.HttpContext.Request.Cookies["UserState"].Value.Trim();
 
                 string controllerName = requestContext.RouteData.Values["controller"].ToString() + "Controller";
                 string actionName = requestContext.RouteData.Values["action"].ToString();
@@ -69,6 +69,7 @@ namespace EasyLife.Web
             {
                 //非登录用户跳转
                 //requestContext.HttpContext.Response.Redirect("/html/complex.html");
+                requestContext.HttpContext.Response.Redirect("/Pages/Login");
             }
         }
 
@@ -93,6 +94,7 @@ namespace EasyLife.Web
             {
                 //非登录用户跳转
                 //requestContext.HttpContext.Response.Redirect("/html/complex.html");
+                RedirectToAction("login", "pages");
             }
         }
 
@@ -111,7 +113,7 @@ namespace EasyLife.Web
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);
-            this.OnInit();  //---------------------------------------------切入点 
+            this.OnInit(requestContext);  //---------------------------------------------切入点 
         }
 
         //除上述的方式以下方式 

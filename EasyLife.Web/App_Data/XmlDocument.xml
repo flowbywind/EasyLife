@@ -12,6 +12,42 @@
             See Views/Layout/_TopMenu.cshtml file to know how to render menu.
             </summary>
         </member>
+        <member name="T:EasyLife.Web.UserState">
+            <summary>
+            登录成功的时候被放入SESSION中
+            </summary>
+        </member>
+        <member name="M:EasyLife.Web.BaseController.#ctor">
+            <summary>
+            微软设计这个无参的构造的Controller 有利于使用IOC容器提高对象的创建效率
+            如果设计了System.Web.Routing.RequestContext参数，由于每次来的RequestContext都不相同
+            则Controller 就要不停的动态创建
+            </summary>
+        </member>
+        <member name="M:EasyLife.Web.BaseController.#ctor(System.Web.Routing.RequestContext)">
+            <summary>
+            改造一个构造函数切入点
+            这种方式虽然使得切入机会早，并且可以较早的构造中对业务层注入一些用户信息。
+            但是缺点就是每次都要动态反射(因为每次来的HttpContext请求都不相同）
+            </summary>
+            <param name="requestContext"></param>
+        </member>
+        <member name="M:EasyLife.Web.BaseController.OnInit(System.Web.Routing.RequestContext)">
+            <summary>
+            比较早的切入点 在ControllerFactory被创建的时候顺便就实现权限验证
+            </summary>
+            <param name="requestContext"></param>
+        </member>
+        <member name="M:EasyLife.Web.BaseController.OnInit">
+            <summary>
+            比较晚的切入点 IController在执行Execute之后，Action被执行之前使用的
+            </summary>
+        </member>
+        <member name="P:EasyLife.Web.BaseController.CurrentSession">
+            <summary>
+            用户信息
+            </summary>
+        </member>
         <member name="F:EasyLife.Web.ConfigHelper.PageSize">
             <summary>
             分页配置
