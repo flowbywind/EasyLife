@@ -123,6 +123,10 @@
     <Compile Include="Migrations\201507070104435_removegoodsname.Designer.cs">
       <DependentUpon>201507070104435_removegoodsname.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507140326236_updatetag.cs" />
+    <Compile Include="Migrations\201507140326236_updatetag.Designer.cs">
+      <DependentUpon>201507140326236_updatetag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507070104435_removegoodsname.resx">
       <DependentUpon>201507070104435_removegoodsname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507140326236_updatetag.resx">
+      <DependentUpon>201507140326236_updatetag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

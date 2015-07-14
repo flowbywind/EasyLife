@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : EasyLifeControllerBase
     {
 
         private readonly ICategoryService _categoryService;

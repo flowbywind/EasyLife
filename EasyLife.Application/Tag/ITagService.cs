@@ -2,23 +2,24 @@
 using Abp.Application.Services;
 using PagedList;
 using EasyLife.Core;
+using EasyLife.Application;
 
 
 namespace EasyLife
 {
     public interface ITagService : IApplicationService
     {
-        void CreateTag(TagInfo input);
+        void Create(TagDto input);
 
         TagList GetTagsByMerchantID(int merchantid);
 
         IPagedList<TagDto> GetTagsByMerchantID(int merchantid, int pageNumber, int pageSize);
 
-        Tag GetTagByID(int id);
+        TagDto GetByID(int id);
 
-        void UpdateTagById(TagInfo input, int id);
+        void UpdateById(TagDto input, int id);
 
-        void DeleteTag(int id);
+        void Delete(int id);
 
     }
 }

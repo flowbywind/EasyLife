@@ -10,6 +10,10 @@ namespace EasyLife.EntityFramework.Repositories
 {
     public class CityRepository : EasyLifeRepositoryBase<City>, ICityRepository
     {
+        //public CityRepository(IDbContextProvider<EasyLifeDbContext> dbContextProvider)
+        //    : base(dbContextProvider)
+        //{
+        //}
         public CityRepository(IDbContextProvider<EasyLifeDbContext> dbContextProvider)
             : base(dbContextProvider)
         {

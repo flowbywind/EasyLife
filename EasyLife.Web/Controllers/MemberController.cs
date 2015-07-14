@@ -7,7 +7,7 @@ using EasyLife.Core.Enum;
 
 namespace EasyLife.Web.Controllers
 {
-    public class MemberController : Controller
+    public class MemberController : EasyLifeControllerBase
     {
         private readonly IMemberService _memberService;
         public MemberController(IMemberService memberService)

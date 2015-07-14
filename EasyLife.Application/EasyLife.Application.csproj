@@ -125,7 +125,6 @@
     <Compile Include="ShoppingCart\IShoppingCartService.cs" />
     <Compile Include="ShoppingCart\ShoppingCartService.cs" />
     <Compile Include="Tag\Dtos\TagDto.cs" />
-    <Compile Include="Tag\Dtos\TagInfo.cs" />
     <Compile Include="Tag\Dtos\TagList.cs" />
     <Compile Include="Tag\ITagService.cs" />
     <Compile Include="Tag\TagService.cs" />

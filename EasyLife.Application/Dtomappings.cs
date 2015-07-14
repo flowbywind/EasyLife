@@ -15,6 +15,7 @@ namespace EasyLife
             Mapper.CreateMap<Category, CategoryDto>();
             Mapper.CreateMap<CategoryDto, Category>();
             Mapper.CreateMap<Tag, TagDto>();
+            Mapper.CreateMap<TagDto, Tag>();
             Mapper.CreateMap<Member, MemberDto>();
             Mapper.CreateMap<Member, MemberInfo>();
             Mapper.CreateMap<Goods, GoodsDto>();

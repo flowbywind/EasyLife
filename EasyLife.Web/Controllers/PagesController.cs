@@ -33,7 +33,7 @@ namespace EasyLife.Web.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-
+            Session.Clear();
             return View();
         }
 

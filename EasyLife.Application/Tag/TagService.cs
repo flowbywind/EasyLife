@@ -5,6 +5,7 @@ using AutoMapper;
 using Castle.Core.Internal;
 using PagedList;
 using EasyLife.Core;
+using EasyLife.Application;
 
 
 namespace EasyLife
@@ -18,14 +19,9 @@ namespace EasyLife
             _tagRepository = tagRepository;
         }
 
-        public void CreateTag(TagInfo input)
+        public void Create(TagDto input)
         {
-            var tag = new Tag
-            {
-                tag_name = input.tag_name,
-                tag_code = input.tag_code,
-                merchant_id = input.merchant_id
-            };
+            var tag = Mapper.Map<Tag>(input);
             _tagRepository.Insert(tag);
         }
 
@@ -36,7 +32,6 @@ namespace EasyLife
             {
                 TagDtos = Mapper.Map<List<TagDto>>(model)
             };
-
         }
 
         public IPagedList<TagDto> GetTagsByMerchantID(int merchantid, int pageNumber, int pageSize)
@@ -48,20 +43,20 @@ namespace EasyLife
             return pagelist;
         }
 
-        public Tag GetTagByID(int id)
+        public TagDto GetByID(int id)
         {
-            return _tagRepository.Get(id);
+            var tag = _tagRepository.Get(id);
+            return Mapper.Map<TagDto>(tag);
         }
 
-        public void UpdateTagById(TagInfo input, int id)
+        public void UpdateById(TagDto input, int id)
         {
-            var model = _tagRepository.Get(id);
-            model.tag_name = input.tag_name;
-            model.tag_code = input.tag_code;
+            var model = Mapper.Map<Tag>(input);
+            model.Id = id;
             _tagRepository.Update(model);
         }
 
-        public void DeleteTag(int id)
+        public void Delete(int id)
         {
             var model = _tagRepository.Get(id);
             model.IsDeleted = true;

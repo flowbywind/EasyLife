@@ -25,9 +25,9 @@
             </p>
             <p>Login in. To see it in action.</p>
 
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("login", "pages"))
             {
-                @Html.AntiForgeryToken()
+                @*@Html.AntiForgeryToken()*@
 
                 <div class="form-horizontal">
                     <h4>登陆</h4>

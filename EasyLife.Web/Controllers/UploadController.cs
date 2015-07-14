@@ -10,7 +10,7 @@ using System.Drawing;
 
 namespace EasyLife.Web.Controllers
 {
-    public class UploadController : Controller
+    public class UploadController : EasyLifeControllerBase
     {
         //private readonly IUploadService _uploadService;
         //public UploadController(IUploadService categoryService)
