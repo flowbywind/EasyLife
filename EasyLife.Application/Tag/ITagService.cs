@@ -5,7 +5,7 @@ using EasyLife.Core;
 using EasyLife.Application;
 
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public interface ITagService : IApplicationService
     {

@@ -47,10 +47,12 @@ namespace EasyLife.Core.Enum
         /// <summary>
         /// 是
         /// </summary>
+        [EnumDisplayName("男")]
         Male = 0,
         /// <summary>
         /// 否
         /// </summary>
+        [EnumDisplayName("女")]
         Female = 1
     }
 }

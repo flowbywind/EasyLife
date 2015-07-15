@@ -112,7 +112,6 @@
     <Compile Include="Goods\GoodsService.cs" />
     <Compile Include="Goods\IGoodsService.cs" />
     <Compile Include="Member\Dtos\MemberDto.cs" />
-    <Compile Include="Member\Dtos\MemberInfo.cs" />
     <Compile Include="Member\Dtos\MemberList.cs" />
     <Compile Include="Member\IMemberService.cs" />
     <Compile Include="Member\MemberService.cs" />

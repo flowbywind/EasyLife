@@ -1,7 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using System.Collections.Generic;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public class MemberList : IOutputDto
     {

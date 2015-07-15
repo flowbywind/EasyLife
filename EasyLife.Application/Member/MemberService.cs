@@ -8,7 +8,7 @@ using EasyLife.Application.Common;
 using PagedList;
 using EasyLife.Core;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public class MemberService : EasyLifeAppServiceBase, IMemberService
     {
@@ -19,27 +19,13 @@ namespace EasyLife
             _memberRepository = memberRepository;
         }
 
-        public MemberDto CreateMember(MemberInfo input)
+        public void Create(MemberDto input)
         {
-            MemberDto memberInfo=null;
-            var member = new Member
-            {
-                member_name = input.member_name,
-                member_sex = input.member_sex,
-                member_address = input.member_address,
-                member_birthday = input.member_birthday,
-                member_phone = input.member_phone,
-                merchant_id = input.merchant_id,
-                member_pwd = input.member_password.GetMd5()
-            };
-            var model =  _memberRepository.Insert(member);
-            {
-                memberInfo = Mapper.Map<MemberDto>(model);
-            }
-             return memberInfo;
+            var member = Mapper.Map<Member>(input);
+            _memberRepository.Insert(member);
         }
 
-        public MemberList GetMembersByMerchantID(int merchantid)
+        public MemberList GetByMerchantID(int merchantid)
         {
             var model = _memberRepository.GetAllList(a => a.merchant_id == merchantid);
             return new MemberList
@@ -48,7 +34,7 @@ namespace EasyLife
             };
         }
 
-        public IPagedList<MemberDto> GetMembersByMerchantID(int merchantid, int pageNumber, int pageSize)
+        public IPagedList<MemberDto> GetByMerchantID(int merchantid, int pageNumber, int pageSize)
         {
             int totalCount = 0;
             var list = _memberRepository.GetMembersByMemberID(merchantid, pageNumber, pageSize, out totalCount);
@@ -57,24 +43,20 @@ namespace EasyLife
             return pagelist;
         }
 
-        public Member GetMemberByID(int id)
+        public MemberDto GetByID(int id)
         {
-            return _memberRepository.Get(id);
+            var member = _memberRepository.Get(id);
+            return Mapper.Map<MemberDto>(member);
         }
 
-        public void UpdateMemberById(MemberInfo input, int id)
+        public void UpdateById(MemberDto input, int id)
         {
-            var model = _memberRepository.Get(id);
-            model.member_name = input.member_name;
-            model.member_sex = input.member_sex;
-            model.member_address = input.member_address;
-            model.member_birthday = input.member_birthday;
-            model.member_phone = input.member_phone;
-            model.merchant_id = input.merchant_id;
+            var model = Mapper.Map<Member>(input);
+            model.Id = id;
             _memberRepository.Update(model);
         }
 
-        public void DeleteMember(int id)
+        public void Delete(int id)
         {
             var model = _memberRepository.Get(id);
             model.IsDeleted = true;
@@ -88,13 +70,13 @@ namespace EasyLife
         /// <returns></returns>
         public MemberDto GetMemberByPhone(string phone)
         {
-           Member m =  _memberRepository.GetMemberByPhone(phone);
-           if (m != null)
-           {
-               MemberDto model = Mapper.Map<MemberDto>(m);
-               return model;
-           }
-           return null;
+            Member m = _memberRepository.GetMemberByPhone(phone);
+            if (m != null)
+            {
+                MemberDto model = Mapper.Map<MemberDto>(m);
+                return model;
+            }
+            return null;
         }
 
         /// <summary>
@@ -107,7 +89,7 @@ namespace EasyLife
         {
             MemberDto memberInfo = null;
             pwd = pwd.GetMd5();
-            Member m = _memberRepository.FirstOrDefault(a => a.member_phone == phone && a.member_pwd == pwd && a.IsDeleted==false);
+            Member m = _memberRepository.FirstOrDefault(a => a.member_phone == phone && a.member_pwd == pwd && a.IsDeleted == false);
             if (m != null)
             {
                 memberInfo = Mapper.Map<MemberDto>(m);
@@ -121,7 +103,7 @@ namespace EasyLife
         /// <param name="pwd">密码</param>
         /// <param name="id">会员id</param>
         /// <returns></returns>
-        public bool AppUpdateMemberPwd(string pwd,int id)
+        public bool AppUpdateMemberPwd(string pwd, int id)
         {
             var model = _memberRepository.Get(id);
             pwd = pwd.GetMd5();

@@ -3,21 +3,21 @@ using Abp.Application.Services;
 using PagedList;
 using EasyLife.Core;
 
-namespace EasyLife
+namespace EasyLife.Application
 {
     public interface IMemberService : IApplicationService
     {
-        MemberDto CreateMember(MemberInfo input);
+        void Create(MemberDto input);
 
-        MemberList GetMembersByMerchantID(int merchantid);
+        MemberList GetByMerchantID(int merchantid);
 
-        IPagedList<MemberDto> GetMembersByMerchantID(int merchantid, int pageNumber, int pageSize);
+        IPagedList<MemberDto> GetByMerchantID(int merchantid, int pageNumber, int pageSize);
 
-        Member GetMemberByID(int id);
+        MemberDto GetByID(int id);
 
-        void UpdateMemberById(MemberInfo input, int id);
+        void UpdateById(MemberDto input, int id);
 
-        void DeleteMember(int id);
+        void Delete(int id);
 
         /// <summary>
         /// 通过手机号查找会员信息

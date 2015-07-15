@@ -24,8 +24,7 @@ namespace EasyLife.Core
         /// <summary>
         /// 会员生日
         /// </summary>
-        [MaxLength(50)]
-        public virtual string member_birthday { get; set; }
+        public virtual DateTime member_birthday { get; set; }
 
         /// <summary>
         /// 手机号
@@ -34,9 +33,15 @@ namespace EasyLife.Core
         public virtual string member_phone { get; set; }
 
         /// <summary>
-        /// 会员地址
+        /// 邮箱
         /// </summary>
         [MaxLength(50)]
+        public virtual string member_email { get; set; }
+
+        /// <summary>
+        /// 会员地址
+        /// </summary>
+        [MaxLength(200)]
         public virtual string member_address { get; set; }
 
         /// <summary>
