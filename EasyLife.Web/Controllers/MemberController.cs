@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EasyLife.Core.Enum;
+using EasyLife.Application;
 
 namespace EasyLife.Web.Controllers
 {
-    public class MemberController : Controller
+    public class MemberController : EasyLifeControllerBase
     {
         private readonly IMemberService _memberService;
         public MemberController(IMemberService memberService)
@@ -16,8 +17,11 @@ namespace EasyLife.Web.Controllers
         }
         //
         // GET: /Member/
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            ViewData["sex"] = EnumExt.GetSelectList(typeof(SexEnum));
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
+            ViewData["merchant_id"] = id;
             return View();
         }
 
@@ -27,7 +31,7 @@ namespace EasyLife.Web.Controllers
         {
             pageNumber = pageNumber ?? 1;
             pageSize = pageSize ?? 2;
-            var model = _memberService.GetMembersByMerchantID(id, pageNumber.Value, pageNumber.Value);
+            var model = _memberService.GetByMerchantID(id, pageNumber.Value, pageNumber.Value);
             ViewBag.MerchantID = id;
             return View(model);
         }
@@ -36,7 +40,10 @@ namespace EasyLife.Web.Controllers
         // GET: /Member/Details/5
         public ActionResult Details(int id)
         {
-            var model = _memberService.GetMemberByID(id);
+            var model = _memberService.GetByID(id);
+            ViewData["merchant_id"] = model.merchant_id;
+            ViewData["sex"] = EnumExt.GetSelectList(typeof(SexEnum));
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             return View(model);
         }
 
@@ -45,28 +52,29 @@ namespace EasyLife.Web.Controllers
         public ActionResult Create(int id)
         {
             ViewData["merchant_id"] = id;
+            ViewData["sex"] = EnumExt.GetSelectList(typeof(SexEnum));
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             return View("Index");
         }
 
         //
         // POST: /Member/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MemberDto input)
         {
             try
             {
                 // TODO: Add insert logic here
-                var member = new MemberInfo
+                if (ModelState.IsValid)
                 {
-                    member_name = collection["member_name"],
-                    member_sex = (SexEnum)collection["member_sex"].ToInt(),
-                    member_birthday = collection["member_birthday"],
-                    member_phone = collection["member_phone"],
-                    member_address = collection["member_address"],
-                    merchant_id = collection["merchant_id"].ToInt()
-                };
-                _memberService.CreateMember(member);
-                return RedirectToAction("List", member.merchant_id);
+                    _memberService.Create(input);
+                    return RedirectToAction("List", new { id = input.merchant_id });
+                }
+                ViewData["merchant_id"] = input.merchant_id;
+                ViewData["sex"] = EnumExt.GetSelectList(typeof(SexEnum));
+                ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
+                return View("index", input);
+
             }
             catch
             {
@@ -78,30 +86,24 @@ namespace EasyLife.Web.Controllers
         // GET: /Member/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _memberService.GetMemberByID(id);
+            var model = _memberService.GetByID(id);
             ViewData["merchant_id"] = model.merchant_id;
+            ViewData["sex"] = EnumExt.GetSelectList(typeof(SexEnum));
+            ViewData["status"] = EnumExt.GetSelectList(typeof(StatusEnum));
             return View(model);
         }
 
         //
         // POST: /Member/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MemberDto input)
         {
             try
             {
                 // TODO: Add update logic here
-                var member = new MemberInfo
-                {
-                    member_name = collection["member_name"],
-                    member_sex = (SexEnum)collection["member_sex"].ToInt(),
-                    member_birthday = collection["member_birthday"],
-                    member_phone = collection["member_phone"],
-                    member_address = collection["member_address"],
-                    merchant_id = collection["merchant_id"].ToInt()
-                };
-                _memberService.UpdateMemberById(member, id);
-                return RedirectToAction("List", member.merchant_id);
+
+                _memberService.UpdateById(input, id);
+                return RedirectToAction("List", input.merchant_id);
             }
             catch
             {

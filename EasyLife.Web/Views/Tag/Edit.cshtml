@@ -1,17 +1,17 @@
-﻿@model EasyLife.Tag
+﻿@model EasyLife.Application.TagDto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "分类管理";
 }
 
-<h2>Edit</h2>
+<h2>分类管理</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>TagInfo</h4>
+        <h4>编辑分类</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
@@ -29,7 +29,13 @@
                 @Html.ValidationMessageFor(model => model.tag_code)
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.icon, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.icon)
+                @Html.ValidationMessageFor(model => model.icon)
+            </div>
+        </div>
         <div class="form-group hidden">
             <div class="col-md-10">
                 @Html.Hidden("merchant_id")
@@ -45,5 +51,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "List", new { id = ViewData["merchant_id"] })
+    @Html.ActionLink("返回列表", "list", new { id = ViewData["merchant_id"] })
 </div>

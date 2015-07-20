@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EasyLife.AppApi.Models;
+using EasyLife.Application;
 
 namespace EasyLife.AppApi.Controllers
 {

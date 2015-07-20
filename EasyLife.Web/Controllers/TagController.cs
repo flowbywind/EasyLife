@@ -1,8 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using EasyLife.Application;
+using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
-    public class TagController : Controller
+    public class TagController : EasyLifeControllerBase
     {
         private readonly ITagService _tagService;
 
@@ -20,11 +21,19 @@ namespace EasyLife.Web.Controllers
 
         //
         // GET: /Category/List/5
+        public ActionResult AllList(int id)
+        {
+            var model = _tagService.GetTagsByMerchantID(id);
+            ViewBag.MerchantID = id;
+            return View(model);
+        }
+        //
+        // GET: /Category/List/5
         public ActionResult List(int id, int? pageNumber, int? pageSize)
         {
             pageNumber = pageNumber ?? 1;
-            pageSize = pageSize ?? 2;
-            var model = _tagService.GetTagsByMerchantID(id, pageNumber.Value, pageNumber.Value);
+            pageSize = pageSize ?? ConfigHelper.PageSize;
+            var model = _tagService.GetTagsByMerchantID(id, pageNumber.Value, pageSize.Value);
             ViewBag.MerchantID = id;
             return View(model);
         }
@@ -33,7 +42,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Tag/Details/5
         public ActionResult Details(int id)
         {
-            var model = _tagService.GetTagByID(id);
+            var model = _tagService.GetByID(id);
             return View(model);
         }
 
@@ -48,19 +57,18 @@ namespace EasyLife.Web.Controllers
         //
         // POST: /Tag/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TagDto input)
         {
             try
             {
                 // TODO: Add insert logic here
-                var tag = new TagInfo
+                if (ModelState.IsValid)
                 {
-                    tag_name = collection["tag_name"],
-                    tag_code = collection["tag_code"],
-                    merchant_id = collection["merchant_id"].ToInt()
-                };
-                _tagService.CreateTag(tag);
-                return RedirectToAction("List", tag.merchant_id);
+                    _tagService.Create(input);
+                    return RedirectToAction("List", new { id = input.merchant_id });
+                }
+                ViewData["merchant_id"] = input.Id;
+                return View("Index", input);
             }
             catch
             {
@@ -72,7 +80,7 @@ namespace EasyLife.Web.Controllers
         // GET: /Tag/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _tagService.GetTagByID(id);
+            var model = _tagService.GetByID(id);
             ViewData["merchant_id"] = model.merchant_id;
             return View(model);
         }
@@ -80,19 +88,18 @@ namespace EasyLife.Web.Controllers
         //
         // POST: /Tag/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, TagDto input)
         {
             try
             {
                 // TODO: Add update logic here
-                var tag = new TagInfo
+                if (ModelState.IsValid)
                 {
-                    tag_name = collection["tag_name"],
-                    tag_code = collection["tag_code"],
-                    merchant_id = collection["merchant_id"].ToInt()
-                };
-                _tagService.UpdateTagById(tag, id);
-                return RedirectToAction("List", tag.merchant_id);
+                    _tagService.UpdateById(input, id);
+                    return RedirectToAction("List", new { id=input.merchant_id});
+                }
+                ViewData["merchant_id"] = input.merchant_id;
+                return View("edit", input);
             }
             catch
             {
@@ -115,7 +122,7 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                _tagService.Delete(id);
                 return RedirectToAction("Index");
             }
             catch

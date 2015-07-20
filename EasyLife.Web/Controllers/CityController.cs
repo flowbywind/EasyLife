@@ -11,7 +11,7 @@ namespace EasyLife.Web.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class CityController : Controller
+    public class CityController : EasyLifeControllerBase
     {
         private readonly ICityService _cityService;
         /// <summary>
@@ -95,8 +95,12 @@ namespace EasyLife.Web.Controllers
             try
             {
                 // TODO: Add update logic here
-                _cityService.UpdateByID(input, id);
-                return RedirectToAction("List");
+                if (ModelState.IsValid)
+                {
+                    _cityService.UpdateByID(input, id);
+                    return RedirectToAction("List");
+                }
+                return View("edit", input);
             }
             catch
             {

@@ -36,6 +36,7 @@ namespace EasyLife.Core
         /// <summary>
         /// 图标
         /// </summary>
+        [MaxLength(50)]
         public virtual string icon { get; set; }
 
         /// <summary>

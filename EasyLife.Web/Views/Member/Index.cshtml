@@ -1,17 +1,17 @@
-﻿@model EasyLife.MemberInfo
+﻿@model EasyLife.Application.MemberDto
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "会员管理";
 }
 
-<h2>Index</h2>
+<h2>会员管理</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>MemberInfo</h4>
+        <h4>新增会员</h4>
         <hr />
         @Html.ValidationSummary(true)
 
@@ -26,11 +26,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.member_sex, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.member_sex)
+                @Html.DropDownListFor(model => model.member_sex, (IEnumerable<SelectListItem>)ViewData["sex"])
                 @Html.ValidationMessageFor(model => model.member_sex)
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.member_birthday, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -55,6 +54,21 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.member_pwd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.member_pwd)
+                @Html.ValidationMessageFor(model => model.member_pwd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.status, (IEnumerable<SelectListItem>)ViewData["status"])
+                @Html.ValidationMessageFor(model => model.status)
+            </div>
+        </div>
         <div class="form-group hidden">
             <div class="col-md-10">
                 @Html.Hidden("merchant_id")
@@ -63,12 +77,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="新建" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "list", new { id = ViewData["merchant_id"] })
+    @Html.ActionLink("返回列表", "list", new { id = ViewData["merchant_id"] })
 </div>

@@ -1,14 +1,14 @@
-﻿@model EasyLife.Member
+﻿@model EasyLife.Application.MemberDto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "会员管理";
 }
 
-<h2>Details</h2>
+<h2>会员管理</h2>
 
 <div>
-    <h4>MemberInfo</h4>
-	<hr />
+    <h4>详情</h4>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.member_name)
@@ -49,18 +49,9 @@
         <dd>
             @Html.DisplayFor(model => model.member_address)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.merchant_id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.merchant_id)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) | 
-    @Html.ActionLink("Back to List", "list", new { id = Model.merchant_id })
+    @Html.ActionLink("编辑", "edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回列表", "list", new { id = Model.merchant_id })
 </p>

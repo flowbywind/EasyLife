@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace EasyLife.Web.Controllers
 {
-    public class MerchantController : Controller
+    public class MerchantController : EasyLifeControllerBase
     {
         private readonly IMerchantService _merchantService;
         private readonly ICategoryService _categoryService;

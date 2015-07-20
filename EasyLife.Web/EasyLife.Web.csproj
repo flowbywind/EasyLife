@@ -1245,6 +1245,7 @@
     <Compile Include="App_Start\EasyLifeNavigationProvider.cs" />
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BaseController.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -1315,7 +1316,7 @@
     <Content Include="Views\Pages\Invoice.cshtml" />
     <Content Include="Views\Pages\InvoicePrint.cshtml" />
     <Content Include="Views\Pages\LockScreen.cshtml" />
-    <Content Include="Views\Pages\Login.cshtml" />
+    <Content Include="Views\Pages\Login_1.cshtml" />
     <Content Include="Views\Pages\Login_2.cshtml" />
     <Content Include="Views\Pages\NotFoundError.cshtml" />
     <Content Include="Views\Pages\Register.cshtml" />
@@ -1336,6 +1337,7 @@
     <Content Include="Views\City\List.cshtml" />
     <Content Include="Views\City\Details.cshtml" />
     <Content Include="Views\City\Edit.cshtml" />
+    <Content Include="Views\Pages\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

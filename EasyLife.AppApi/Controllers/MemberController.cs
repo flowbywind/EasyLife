@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using EasyLife.AppApi.Models;
+using EasyLife.Application;
 using EasyLife.Core;
 
 namespace EasyLife.AppApi.Controllers
@@ -38,13 +40,13 @@ namespace EasyLife.AppApi.Controllers
                 };
                 return Json(returnResult,JsonRequestBehavior.AllowGet);
             }
-            MemberInfo info=new MemberInfo()
+            MemberDto info = new MemberDto()
             {
                 member_phone = phone,
-                member_password = pwd,
+                member_pwd = pwd,
                 merchant_id = merchantId
             };
-            var model = _memberService.CreateMember(info);
+            var model = _memberService.Create(info);
             if (model == null)
             {
                 returnResult.success = false;

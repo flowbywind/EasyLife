@@ -7,7 +7,7 @@ using EasyLife.Core.Enum;
 
 namespace EasyLife.Web.Controllers
 {
-    public class GoodsController : Controller
+    public class GoodsController : EasyLifeControllerBase
     {
         private readonly IGoodsService _goodsService;
 

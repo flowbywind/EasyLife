@@ -1,31 +1,31 @@
-﻿@model PagedList.IPagedList<EasyLife.MemberDto>
+﻿@model PagedList.IPagedList<EasyLife.Application.MemberDto>
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "会员管理";
 }
 
-<h2>List</h2>
+<h2>会员管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { id = ViewBag.MerchantID })
+    @Html.ActionLink("新建", "create", new { id = ViewBag.MerchantID })
 </p>
 <table class="table">
     <tr>
         <th>
-            member_name
+            @Html.DisplayNameFor(model => model[0].member_name)
         </th>
         <th>
-            member_sex)
+            @Html.DisplayNameFor(model => model[0].member_sex)
         </th>
         <th>
-            member_birthday
+            @Html.DisplayNameFor(model => model[0].member_birthday)
         </th>
         <th>
-            member_phone
+            @Html.DisplayNameFor(model => model[0].member_phone)
         </th>
         <th>
-            member_address
+            @Html.DisplayNameFor(model => model[0].member_address)
         </th>
         <th></th>
     </tr>
@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.member_address)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("编辑", "edit", new { id = item.Id }) |
+                @Html.ActionLink("详情", "details", new { id = item.Id }) |
+                @Html.ActionLink("删除", "delete", new { id = item.Id })
             </td>
         </tr>
     }

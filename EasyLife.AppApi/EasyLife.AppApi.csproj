@@ -171,7 +171,7 @@
   <ItemGroup>
     <Compile Include="App_Start\EasyLifeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AlipayDefaultController.cs" />
+    <Compile Include="Controllers\AliPayController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
