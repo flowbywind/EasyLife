@@ -25,12 +25,9 @@ namespace EasyLife.EntityFramework.Repositories
         /// <returns></returns>
         public IQueryable<Goods> QueryGoods(int merchantId, int? tagId, int pageNumber, int pageSize, out int totalCount)
         {
-            if (pageNumber < 1)
-                throw new ArgumentOutOfRangeException("pageNumber", (object)pageNumber, "页码不得小于1.");
-            if (pageSize < 1)
-                throw new ArgumentOutOfRangeException("pageSize", (object)pageSize, "每页大小不得小于1.");
+            ValidatePaged(pageNumber,pageSize);
             var list = this.GetAll().Where(a => a.IsDeleted == false && a.merchant_id==merchantId);
-            if (tagId.HasValue)
+            if (tagId.HasValue  && tagId!=0)
             {
                 list = list.Where(a => a.tag_id == tagId);
             }

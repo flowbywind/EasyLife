@@ -89,7 +89,7 @@ namespace EasyLife.AppApi.Controllers
         /// <returns></returns>
         public ActionResult ResertPwd(string phone,string pwd)
         {
-            ReturnResult<bool> result = new ReturnResult<bool>();
+            ReturnResult<MemberDto> result = new ReturnResult<MemberDto>();
             MemberDto dto = _memberService.GetMemberByPhone(phone);
             if (dto == null)
             {
@@ -97,11 +97,11 @@ namespace EasyLife.AppApi.Controllers
                 result.error=new Error(ReturnCode.Failure, "该手机号未注册或已停用");
                 return Json(result,JsonRequestBehavior.AllowGet);
             }
-            bool flag = _memberService.AppUpdateMemberPwd(pwd, dto.id);
-            if (flag==true)
+            var memberDto = _memberService.AppUpdateMemberPwd(pwd, dto.id);
+            if (memberDto != null)
             {
                 result.success = true;
-                result.result = true;
+                result.result = memberDto;
             }
             else
             {

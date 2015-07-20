@@ -1,14 +1,13 @@
-﻿using Abp.Domain.Entities;
-using Abp.Domain.Entities.Auditing;
-using EasyLife.Core.Enum;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace EasyLife.Core.ShoppingCart
 {
-    [Table("shopping_cart")]
-    public class ShoppingCart : FullAuditedEntity
+    public  class ShoppingCartViewModel
     {
         /// <summary>
         /// 主键
@@ -84,5 +83,7 @@ namespace EasyLife.Core.ShoppingCart
 
         [NotMapped]
         public virtual Goods Goods { get; set; }
+
+      
     }
 }

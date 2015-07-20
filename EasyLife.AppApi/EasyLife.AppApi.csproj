@@ -136,6 +136,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\tab1.png" />
+    <Content Include="Content\Image\tab1_.png" />
+    <Content Include="Content\Image\tab2.png" />
+    <Content Include="Content\Image\tab2_.png" />
+    <Content Include="Content\Image\tab3.png" />
+    <Content Include="Content\Image\tab3_.png" />
+    <Content Include="Content\Image\tab4.png" />
+    <Content Include="Content\Image\tab4_.png" />
+    <Content Include="Content\Image\tab5.png" />
+    <Content Include="Content\Image\tab5_.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Localization\AbpWeb\AbpWeb.tr.xml" />
@@ -165,6 +175,7 @@
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TagController.cs" />
@@ -193,6 +204,7 @@
     <Folder Include="Views\BaseApi\" />
     <Folder Include="Views\Goods\" />
     <Folder Include="Views\Member\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\ShoppingCart\" />
     <Folder Include="Views\Tag\" />
   </ItemGroup>

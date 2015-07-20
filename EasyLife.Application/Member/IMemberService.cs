@@ -40,6 +40,6 @@ namespace EasyLife
         /// <param name="pwd">密码</param>
         /// <param name="id">会员id</param>
         /// <returns>是否更新成功</returns>
-        bool AppUpdateMemberPwd(string pwd, int id);
+        MemberDto AppUpdateMemberPwd(string pwd, int id);
     }
 }

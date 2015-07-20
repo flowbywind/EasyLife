@@ -37,5 +37,37 @@ namespace EasyLife.Application.ShoppingCart.Dtos
         /// 状态
         /// </summary>
         public int status { get; set; }
+
+        /// <summary>
+        /// 商品名称
+        /// </summary>
+        public virtual string goods_name { get; set; }
+
+        /// <summary>
+        /// 商品图片
+        /// </summary>
+        public virtual string goods_pic { get; set; }
+
+        /// <summary>
+        /// 价格
+        /// </summary>
+        public virtual decimal price { get; set; }
+
+        /// <summary>
+        /// 折扣
+        /// </summary>
+        public virtual decimal discount { get; set; }
+
+        /// <summary>
+        /// 折扣价
+        /// </summary>
+        public virtual decimal discount_price { get; set; }
+
+        /// <summary>
+        /// 节省
+        /// </summary>
+        public virtual decimal save_money { get; set; }
+
+      
     }
 }

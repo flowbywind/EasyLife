@@ -85,6 +85,7 @@
     <Compile Include="EasyLifeCoreModule.cs" />
     <Compile Include="EnumDisplayNameAttribute.cs" />
     <Compile Include="Enum\Enum.cs" />
+    <Compile Include="Enum\ShoppingCartStatus.cs" />
     <Compile Include="Goods\Goods.cs" />
     <Compile Include="Goods\IGoodsRepository.cs" />
     <Compile Include="Member\IMemberRepository.cs">
@@ -93,8 +94,10 @@
     <Compile Include="Merchant\IMerchantRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Order\Order.cs" />
     <Compile Include="ShoppingCart\IShoppingCartRepository.cs" />
     <Compile Include="ShoppingCart\ShoppingCart.cs" />
+    <Compile Include="ShoppingCart\ShoppingCartViewModel.cs" />
     <Compile Include="Tag\ITagRepository.cs">
       <SubType>Code</SubType>
     </Compile>

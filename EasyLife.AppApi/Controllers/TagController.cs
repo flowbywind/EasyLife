@@ -25,9 +25,35 @@ namespace EasyLife.AppApi.Controllers
         {
             ReturnResult<List<TagDto>> result =new ReturnResult<List<TagDto>>();
             var list =  _tagService.GetTagsByMerchantID(merchantId);
+            if (list != null && list.TagDtos != null)
+            {
+                list.TagDtos.Insert(0,new TagDto()
+                {
+                    id=0,
+                    merchant_id = merchantId,
+                    tag_name = "全部",
+                    tag_code = "",
+                    icon = "data/all.png"
+                });
+               List<string>  nameList=new List<string>()
+               {
+                   ""
+               };
+                for (int i = 1; i < 6; i++)
+                {
+                    list.TagDtos.Add(new TagDto() {
+                         id=1,
+                         icon="tab"+i.ToString(),
+                         merchant_id = merchantId,
+                         tag_name = "",
+                         line_icon = "tab"+i.ToString()+"_"
+                    });
+                }
+              
+            }
             result.result = list.TagDtos;
             result.success = true;
-           return Json(list, JsonRequestBehavior.AllowGet);
+           return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

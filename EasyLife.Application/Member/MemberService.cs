@@ -121,17 +121,19 @@ namespace EasyLife
         /// <param name="pwd">密码</param>
         /// <param name="id">会员id</param>
         /// <returns></returns>
-        public bool AppUpdateMemberPwd(string pwd,int id)
+        public MemberDto AppUpdateMemberPwd(string pwd,int id)
         {
+            MemberDto memberDto = null;
             var model = _memberRepository.Get(id);
             pwd = pwd.GetMd5();
             model.member_pwd = pwd;
             Member m = _memberRepository.Update(model);
             if (m != null)
             {
-                return true;
+                memberDto = Mapper.Map<MemberDto>(m);
+                return memberDto;
             }
-            return false;
+            return memberDto;
         }
     }
 }
