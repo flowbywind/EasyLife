@@ -88,6 +88,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address\AddressService.cs" />
+    <Compile Include="Address\Dtos\AddressDto.cs" />
+    <Compile Include="Address\IAddressService.cs" />
     <Compile Include="AliPay\AliPayService.cs" />
     <Compile Include="AliPay\Dtos\OrderInfoDto.cs" />
     <Compile Include="AliPay\IAliPayService.cs" />

@@ -79,6 +79,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address\MemberAddress.cs" />
+    <Compile Include="Address\IMemberAddressRepository.cs" />
     <Compile Include="Category\ICategoryRepository.cs" />
     <Compile Include="City\ICityRepository.cs" />
     <Compile Include="EasyLifeConsts.cs" />

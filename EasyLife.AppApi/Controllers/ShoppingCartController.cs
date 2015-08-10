@@ -64,7 +64,7 @@ namespace EasyLife.AppApi.Controllers
         /// </summary>
         /// <param name="cartId">购物车</param>
         /// <returns></returns>
-        public ActionResult DeleteCart(int cartId,int user_Id)
+        public ActionResult DeleteCart(int cartId,int userId)
         {
             ReturnResult<ShoppingCartDto> result = new ReturnResult<ShoppingCartDto>();
             ShoppingCartDto dto = new ShoppingCartDto() {
