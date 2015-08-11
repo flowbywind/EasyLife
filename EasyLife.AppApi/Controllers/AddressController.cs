@@ -12,8 +12,8 @@ namespace EasyLife.AppApi.Controllers
 {
     public class AddressController : Controller
     {
-        private readonly AddressService AddressService;
-        public AddressController(AddressService service)
+        private readonly IAddressService AddressService;
+        public AddressController(IAddressService service)
         {
             AddressService = service;
         }
@@ -26,6 +26,7 @@ namespace EasyLife.AppApi.Controllers
         public ActionResult SaveAddress(AddressDto model)
         {
             ReturnResult<AddressDto> result=new ReturnResult<AddressDto>();
+
             var address= AddressService.SaveAddress(model);
             result.result = address;
             result.success = address != null ? true : false;
@@ -41,9 +42,40 @@ namespace EasyLife.AppApi.Controllers
         {
             ReturnResult<AddressDto> result = new ReturnResult<AddressDto>();
             var address = AddressService.GetAddress(memberId);
-            result.result = address;
+            result.result = address??new AddressDto();
             result.success = address != null ? true : false;
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// 小区列表
+        /// </summary>
+        /// <returns>获取小区列表</returns>
+        public ActionResult QueryCommunitList()
+        {
+            ReturnResult<List<CommunityDto>> result=new ReturnResult<List<CommunityDto>>();
+            List<CommunityDto> list=new List<CommunityDto>();
+            list.Add(new CommunityDto()
+            {
+                city_id = 12,
+                city_name = "北京市",
+                community_id = 1,
+                community_name = "昌平区",
+                district_id = 1,
+                district_name = "新龙城二期"
+            });
+            list.Add(new CommunityDto()
+            {
+                city_id = 12,
+                city_name = "北京市",
+                district_id = 1,
+                district_name = "昌平区",
+                community_id = 1,
+                community_name = "龙泽苑东区"
+            });
+            result.result = list;
+            result.success = true;
+            return Json(result,JsonRequestBehavior.AllowGet);
         }
     }
 }

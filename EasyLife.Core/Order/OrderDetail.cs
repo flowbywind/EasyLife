@@ -8,69 +8,73 @@ using Abp.Domain.Entities.Auditing;
 
 namespace EasyLife.Core.Order
 {
-    [Table("order")]
-    public class Order:FullAuditedEntity
+    [Table("order_detail")]
+    public class OrderDetail:FullAuditedEntity
     {
+        /// <summary>
+        /// 主键
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// 订单ID
+        /// </summary>
+        public int order_id { get; set; }
+
+        /// <summary>
+        /// 购物车Id
+        /// </summary>
+        public int shoppingcart_id { get; set; }
+
+        /// <summary>
+        /// 商品ID
+        /// </summary>
+        public int goods_id { get; set; }
+
+        /// <summary>
+        /// 商品名称
+        /// </summary>
+        public virtual string goods_name { get; set; }
+
+        /// <summary>
+        /// 商品图片
+        /// </summary>
+        public virtual string goods_pic { get; set; }
+
+        /// <summary>
+        /// 商品数量
+        /// </summary>
+        public int count { get; set; }
+
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public int user_id { get; set; }
+
         /// <summary>
         /// 商家ID
         /// </summary>
         public int merchant_id { get; set; }
+
         /// <summary>
-        /// 收货人姓名
+        /// 价格
         /// </summary>
-        public string member_name { get; set; }
+        public virtual decimal price { get; set; }
+
         /// <summary>
-        /// 收货人ID
+        /// 折扣
         /// </summary>
-        public int member_id { get; set; }
+        public virtual decimal discount { get; set; }
+
         /// <summary>
-        /// 收货人地址
+        /// 折扣价
         /// </summary>
-        public string member_address { get; set; }
+        public virtual decimal discount_price { get; set; }
+
         /// <summary>
-        /// 收货人手机号
+        /// 节省
         /// </summary>
-        public string phone { get; set; }
-        /// <summary>
-        /// 城市
-        /// </summary>
-        public string city_name { get; set; }
-        /// <summary>
-        /// 城市ID
-        /// </summary>
-        public int city_id { get; set; }
-        /// <summary>
-        /// 区县ID
-        /// </summary>
-        public int district_id { get; set; }
-        /// <summary>
-        /// 区县名称
-        /// </summary>
-        public string district_name { get; set; }
-        /// <summary>
-        /// 小区ID
-        /// </summary>
-        public int community_id { get; set; }
-        /// <summary>
-        /// 小区名称
-        /// </summary>
-        public string community_name { get; set; }
-        /// <summary>
-        /// 收货日期
-        /// </summary>
-        public DateTime get_goods_date { get; set; }
-        /// <summary>
-        /// 收货开始时间
-        /// </summary>
-        public int get_goods_begin_time { get; set; }
-        /// <summary>
-        /// 收货结束时间
-        /// </summary>
-        public int get_goods_end_time { get; set; }
-        /// <summary>
-        /// 订单日期
-        /// </summary>
-        public DateTime order_date { get; set; }
+        public virtual decimal save_money { get; set; }
         /// <summary>
         /// 创建人
         /// </summary>
@@ -112,6 +116,5 @@ namespace EasyLife.Core.Order
         /// </summary>
         [Column("is_deleted")]
         public virtual bool IsDeleted { get; set; }
-   
     }
 }

@@ -2,6 +2,8 @@
 using EasyLife.Core;
 using System.Data.Common;
 using System.Data.Entity;
+using EasyLife.Core.Address;
+using EasyLife.Core.Order;
 using EasyLife.Core.ShoppingCart;
 
 namespace EasyLife.EntityFramework
@@ -25,6 +27,12 @@ namespace EasyLife.EntityFramework
         public virtual IDbSet<Goods> Goods { get; set; }
 
         public virtual IDbSet<ShoppingCart> ShoppingCart { get; set; }
+
+        public virtual  IDbSet<MemberAddress> MemberAddress { get; set; }
+
+        public virtual IDbSet<Order> Order { get; set; }
+
+        public virtual IDbSet<OrderDetail> OrderDetail { get; set; } 
 
         public EasyLifeDbContext()
             : base("Default")

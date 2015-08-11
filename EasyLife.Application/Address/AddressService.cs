@@ -62,8 +62,10 @@ namespace EasyLife.Application.Address
            {
                oldAddress.LastModifierUserId = model.member_id;
                oldAddress.LastModificationTime = DateTime.Now;
-               oldAddress.city = model.city;
+               oldAddress.city_name = model.city_name;
                oldAddress.city_id = model.city_id;
+               oldAddress.district_id = model.district_id;
+               oldAddress.district_name = model.district_name;
                oldAddress.community_id = model.community_id;
                oldAddress.community_name = model.community_name;
                oldAddress.member_address = model.member_address;
@@ -82,7 +84,7 @@ namespace EasyLife.Application.Address
        /// <returns></returns>
        public AddressDto GetAddress(int memberid)
        {
-          var model =  this._memberAddressRepository.QueryList(a => a.member_id == memberid && a.IsDeleted == false).FirstOrDefault();
+          var model =  _memberAddressRepository.QueryList(a => a.member_id == memberid && a.IsDeleted == false).FirstOrDefault();
            if (model == null)
            {
                return null;

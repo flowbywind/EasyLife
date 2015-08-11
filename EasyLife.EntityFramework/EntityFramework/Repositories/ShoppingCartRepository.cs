@@ -62,5 +62,22 @@ namespace EasyLife.EntityFramework.Repositories
             }
             return  this.GetAll().Where(priFunc);
         }
+
+        /// <summary>
+        /// 更新购物车状态
+        /// </summary>
+        /// <param name="shoppingCartId">购物车ID</param>
+        /// <param name="status">状态</param>
+        /// <returns></returns>
+        public ShoppingCart UpdateShoppingCartStatus(int shoppingCartId,ShoppingCartStatus status)
+        {
+            var shoppingCart = this.FirstOrDefault(a => a.Id == shoppingCartId);
+            if (shoppingCart != null)
+            {
+                shoppingCart.status = (int) status;
+                return  this.Update(shoppingCart);
+            }
+            return null;
+        }
     }
 }

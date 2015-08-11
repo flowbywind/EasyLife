@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BoolModel.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\ReturnCode.cs" />
     <Compile Include="Models\ReturnResult.cs" />

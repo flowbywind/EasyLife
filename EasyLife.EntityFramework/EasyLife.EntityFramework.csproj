@@ -108,6 +108,8 @@
     <Compile Include="EntityFramework\Repositories\MemberAddressRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MemberRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MerchantRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\OrderDetailRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\OrderRepository.cs" />
     <Compile Include="EntityFramework\Repositories\ShoppingCartRepository.cs" />
     <Compile Include="EntityFramework\Repositories\TagRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GoodsRepository.cs" />
@@ -131,6 +133,14 @@
     <Compile Include="Migrations\201507150631595_changemember.cs" />
     <Compile Include="Migrations\201507150631595_changemember.Designer.cs">
       <DependentUpon>201507150631595_changemember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508101438424_addaddress.cs" />
+    <Compile Include="Migrations\201508101438424_addaddress.Designer.cs">
+      <DependentUpon>201508101438424_addaddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508111543107_addorder.cs" />
+    <Compile Include="Migrations\201508111543107_addorder.Designer.cs">
+      <DependentUpon>201508111543107_addorder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
@@ -162,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507150631595_changemember.resx">
       <DependentUpon>201507150631595_changemember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508101438424_addaddress.resx">
+      <DependentUpon>201508101438424_addaddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111543107_addorder.resx">
+      <DependentUpon>201508111543107_addorder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

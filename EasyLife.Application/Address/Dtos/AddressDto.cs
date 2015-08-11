@@ -28,11 +28,19 @@ namespace EasyLife.Application.Address.Dtos
         /// <summary>
         /// 城市
         /// </summary>
-        public string city { get; set; }
+        public string city_name { get; set; }
         /// <summary>
         /// 城市ID
         /// </summary>
         public int city_id { get; set; }
+        /// <summary>
+        /// 区县ID
+        /// </summary>
+        public int district_id { get; set; }
+        /// <summary>
+        /// 区县名称
+        /// </summary>
+        public string district_name { get; set; }
         /// <summary>
         /// 小区ID
         /// </summary>

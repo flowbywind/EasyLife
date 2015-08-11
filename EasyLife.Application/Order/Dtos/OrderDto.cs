@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.Domain.Entities.Auditing;
 
-namespace EasyLife.Core.Order
+namespace EasyLife.Application.Order.Dtos
 {
-    [Table("order")]
-    public class Order:FullAuditedEntity
+    public  class OrderDto
     {
         /// <summary>
         /// 商家ID
@@ -72,46 +69,9 @@ namespace EasyLife.Core.Order
         /// </summary>
         public DateTime order_date { get; set; }
         /// <summary>
-        /// 创建人
+        /// 订单明细list
         /// </summary>
-        [Column("creator_user_id")]
-        public virtual long? CreatorUserId { get; set; }
+        public List<OrderDetailDto> OrderDetailDtos { get; set; } 
 
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        [Column("creation_time")]
-        public virtual DateTime CreationTime { get; set; }
-
-        /// <summary>
-        /// 最后修改时间
-        /// </summary>
-        [Column("last_modification_time")]
-        public virtual DateTime? LastModificationTime { get; set; }
-
-        /// <summary>
-        /// 最后修改人
-        /// </summary>
-        [Column("last_modifier_user_id")]
-        public virtual long? LastModifierUserId { get; set; }
-
-        /// <summary>
-        /// 删除人
-        /// </summary>
-        [Column("deleter_user_id")]
-        public virtual long? DeleterUserId { get; set; }
-
-        /// <summary>
-        /// 删除时间
-        /// </summary>
-        [Column("deletion_time")]
-        public virtual DateTime? DeletionTime { get; set; }
-
-        /// <summary>
-        /// 是否删除
-        /// </summary>
-        [Column("is_deleted")]
-        public virtual bool IsDeleted { get; set; }
-   
     }
 }

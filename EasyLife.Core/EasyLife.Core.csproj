@@ -96,7 +96,10 @@
     <Compile Include="Merchant\IMerchantRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Order\IOrderDetailRepository.cs" />
+    <Compile Include="Order\IOrderRepository.cs" />
     <Compile Include="Order\Order.cs" />
+    <Compile Include="Order\OrderDetail.cs" />
     <Compile Include="ShoppingCart\IShoppingCartRepository.cs" />
     <Compile Include="ShoppingCart\ShoppingCart.cs" />
     <Compile Include="ShoppingCart\ShoppingCartViewModel.cs" />

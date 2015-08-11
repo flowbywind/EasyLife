@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Address\AddressService.cs" />
     <Compile Include="Address\Dtos\AddressDto.cs" />
+    <Compile Include="Address\Dtos\CommunityDto.cs" />
     <Compile Include="Address\IAddressService.cs" />
     <Compile Include="AliPay\AliPayService.cs" />
     <Compile Include="AliPay\Dtos\OrderInfoDto.cs" />
@@ -122,6 +123,10 @@
     <Compile Include="Merchant\Dtos\MerchantDto.cs" />
     <Compile Include="Merchant\IMerchantService.cs" />
     <Compile Include="Merchant\MerchantService.cs" />
+    <Compile Include="Order\Dtos\OrderDetailDto.cs" />
+    <Compile Include="Order\Dtos\OrderDto.cs" />
+    <Compile Include="Order\IOrderService.cs" />
+    <Compile Include="Order\OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCart\Dtos\ShoppingCartDto.cs" />
     <Compile Include="ShoppingCart\IShoppingCartService.cs" />
