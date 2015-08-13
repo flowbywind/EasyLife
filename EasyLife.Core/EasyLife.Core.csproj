@@ -87,6 +87,8 @@
     <Compile Include="EasyLifeCoreModule.cs" />
     <Compile Include="EnumDisplayNameAttribute.cs" />
     <Compile Include="Enum\Enum.cs" />
+    <Compile Include="Enum\GoodStatus.cs" />
+    <Compile Include="Enum\OrderStatus.cs" />
     <Compile Include="Enum\ShoppingCartStatus.cs" />
     <Compile Include="Goods\Goods.cs" />
     <Compile Include="Goods\IGoodsRepository.cs" />

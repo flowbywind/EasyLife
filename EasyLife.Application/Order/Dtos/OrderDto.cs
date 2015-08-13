@@ -9,6 +9,10 @@ namespace EasyLife.Application.Order.Dtos
     public  class OrderDto
     {
         /// <summary>
+        /// key订单主键
+        /// </summary>
+        public int id { get; set; }
+        /// <summary>
         /// 商家ID
         /// </summary>
         public int merchant_id { get; set; }
@@ -68,6 +72,10 @@ namespace EasyLife.Application.Order.Dtos
         /// 订单日期
         /// </summary>
         public DateTime order_date { get; set; }
+        /// <summary>
+        /// 订单状态 1提交订单  5完成订单  9取消订单
+        /// </summary>
+        public int order_status { get; set; }
         /// <summary>
         /// 订单明细list
         /// </summary>

@@ -71,11 +71,17 @@ namespace EasyLife.EntityFramework.Repositories
         /// <returns></returns>
         public ShoppingCart UpdateShoppingCartStatus(int shoppingCartId,ShoppingCartStatus status)
         {
-            var shoppingCart = this.FirstOrDefault(a => a.Id == shoppingCartId);
+           
+            var shoppingCart = FirstOrDefault(a => a.Id == shoppingCartId);
             if (shoppingCart != null)
             {
                 shoppingCart.status = (int) status;
-                return  this.Update(shoppingCart);
+                 using (var db = new EasyLifeDbContext())
+                 {
+                     db.ShoppingCart.Attach(shoppingCart);
+                     db.SaveChanges();
+                 }
+                return shoppingCart;
             }
             return null;
         }

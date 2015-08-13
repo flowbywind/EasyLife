@@ -8,10 +8,6 @@ namespace EasyLife.Application.Order.Dtos
 {
     public  class OrderDetailDto
     {
-        /// <summary>
-        /// 主键
-        /// </summary>
-        public  int Id { get; set; }
 
         /// <summary>
         /// 订单ID
@@ -46,7 +42,7 @@ namespace EasyLife.Application.Order.Dtos
         /// <summary>
         /// 用户ID
         /// </summary>
-        public int user_id { get; set; }
+        public int member_id { get; set; }
 
         /// <summary>
         /// 商家ID
@@ -69,8 +65,9 @@ namespace EasyLife.Application.Order.Dtos
         public virtual decimal discount_price { get; set; }
 
         /// <summary>
-        /// 节省
+        /// 节省金额
         /// </summary>
         public virtual decimal save_money { get; set; }
+
     }
 }

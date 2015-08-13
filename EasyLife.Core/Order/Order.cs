@@ -12,6 +12,10 @@ namespace EasyLife.Core.Order
     public class Order:FullAuditedEntity
     {
         /// <summary>
+        /// 主键
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// 商家ID
         /// </summary>
         public int merchant_id { get; set; }
@@ -68,6 +72,10 @@ namespace EasyLife.Core.Order
         /// </summary>
         public int get_goods_end_time { get; set; }
         /// <summary>
+        /// 订单状态 1提交订单  5完成订单  9取消订单
+        /// </summary>
+        public int order_status { get; set; }
+        /// <summary>
         /// 订单日期
         /// </summary>
         public DateTime order_date { get; set; }
@@ -112,6 +120,12 @@ namespace EasyLife.Core.Order
         /// </summary>
         [Column("is_deleted")]
         public virtual bool IsDeleted { get; set; }
+
+        /// <summary>
+        /// 订单明细
+        /// </summary>
+        [NotMapped]
+        public List<OrderDetail> OrderDetails { get; set; } 
    
     }
 }

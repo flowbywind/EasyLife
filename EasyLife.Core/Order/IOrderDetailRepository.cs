@@ -9,5 +9,12 @@ namespace EasyLife.Core.Order
 {
     public interface IOrderDetailRepository:IRepository<OrderDetail,int>
     {
+
+        /// <summary>
+        /// 添加订单明细
+        /// </summary>
+        /// <param name="orderDetail"></param>
+        /// <returns></returns>
+        int Add(OrderDetail orderDetail);
     }
 }

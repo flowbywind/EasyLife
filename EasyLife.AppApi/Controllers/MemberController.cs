@@ -140,5 +140,6 @@ namespace EasyLife.AppApi.Controllers
             json = Newtonsoft.Json.JsonConvert.SerializeObject(result);
             return json;
         }
+
     }
 }

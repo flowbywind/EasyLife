@@ -11,10 +11,6 @@ namespace EasyLife.Core.Order
     [Table("order_detail")]
     public class OrderDetail:FullAuditedEntity
     {
-        /// <summary>
-        /// 主键
-        /// </summary>
-        public int Id { get; set; }
 
         /// <summary>
         /// 订单ID
@@ -49,7 +45,7 @@ namespace EasyLife.Core.Order
         /// <summary>
         /// 用户ID
         /// </summary>
-        public int user_id { get; set; }
+        public int member_id { get; set; }
 
         /// <summary>
         /// 商家ID

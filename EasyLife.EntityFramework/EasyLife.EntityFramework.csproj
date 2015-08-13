@@ -142,6 +142,14 @@
     <Compile Include="Migrations\201508111543107_addorder.Designer.cs">
       <DependentUpon>201508111543107_addorder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508121259300_changeorderfield.cs" />
+    <Compile Include="Migrations\201508121259300_changeorderfield.Designer.cs">
+      <DependentUpon>201508121259300_changeorderfield.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508121443057_changeorderfieldagein.cs" />
+    <Compile Include="Migrations\201508121443057_changeorderfieldagein.Designer.cs">
+      <DependentUpon>201508121443057_changeorderfieldagein.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MySqlHistoryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508111543107_addorder.resx">
       <DependentUpon>201508111543107_addorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508121259300_changeorderfield.resx">
+      <DependentUpon>201508121259300_changeorderfield.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508121443057_changeorderfieldagein.resx">
+      <DependentUpon>201508121443057_changeorderfieldagein.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
